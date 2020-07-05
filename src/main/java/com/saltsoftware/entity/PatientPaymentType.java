@@ -1,11 +1,13 @@
 package com.saltsoftware.entity;
 
+// created by Heinrich Arends
+
 public class PatientPaymentType {
     private final String paymentTypeID;
     private final String paymentDescrip;
 
     //constructor
-    public PatientPaymentType(UserBuilder builder) {
+    private PatientPaymentType(UserBuilder builder) {
         this.paymentTypeID = builder.paymentTypeID;
         this.paymentDescrip = builder.paymentDescrip;
     }
