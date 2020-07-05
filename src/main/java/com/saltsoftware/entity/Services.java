@@ -1,5 +1,8 @@
 package com.saltsoftware.entity;
-
+/* @Author : Abram Rakhotho
+*  Stud#:215031393
+* This is the service account responsible for creating and deleting services provided.
+*/
 public class Services
 {
     private String ServiceName;
