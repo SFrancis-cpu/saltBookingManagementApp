@@ -32,6 +32,7 @@ public class PatientPaymentType {
         }
     } //end of inner class
 
+    //toString
     @Override
     public String toString() {
         return "PatientPaymentType{" +
