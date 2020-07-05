@@ -1,7 +1,7 @@
 package com.saltsoftware.entity;
 /* @Author: Lebusa
 *   Stud# : 216059186
-*   This is a service cost entity class which operates as a link between Service entity and the COst entity
+*   This is a service cost entity class which operates as a link between Service entity and the Cost entity
 * */
 
 public class ServiceCost {
