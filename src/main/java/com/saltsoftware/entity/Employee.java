@@ -1,5 +1,8 @@
 package com.saltsoftware.entity;
 
+//Created by: Abduragmaan Frank
+//Student Number: 217009069
+
 public class Employee {
     private String empName, empLastName;
     private int empId;

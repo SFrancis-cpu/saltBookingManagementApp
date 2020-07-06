@@ -1,5 +1,10 @@
 package com.saltsoftware.entity;
 
+/* @Author: Sakeena Francis
+ *   StudentNumber : 215006097
+ *   This is a EmployeeRole class
+ * */
+
 public class EmployeeRole {
 
        private int empID, roleID;
