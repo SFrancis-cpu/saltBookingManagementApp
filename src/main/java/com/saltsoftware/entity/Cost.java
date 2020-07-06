@@ -1,5 +1,8 @@
 package com.saltsoftware.entity;
-
+/* @Author: Junade Frizlar
+ *   StudentNumber : 208046402
+ *   This is a cost entity class.
+ * */
 public class Cost {
     public String costID;
     public Integer amount;

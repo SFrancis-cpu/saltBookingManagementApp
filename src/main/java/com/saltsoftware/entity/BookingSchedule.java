@@ -6,14 +6,17 @@ package com.saltsoftware.entity;
 public class BookingSchedule {
     private int bookingID;
 
+    //constructor
     private BookingSchedule(Builder builder){
         this.bookingID = builder.bookingID;
     }
 
+    //inner builder class
     public int getBookingID() {
         return bookingID;
     }
 
+    //toString
     @Override
     public String toString() {
         return "BookingSchedule{" +
@@ -22,19 +25,23 @@ public class BookingSchedule {
     }
 
 
+    //inner builder class
     public static class Builder{
         private int bookingID;
 
+        //inner class constructor
         public Builder setBookingID(int bookingID){
             this.bookingID = bookingID;
             return this;
         }
 
+        //getters
         public Builder copy(BookingSchedule bookingSchedule){
             this.bookingID = bookingSchedule.bookingID;
             return this;
         }
 
+        //builder method
         public BookingSchedule build(){
 
             return new BookingSchedule(this);
