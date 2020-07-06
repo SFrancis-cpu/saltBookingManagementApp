@@ -1,46 +1,62 @@
 package com.saltsoftware.entity;
 
-// created by Heinrich Arends
 
 public class PatientPaymentType {
-    private final String paymentTypeID;
-    private final String paymentDescrip;
+
+    //required parameters
+    private String paymentTypeID, paymentDescrip;
+
 
     //constructor
-    private PatientPaymentType(UserBuilder builder) {
+    private PatientPaymentType(Builder builder) {
         this.paymentTypeID = builder.paymentTypeID;
         this.paymentDescrip = builder.paymentDescrip;
     }
 
-    //inner builder class
-    public static class UserBuilder{
-        private final String paymentTypeID;
-        private String paymentDescrip;
+    //getters
+    public String getPaymentTypeID() {
+        return paymentTypeID;
+    }
 
-        //inner class constructor
-        public UserBuilder(String paymentTypeID) {
-            this.paymentTypeID = paymentTypeID;
-        }
+    public String getPaymentDescrip() {
+        return paymentDescrip;
+    }
 
-        //getters
-        public UserBuilder paymentDescrip(String paymentDescrip){
-            this.paymentDescrip = paymentDescrip;
-            return this;
-        }
-
-        //builder method
-        public PatientPaymentType build(){
-            return new PatientPaymentType(this);
-        }
-    } //end of inner class
-
-    //toString
     @Override
     public String toString() {
         return "PatientPaymentType{" +
                 "paymentTypeID='" + paymentTypeID + '\'' +
                 ", paymentDescrip='" + paymentDescrip + '\'' +
-                ", records=" +
                 '}';
     }
+
+    //inner builder class
+    public static class Builder{
+        private String paymentTypeID, paymentDescrip;
+
+        //setters
+        public Builder setPaymentID(String paymentTypeID){
+            this.paymentTypeID = paymentTypeID;
+            return this;
+        }
+
+        public Builder setDescrip(String paymentDescrip){
+            this.paymentDescrip = paymentDescrip;
+            return this;
+        }
+
+        //copy method
+        public Builder copy(PatientPaymentType patientPaymentType){
+            this.paymentTypeID = patientPaymentType.paymentTypeID;
+            this.paymentDescrip = patientPaymentType.paymentDescrip;
+            return this;
+        }
+
+        //builder method
+        public PatientPaymentType build(){
+
+            return new PatientPaymentType(this);
+        }
+    }
+    //end of inner class
 }
