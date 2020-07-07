@@ -3,7 +3,7 @@ package com.saltsoftware.entity;
 *  Stud#:215031393
 * This is the service account responsible for creating and deleting services provided.
 */
-public class Services
+public class Service
 {
     private String ServiceName;
     private String ServiceDescrip;
@@ -30,7 +30,7 @@ public class Services
                 '}';
     }
 
-    private Services(Builder builder)
+    private Service(Builder builder)
     {
         this.ServiceName = builder.ServiceName;
         this.ServiceDescrip = builder.ServiceDescrip;
@@ -38,7 +38,6 @@ public class Services
 
 
     }
-    //builder
     public static class Builder
     {
 
@@ -61,7 +60,7 @@ public class Services
             this.ServiceId = ServiceId;
             return this;
         }
-        public Builder copy(Services service)
+        public Builder copy(Service service)
         {
             this.ServiceName = service.ServiceName;
             this.ServiceDescrip = service.ServiceDescrip;
@@ -70,9 +69,9 @@ public class Services
 
         }
 
-        public Services build()
+        public Service build()
         {
-            return new Services(this);
+            return new Service(this);
         }
 
 
