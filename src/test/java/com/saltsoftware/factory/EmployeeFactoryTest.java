@@ -18,7 +18,9 @@ public class EmployeeFactoryTest extends TestCase {
     public void testCreateEmployee() {
         Employee emp1 = EmployeeFactory.createEmployee("Abduragmaan","Frank");
         Employee emp2 = EmployeeFactory.createEmployee("Adeeb","Gamieldien");
+        //Identity test
         assertSame(emp1.getEmpName(),emp2.getEmpName());
+        //Equality test
         assertEquals(emp1.getEmpId(),emp2.getEmpId());
     }
 
