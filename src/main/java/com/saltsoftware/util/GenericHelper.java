@@ -15,7 +15,7 @@ public class GenericHelper {
         return UUID.randomUUID().toString();
     }
 
-    //Created for entity PatientPaymentRecord Factory, attribute receiptNumber
+    //Create utility package that generates ID's
     public static String generateReceiptNumber(){
         return UUID.randomUUID().toString();
     }
