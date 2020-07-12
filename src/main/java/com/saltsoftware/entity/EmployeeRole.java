@@ -3,11 +3,12 @@ package com.saltsoftware.entity;
 /* @Author: Sakeena Francis
  *   StudentNumber : 215006097
  *   This is a EmployeeRole class
+ *   change RoleType
  * */
 
 public class EmployeeRole {
 
-       private int empID, roleID;
+       private String empID, roleID;
 
 
 
@@ -21,7 +22,7 @@ public class EmployeeRole {
 
 
 
-        public int getEmpID() {
+        public String getEmpID() {
 
             return empID;
 
@@ -29,7 +30,7 @@ public class EmployeeRole {
 
 
 
-        public int getRoleID() {
+        public String getRoleID() {
 
             return roleID;
 
@@ -55,11 +56,11 @@ public class EmployeeRole {
 
         public static class Builder {
 
-            private int empID, roleID;
+            private String empID, roleID;
 
 
 
-            public Builder setEmpID(int empID) {
+            public Builder setEmpID(String empID) {
 
                 this.empID = empID;
 
@@ -69,7 +70,7 @@ public class EmployeeRole {
 
 
 
-            public Builder setRoleID(int roleID) {
+            public Builder setRoleID(String roleID) {
 
                 this.roleID = roleID;
 
