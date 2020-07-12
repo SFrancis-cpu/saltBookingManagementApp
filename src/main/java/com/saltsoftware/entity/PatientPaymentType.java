@@ -40,7 +40,7 @@ public class PatientPaymentType {
             return this;
         }
 
-        public Builder setPaymentDescrip(String paymentDescrip){
+        public Builder setDescrip(String paymentDescrip){
             this.paymentDescrip = paymentDescrip;
             return this;
         }
