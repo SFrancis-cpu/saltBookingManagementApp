@@ -7,7 +7,7 @@ package com.saltsoftware.factory;
  *date: 12 July 2020
  */
 
-import com.saltsoftware.entity.PatientPaymentRecordFactory;
+import com.saltsoftware.factory.PatientPaymentRecordFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -36,7 +36,7 @@ public class PatientPaymentRecordFactoryTest
     public void createPatientPaymentRecord()
     {
         PatientPaymentRecordFactory patientPaymentRecordFactory = PatientPaymentRecordFactory.createEmployeeRole("001","20 July","ZAR 500");
-        assertEquals(patientPaymentRecordFactory );
+        assertEquals(patientPaymentRecordFactory);
     }
 
 }
