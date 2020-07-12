@@ -14,4 +14,8 @@ public class GenericHelper {
     public static String generateID(){
         return UUID.randomUUID().toString();
     }
+
+    public static String generateCostID() {
+        return UUID.randomUUID().toString();
+    }
 }

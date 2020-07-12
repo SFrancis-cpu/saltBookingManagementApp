@@ -1,7 +1,7 @@
 package com.saltsoftware.factory;
 
 import junit.framework.TestCase;
-import com.saltsoftware.entity.Employee;
+import com.saltsoftware.entity.Cost;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
