@@ -1,10 +1,5 @@
 package com.saltsoftware.entity;
 
-/**
- * @author Heinrich Arends
- * student id: 217166792
- * Desc: Entity for patient payment type
- */
 
 public class PatientPaymentType {
 
