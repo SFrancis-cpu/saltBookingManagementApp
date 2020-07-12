@@ -10,6 +10,7 @@ import org.junit.Test;
  * created by: Abduragmaan Frank
  * student no: 217009069
  * Desc: Test case for Employee Factory
+ *       Test class
  */
 
 public class EmployeeFactoryTest extends TestCase {
