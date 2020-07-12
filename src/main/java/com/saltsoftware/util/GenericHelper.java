@@ -14,4 +14,10 @@ public class GenericHelper {
     public static String generateID(){
         return UUID.randomUUID().toString();
     }
+
+    //Created for entity PatientPaymentRecord Factory, attribute receiptNumber
+    public static String generateReceiptNumber(){
+        return UUID.randomUUID().toString();
+    }
+
 }

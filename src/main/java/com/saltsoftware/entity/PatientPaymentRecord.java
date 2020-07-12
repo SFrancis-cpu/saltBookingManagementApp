@@ -1,15 +1,18 @@
 package com.saltsoftware.entity;
 
-//Author name: Linton Appollis
-//student num: 216182484
-
+/**
+ * @author name: Linton Appollis
+ *student num: 216182484
+ *Desc: Entity for PatientPaymentRecord
+ *date: 3 July 2020
+*/
 public class PatientPaymentRecord
 {
 // changing attributes to Private appose to UML
 
-    private int payReceiptNumber;
+    private String payReceiptNumber;
     private String payDate;
-    private double payAmount;
+    private String payAmount;
 
     private PatientPaymentRecord (Builder builder)
     {
@@ -18,7 +21,7 @@ public class PatientPaymentRecord
         this.payAmount = builder.payAmount;
     }
 
-    public int getPayReceiptNumber() {
+    public String getPayReceiptNumber() {
         return payReceiptNumber;
     }
 
@@ -26,7 +29,7 @@ public class PatientPaymentRecord
         return payDate;
     }
 
-    public double getPayAmount() {
+    public String getPayAmount() {
         return payAmount;
     }
 
@@ -41,11 +44,11 @@ public class PatientPaymentRecord
 
     public static class Builder
     {
-        private int payReceiptNumber;
+        private String payReceiptNumber;
         private String payDate;
-        private double payAmount;
+        private String payAmount;
 
-        public Builder setpayReceiptNumber (int payReceiptNumber)
+        public Builder setpayReceiptNumber (String payReceiptNumber)
         {
             this.payReceiptNumber = payReceiptNumber;
             return this;
@@ -55,7 +58,7 @@ public class PatientPaymentRecord
             this.payDate = payDate;
             return this;
         }
-        public Builder setpayAmount(double payAmount)
+        public Builder setpayAmount(String payAmount)
         {
             this.payAmount = payAmount;
             return this;
