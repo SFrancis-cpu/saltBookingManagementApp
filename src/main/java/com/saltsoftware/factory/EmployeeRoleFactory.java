@@ -12,10 +12,15 @@ import com.saltsoftware.util.GenericHelper;
 public class EmployeeRoleFactory {
 
     public static EmployeeRole createEmployeeRole(){
+
         String empID = GenericHelper.generateID();
+        String roleID = GenericHelper.generateID();
+
         EmployeeRole employeeRole = new EmployeeRole.Builder()
                 .setEmpID(empID)
+                .setRoleID(roleID)
                 .build();
         return employeeRole;
+
     }
 }
