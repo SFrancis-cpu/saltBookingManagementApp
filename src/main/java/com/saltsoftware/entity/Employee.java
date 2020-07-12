@@ -4,8 +4,8 @@ package com.saltsoftware.entity;
 //Student Number: 217009069
 
 public class Employee {
-    private String empName, empLastName;
-    private int empId;
+    private String empName, empLastName,empId;
+
 
     private Employee(Builder builder){
         this.empName= builder.empName;
@@ -30,13 +30,13 @@ public class Employee {
         return empLastName;
     }
 
-    public int getEmpId() {
+    public String getEmpId() {
         return empId;
     }
 
     public static class Builder{
-        private String empName, empLastName;
-        private int empId;
+        private String empName, empLastName,empId;
+
 
         public Builder setempName(String empName){
             this.empName = empName;
@@ -46,7 +46,7 @@ public class Employee {
             this.empLastName = empLastName;
             return this;
         }
-        public Builder setempName(int empId){
+        public Builder setempId(String empId){
             this.empId = empId;
             return this;
         }
