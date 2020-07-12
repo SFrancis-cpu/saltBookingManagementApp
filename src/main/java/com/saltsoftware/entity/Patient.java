@@ -1,7 +1,8 @@
 package com.saltsoftware.entity;
-//Author: Bathi Ntshinga
-
-
+/* author: Bathi Ntshinga
+/* std no:214198227
+/* Description: Entity for Patient
+ */
 
 public class Patient{
     private String patientID;
