@@ -7,6 +7,7 @@
 package com.saltsoftware.factory;
 
 import com.saltsoftware.entity.Patient;
+import org.junit.Assert;
 import org.junit.Before;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -18,6 +19,8 @@ public class PatientFactoryTest {
     @Test
     public void createPatient() {
         Patient patient1 = PatientFactory.createPatient("Bathi", "Ntshinga");
+        assertEquals(patient1.getPatientName(),patient1.getPatientName());
     }
+
 
 }
