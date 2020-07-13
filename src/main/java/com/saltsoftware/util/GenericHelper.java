@@ -7,13 +7,12 @@ package com.saltsoftware.util;
  * date: 3 July 2020
  **/
 import java.util.UUID;
+
 /*
  Author: Sakeena Francis
  Description: Create utility package that generates ID's
  Date: 11-Jul-2020
 */
-
-import java.util.UUID;
 
 public class GenericHelper {
 
@@ -26,4 +25,20 @@ public class GenericHelper {
         return UUID.randomUUID().toString();
     }
 
+    //Create utility package that generates Booking Number Randomly
+    /**
+     * Created by :Craig Carr AKA Fish84
+     * Student no: 204111307
+     * Desc: generates bookingID
+     */
+
+
+    public static String generateBookingID(){
+        return UUID.randomUUID().toString();
+    }
+
+    //create utility package that generates Cost ID Randomly
+    public static String generateCostID(){ return UUID.randomUUID().toString(); }
 }
+
+

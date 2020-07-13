@@ -1,10 +1,13 @@
 package com.saltsoftware.entity;
 
-//Created by: Craig Carr
-//Student Number: 204111307
+/**
+ * Created by :Craig Carr AKA Fish84
+ * Student no: 204111307
+ * Desc: Create BookingSchedule Builder
+ */
 
 public class BookingSchedule {
-    private int bookingID;
+    private String bookingID;
 
     //constructor
     private BookingSchedule(Builder builder){
@@ -12,7 +15,7 @@ public class BookingSchedule {
     }
 
     //inner builder class
-    public int getBookingID() {
+    public String getBookingID() {
         return bookingID;
     }
 
@@ -27,10 +30,10 @@ public class BookingSchedule {
 
     //inner builder class
     public static class Builder{
-        private int bookingID;
+        private String bookingID;
 
         //inner class constructor
-        public Builder setBookingID(int bookingID){
+        public Builder setBookingID(String bookingID){
             this.bookingID = bookingID;
             return this;
         }
