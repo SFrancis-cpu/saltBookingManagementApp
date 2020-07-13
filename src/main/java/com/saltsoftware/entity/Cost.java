@@ -5,13 +5,13 @@ package com.saltsoftware.entity;
  * */
 public class Cost {
     public String costID;
-    public Double amount;
+    public Integer amount;
 
     public String getCostID() {
         return costID;
     }
 
-    public Double getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
@@ -33,14 +33,14 @@ public class Cost {
     public static class Builder{
 
         public String costID;
-        public Double amount;
+        public Integer amount;
 
         public Builder setCostID(String costID) {
             this.costID = costID;
             return this;
         }
 
-        public Builder setAmount(Double amount) {
+        public Builder setAmount(Integer amount) {
             this.amount = amount;
             return this;
         }
