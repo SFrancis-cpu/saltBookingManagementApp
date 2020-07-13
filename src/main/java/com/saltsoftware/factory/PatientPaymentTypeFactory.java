@@ -9,7 +9,7 @@ public class PatientPaymentTypeFactory {
         String paymentTypeID = GenericHelper.generateID();
         PatientPaymentType type = new PatientPaymentType.Builder()
                 .setPaymentID(paymentTypeID)
-                .setPaymentDescrip(paymentDescrip)
+                .setDescrip(paymentDescrip)
                 .build();
         return type;
     }
