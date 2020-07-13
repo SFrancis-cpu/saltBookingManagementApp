@@ -15,10 +15,13 @@ import static org.junit.Assert.*;
         @Test
         public void testCreateEmployeeRole() {
             EmployeeRole emp1 = EmployeeRoleFactory.createEmployeeRole();
+            EmployeeRole emp2 = EmployeeRoleFactory.createEmployeeRole();
 
             //Equality test
             assertEquals(emp1.getEmpID(),emp1.getEmpID());
+            assertEquals(emp2.getRoleID(),emp2.getRoleID());
         }
+
 
 
     }
