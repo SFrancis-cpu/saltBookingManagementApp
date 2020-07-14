@@ -35,8 +35,6 @@ public class ServiceFactoryTest {
 
 
     }
-
-
     //When the time passes the recommeded time, the program will sleep
     @Ignore
     @Test (timeout = 500)
