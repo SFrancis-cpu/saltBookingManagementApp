@@ -6,6 +6,7 @@ package com.saltsoftware.factory;
  * */
 
 import com.saltsoftware.entity.EmployeeRole;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -15,7 +16,7 @@ import static org.junit.Assert.*;
         private EmployeeRole emp1;
         private EmployeeRole emp2;
 
-        @Test
+        @Before
         public void testCreateEmployeeRole() {
            emp1 = EmployeeRoleFactory.createEmployeeRole();
            emp2 = EmployeeRoleFactory.createEmployeeRole();
@@ -38,7 +39,7 @@ import static org.junit.Assert.*;
         }
 
         @Test
-        public void testIdentity(){
+        public void testIdentity() {
 
             //Identity test
             assertSame(emp1.getEmpID(), emp1.getEmpID());
