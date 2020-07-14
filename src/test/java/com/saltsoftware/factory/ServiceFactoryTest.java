@@ -6,7 +6,8 @@ package com.saltsoftware.factory;
  */
 
 import com.saltsoftware.entity.Service;
-import com.sun.org.apache.xerces.internal.xs.datatypes.XSQName;
+//import com.sun.org.apache.xerces.internal.xs.datatypes.XSQName;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -22,19 +23,22 @@ public class ServiceFactoryTest {
         //perfoming equality test
 
         assertEquals(sr.getServiceName(),sr.getServiceName());
+        assertEquals(sr.getServiceDescrip(),sr.getServiceDescrip());
+
 
     }
     @Test
     public void identify()
     {
         Service id = ServiceFactory.createService("teeth","teeth removal","identity");
-        assertEquals( id.getServiceName(), id.getServiceDescrip(), id.getServiceId());
+        Assert.assertEquals( id.getServiceName(), id.getServiceDescrip(), id.getServiceId());
 
 
     }
 
-    //@Ignore
+
     //When the time passes the recommeded time, the program will sleep
+    @Ignore
     @Test (timeout = 500)
     public void timeOut() throws InterruptedException {
         while (true) {
