@@ -5,66 +5,66 @@ package com.saltsoftware.entity;
 */
 public class Service
 {
-    private String ServiceName;
-    private String ServiceDescrip;
-    private String ServiceId;
+    private String serviceName;
+    private String serviceDescrip;
+    private String serviceId;
 
     public String getServiceName() {
-        return ServiceName;
+        return serviceName;
     }
 
     public String getServiceDescrip() {
-        return ServiceDescrip;
+        return serviceDescrip;
     }
 
     public String getServiceId() {
-        return ServiceId;
+        return serviceId;
     }
 
     @Override
     public String toString() {
         return "Services{" +
-                "ServiceName='" + ServiceName + '\'' +
-                ", ServiceDescrip='" + ServiceDescrip + '\'' +
-                ", ServiceId='" + ServiceId + '\'' +
+                "ServiceName='" + serviceName + '\'' +
+                ", ServiceDescrip='" + serviceDescrip + '\'' +
+                ", ServiceId='" + serviceId + '\'' +
                 '}';
     }
 
     private Service(Builder builder)
     {
-        this.ServiceName = builder.ServiceName;
-        this.ServiceDescrip = builder.ServiceDescrip;
-        this.ServiceId = builder.ServiceId;
+        this.serviceName = builder.serviceName;
+        this.serviceDescrip = builder.serviceDescrip;
+        this.serviceId = builder.serviceId;
 
 
     }
     public static class Builder
     {
 
-        private String ServiceName;
-        private String ServiceDescrip;
-        private String ServiceId;
+        private String serviceName;
+        private String serviceDescrip;
+        private String serviceId;
 
         public Builder setServiceName(String ServiceName)
         {
-            this.ServiceName = ServiceName;
+            this.serviceName = ServiceName;
             return this;
         }
         public Builder setServiceDescrip(String ServiceDescrip)
         {
-            this.ServiceDescrip = ServiceDescrip;
+            this.serviceDescrip = ServiceDescrip;
             return this;
         }
         public Builder setServiceId(String ServiceId)
         {
-            this.ServiceId = ServiceId;
+            this.serviceId = ServiceId;
             return this;
         }
         public Builder copy(Service service)
         {
-            this.ServiceName = service.ServiceName;
-            this.ServiceDescrip = service.ServiceDescrip;
-            this.ServiceId = service.ServiceId;
+            this.serviceName = service.serviceName;
+            this.serviceDescrip = service.serviceDescrip;
+            this.serviceId = service.serviceId;
             return this;
 
         }
