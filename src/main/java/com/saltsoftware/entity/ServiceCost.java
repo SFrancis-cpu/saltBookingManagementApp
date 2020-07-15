@@ -1,7 +1,8 @@
 package com.saltsoftware.entity;
 /* @Author: Lebusa
 *   Stud# : 216059186
-*   This is a service cost entity class which operates as a link between Service entity and the Cost entity
+*   Class Desc: This is a service cost entity class which operates as a link between Service entity and the Cost entity
+*   Date: 7 Jul 2020
 * */
 
 public class ServiceCost {
@@ -36,12 +37,14 @@ public class ServiceCost {
 
         private String costID, serviceID;
 
-        public void setCostID(String costID) {
+        public Builder setCostID(String costID) {
             this.costID = costID;
+            return this;
         }
 
-        public void setServiceID(String serviceID) {
+        public Builder setServiceID(String serviceID) {
             this.serviceID = serviceID;
+            return this;
         }
 
         public Builder copy(ServiceCost serviceCost){
