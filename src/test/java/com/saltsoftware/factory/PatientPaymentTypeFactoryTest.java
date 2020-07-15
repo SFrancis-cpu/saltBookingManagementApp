@@ -1,5 +1,11 @@
 package com.saltsoftware.factory;
 
+/*
+ * Created by: Heinrich Arends
+ * Student no: 217166792
+ * Desc: Create PatientPaymentType Factory
+ **/
+
 import com.saltsoftware.entity.PatientPaymentType;
 import org.junit.Before;
 import org.junit.Test;
