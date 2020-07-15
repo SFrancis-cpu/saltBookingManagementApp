@@ -31,8 +31,14 @@ public class GenericHelper {
      * Student no: 204111307
      * Desc: generates bookingID
      */
+
+
     public static String generateBookingID(){
         return UUID.randomUUID().toString();
     }
 
+    //create utility package that generates Cost ID Randomly
+    public static String generateCostID(){ return UUID.randomUUID().toString(); }
 }
+
+

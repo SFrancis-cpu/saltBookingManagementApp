@@ -1,7 +1,7 @@
 package com.saltsoftware.entity;
-/* author - Noluthando Nqwelo
-/* std no - 215029003
-/* Description - Create Role Entity with roleID and roleDescription
+/* @author - Noluthando Nqwelo
+/* @std no - 215029003
+/* @Description - Create Role Entity with roleID and roleDescription
  */
 public class Role {
         private String roleID, roleDesc;
