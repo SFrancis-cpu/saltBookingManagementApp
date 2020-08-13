@@ -11,6 +11,7 @@ import java.util.Set;
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private Set<Employee>EmployeeDB;
 
+//Constructor
     public EmployeeRepositoryImpl(){
         this.EmployeeDB = new HashSet<>();
     }
@@ -38,7 +39,6 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     //This method updates an existing employee
     public Employee update(Employee employee) {
         Employee oldEmployee = read(employee.getEmpId());
-
         if(oldEmployee != null){
             this.EmployeeDB.remove(oldEmployee);
             this.EmployeeDB.add(employee);

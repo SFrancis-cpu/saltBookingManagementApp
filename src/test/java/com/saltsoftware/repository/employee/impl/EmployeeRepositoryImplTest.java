@@ -1,11 +1,11 @@
 package com.saltsoftware.repository.employee.impl;
 import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.factory.employee.EmployeeFactory;
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+
 import java.util.Set;
 
 import static org.junit.Assert.assertNotEquals;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertNotEquals;
 public class EmployeeRepositoryImplTest {
 
     private static EmployeeRepository Repository = new EmployeeRepositoryImpl();
-    private Employee employee = EmployeeFactory.createEmployee("Abduragmaan","Frank");
+    private static Employee employee = EmployeeFactory.createEmployee("Abduragmaan","Frank");
 
 //Test case for create method
     @Test
@@ -34,10 +34,9 @@ public class EmployeeRepositoryImplTest {
     @Test
     public void b_testRead() {
         Employee read = Repository.read(employee.getEmpId());
-        Assert.assertEquals(employee.getEmpId(), read.getEmpId());
+        Assert.assertEquals(employee.getEmpId(),read.getEmpId());
         System.out.println("Read : " +read);
     }
-
 
 //Test case for update method
     @Test
@@ -60,6 +59,7 @@ public class EmployeeRepositoryImplTest {
     @Test
     public void d_testGetAll() {
         Set<Employee> employee = Repository.getAll();
-     //   Assert.assertEquals("1", employee.size());
+        Assert.assertEquals(employee.size(),employee.size());
+        System.out.println(Repository.getAll());
     }
 }
