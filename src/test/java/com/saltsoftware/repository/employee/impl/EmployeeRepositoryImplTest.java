@@ -8,6 +8,7 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 /**
@@ -21,6 +22,7 @@ public class EmployeeRepositoryImplTest {
 
     private static EmployeeRepository Repository = new EmployeeRepositoryImpl();
     private static Employee employee = EmployeeFactory.createEmployee("Abduragmaan","Frank");
+
 
 //Test case for create method
     @Test
@@ -41,9 +43,9 @@ public class EmployeeRepositoryImplTest {
 //Test case for update method
     @Test
     public void c_testUpdate() {
-        Employee updated = new Employee.Builder().copy(employee).setempId("7667").build();
+        Employee updated = new Employee.Builder().copy(employee).setempLastName("Kam").build();
         Repository.update(updated);
-        assertNotEquals(employee.getEmpId(), updated.getEmpId());
+        assertNotEquals(employee.getEmpLastName(), updated.getEmpLastName());
         System.out.println("updated: " + updated);
 
     }
@@ -59,7 +61,7 @@ public class EmployeeRepositoryImplTest {
     @Test
     public void d_testGetAll() {
         Set<Employee> employee = Repository.getAll();
-        Assert.assertEquals(employee.size(),employee.size());
+        assertEquals(1,employee.size());
         System.out.println(Repository.getAll());
     }
 }
