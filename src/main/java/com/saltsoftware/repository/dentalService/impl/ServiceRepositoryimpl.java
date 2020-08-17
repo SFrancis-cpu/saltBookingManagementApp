@@ -1,5 +1,11 @@
 package com.saltsoftware.repository.dentalService.impl;
 
+/*
+ * Author: Abram Rakgotho
+ * Student Number: 215031393
+ * Created Repository for service entity under the package name dental service
+ */
+
 import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.factory.dentalService.ServiceFactory;
 import com.saltsoftware.repository.Repository;
