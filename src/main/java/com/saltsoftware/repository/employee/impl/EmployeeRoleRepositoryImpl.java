@@ -33,7 +33,9 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
     }
 
     public static EmployeeRoleRepository getEmployeeRoleRepository(){
-        if (employeeRoleRepository == null) employeeRoleRepository = new EmployeeRoleRepositoryImpl();
+        if (employeeRoleRepository == null)
+
+            employeeRoleRepository = new EmployeeRoleRepositoryImpl();
         return employeeRoleRepository;
     }
 
