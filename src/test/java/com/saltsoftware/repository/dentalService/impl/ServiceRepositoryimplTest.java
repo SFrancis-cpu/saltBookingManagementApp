@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 
 public class ServiceRepositoryimplTest {
 
-    private static ServiceRepository repo = new ServiceRepositoryimpl();
+    private static ServiceRepository repo = ServiceRepositoryimpl.getServiceRepository();
     private static Service service = ServiceFactory.createService("Dentistry", "teeth alignment");
 
     @Test

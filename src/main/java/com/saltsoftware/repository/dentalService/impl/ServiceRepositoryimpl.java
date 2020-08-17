@@ -23,10 +23,18 @@ public class ServiceRepositoryimpl implements ServiceRepository {
     // manipulating database to create, read, update and delete
 
     private final Set<Service> serviceDB;
+    private static ServiceRepository serviceRepository = null;
 
-    public ServiceRepositoryimpl()
+    private ServiceRepositoryimpl()
     {
         this.serviceDB = new HashSet<>();
+    }
+    public static ServiceRepository getServiceRepository()
+    {
+        if(serviceRepository  == null)
+            serviceRepository = new ServiceRepositoryimpl();
+
+        return serviceRepository;
     }
 
 
