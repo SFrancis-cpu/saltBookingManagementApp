@@ -12,12 +12,10 @@ import com.saltsoftware.util.GenericHelper;
 public class ServiceFactory
 {
 
-    public static Service createService(String sName, String sDescription, String serviceId)
+    public static Service createService(String sName, String sDescription)
     {
 
-
-
-        serviceId = GenericHelper.generateID();
+        String serviceId = GenericHelper.generateID();
         Service service = new Service.Builder()
                 .setServiceDescrip(sDescription)
                 .setServiceName(sName)

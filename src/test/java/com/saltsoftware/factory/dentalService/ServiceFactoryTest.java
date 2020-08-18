@@ -19,7 +19,7 @@ public class ServiceFactoryTest {
     @Test
     public void createService()
     {
-        Service sr = ServiceFactory.createService("Teeth", "Teeth removal", "identity");
+        Service sr = ServiceFactory.createService("Teeth", "Teeth removal");
 
         //perfoming equality test
 
@@ -31,8 +31,8 @@ public class ServiceFactoryTest {
     @Test
     public void identify()
     {
-        Service id = ServiceFactory.createService("teeth","teeth removal","identity");
-        Assert.assertEquals( id.getServiceName(), id.getServiceDescrip(), id.getServiceId());
+        Service id = ServiceFactory.createService("teeth","teeth removal");
+        assertSame(id.getServiceId(), id.getServiceDescrip(), id.getServiceName());
 
 
     }

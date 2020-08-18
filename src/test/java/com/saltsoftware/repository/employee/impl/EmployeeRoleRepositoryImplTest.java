@@ -21,6 +21,7 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeRoleRepositoryImplTest {
 
+
     private static EmployeeRoleRepository repository = new EmployeeRoleRepositoryImpl();
     private static EmployeeRole employeeRole = EmployeeRoleFactory.buildEmployeeRole("Ma885");
 
