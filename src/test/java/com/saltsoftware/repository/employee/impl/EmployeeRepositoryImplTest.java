@@ -1,6 +1,7 @@
 package com.saltsoftware.repository.employee.impl;
 import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.factory.employee.EmployeeFactory;
+import com.saltsoftware.repository.employee.EmployeeRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import static org.junit.Assert.assertNotEquals;
  * Created by :Abduragmaan Frank
  * Student no: 217009069
  * Desc: Create test class for  EmployeeRepositoryImpl
+ * This is my test class
  */
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
