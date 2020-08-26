@@ -42,10 +42,10 @@ public class PatientPaymentRecordImplTest
         System.out.println("Read: " +read);
     }
 
-    //Test case for update method
+    //Test case for update method (testing that the value for Pay Receipt Number is not equal to Object patientPaymentRecord)
     @Test
     public void c_testUpdate() {
-        PatientPaymentRecord updated = new PatientPaymentRecord.Builder().copy(patientPaymentRecord).setpayReceiptNumber("1000001").build();
+        PatientPaymentRecord updated = new PatientPaymentRecord.Builder().copy(patientPaymentRecord).setpayReceiptNumber("11000001").build();
         rep1.update(updated);
         assertNotEquals(patientPaymentRecord.getPayReceiptNumber(), updated.getPayReceiptNumber());
         System.out.println("updated: " + updated);
