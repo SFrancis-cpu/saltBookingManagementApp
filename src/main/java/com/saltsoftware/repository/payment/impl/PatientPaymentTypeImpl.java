@@ -16,10 +16,16 @@ public class PatientPaymentTypeImpl implements PatientPaymentTypeRepository {
 
     // Data Structure type Set, used to manipulate data in the Patient Payment Type DB
     private Set<PatientPaymentType> patientPaymentTypeDB;
+    private static PatientPaymentTypeRepository patientPaymentTypeRepository = null;
 
     // Constructor
-    public PatientPaymentTypeImpl() {
+    private PatientPaymentTypeImpl() {
         this.patientPaymentTypeDB = new HashSet<>();
+    }
+
+    public static PatientPaymentTypeRepository getPatientPaymentTypeRepository() {
+        if(patientPaymentTypeRepository == null) patientPaymentTypeRepository = new PatientPaymentTypeImpl();
+        return patientPaymentTypeRepository;
     }
 
     // Create patient payment type
