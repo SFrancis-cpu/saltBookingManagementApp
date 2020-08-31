@@ -39,7 +39,7 @@ public class CostRepositoryImpl implements CostRepository {
         return cost;
 
         public Cost update(Cost cost) {
-            Cost oldCost = read(cost.getCostID());
+            Set<Cost> oldCost = read(cost.getCostID());
             if(oldCost != null){
                 this.CostDB.remove(oldCost);
                 this.CostDB.add(cost);
