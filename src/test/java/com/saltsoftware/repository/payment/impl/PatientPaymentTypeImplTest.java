@@ -13,6 +13,12 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+/**
+ * Created by :Heinrich Arends
+ * Student no: 217166792
+ * Desc: Create Patient Payment Type Unit testing
+ */
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PatientPaymentTypeImplTest {
 
