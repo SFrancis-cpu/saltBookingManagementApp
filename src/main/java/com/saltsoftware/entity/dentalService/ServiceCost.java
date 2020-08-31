@@ -1,57 +1,54 @@
 package com.saltsoftware.entity.dentalService;
+
+import java.util.Objects;
+
+
 /* @Author: Lebusa
 *   Stud# : 216059186
 *   Class Desc: This is a service cost entity class which operates as a link between Service entity and the Cost entity
 *   Date: 7 Jul 2020
 * */
 
+
 public class ServiceCost {
 
-    private String costID, serviceID;
+    private String costId, serviceId;
 
-    private ServiceCost(Builder builder) {
+    public ServiceCost(Builder builder) {
 
-        this.costID = builder.costID;
+        this.costId = builder.costId;
 
-        this.serviceID = builder.serviceID;
-
+        this.serviceId = builder.serviceId;
     }
 
-    public String getCostID() {
-        return costID;
+    public String getCostId() {
+        return costId;
     }
 
-    public String getServiceID() {
-        return serviceID;
+    public String getServiceId() {
+        return serviceId;
     }
 
-    @Override
-    public String toString() {
-        return "ServiceCost{" +
-                "costID='" + costID + '\'' +
-                ", serviceID='" + serviceID + '\'' +
-                '}';
-    }
 
     public static class Builder {
 
-        private String costID, serviceID;
+        String costId, serviceId;
 
-        public Builder setCostID(String costID) {
-            this.costID = costID;
+        public Builder serviceId(String serviceId){
+            this.serviceId = serviceId;
             return this;
         }
 
-        public Builder setServiceID(String serviceID) {
-            this.serviceID = serviceID;
+        public Builder costId(String costId){
+            this.costId = costId;
             return this;
         }
 
         public Builder copy(ServiceCost serviceCost){
 
-            this.costID = serviceCost.costID;
+            this.costId = serviceCost.costId;
 
-            this.serviceID = serviceCost.serviceID;
+            this.serviceId = serviceCost.serviceId;
 
             return this;
         }
@@ -59,6 +56,14 @@ public class ServiceCost {
         public ServiceCost build(){
 
          return new ServiceCost(this);
+        }
+
+        @Override
+        public String toString() {
+            return "ServiceCost{" +
+                    "costID='" + costId + '\'' +
+                    ", serviceID='" + serviceId + '\'' +
+                    '}';
         }
 
     }
