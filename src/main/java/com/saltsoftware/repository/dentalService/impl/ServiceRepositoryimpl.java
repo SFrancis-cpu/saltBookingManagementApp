@@ -66,8 +66,8 @@ public class ServiceRepositoryimpl implements ServiceRepository {
     public Service update(Service service)
     {   //Creating an object
         //Updating the database
-        Service previousService = read(service.getServiceId());
-        if(previousService != null)
+        Service previousService = read(service.getServiceId()); //Creating an object of Service
+        if(previousService != null) //If the previous service id not null it should remove and add the prompt one
         {
         this.serviceDB.remove(previousService);
         this.serviceDB.add(service);
@@ -83,6 +83,7 @@ public class ServiceRepositoryimpl implements ServiceRepository {
         if(service != null)
         {
             this.serviceDB.remove(service);
+
         }
 
 
@@ -90,6 +91,7 @@ public class ServiceRepositoryimpl implements ServiceRepository {
     }
 
     @Override
+    //Retrieving all the information within the service DB
     public Set<Service> getAll() {
         return this.serviceDB;
     }
