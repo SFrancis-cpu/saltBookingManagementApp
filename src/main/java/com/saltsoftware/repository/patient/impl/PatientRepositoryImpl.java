@@ -6,7 +6,7 @@ import java.util.Set;
 
 /*author: Bathi Ntshinga
  *Std no:214198227
- *Description: Creating the Patient repository
+ *Description: Creating the Patient methods that implements Patient repository
  *Date: 2020/09/01
 */
 

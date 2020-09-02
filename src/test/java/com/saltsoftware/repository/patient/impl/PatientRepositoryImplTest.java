@@ -1,14 +1,17 @@
 package com.saltsoftware.repository.patient.impl;
 
-import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
 import com.saltsoftware.repository.patient.PatientRepository;
 import org.junit.Test;
-
 import java.util.Set;
-
 import static org.junit.Assert.*;
+
+/*author: Bathi Ntshinga
+ *Std no:214198227
+ *Description: Creating the Test Case for patient repository
+ *Date: 2020/09/01
+ */
 
 public class PatientRepositoryImplTest {
 private static PatientRepository repository = new PatientRepositoryImpl();
