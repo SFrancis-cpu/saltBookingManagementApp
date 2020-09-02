@@ -4,18 +4,19 @@ import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.repository.dentalService.CostRepository;
 
 import java.util.HashSet;
-import java.util.*;
+import java.util.Set;
 
 
-/* @Author: Junade Frizlar
+/** @Author: Junade Frizlar
  *   StudentNumber : 208046402
  *   This is a cost repository.
  * */
 
 public class CostRepositoryImpl implements CostRepository {
-    private Set<Cost>CostDB;
+    private Set<Cost> CostDB;
+
     //Constructor
-    public CostRepositoryImpl(){
+    public CostRepositoryImpl() {
         this.CostDB = new HashSet<>();
     }
 
@@ -30,7 +31,7 @@ public class CostRepositoryImpl implements CostRepository {
     @Override
     public Set<Cost> read(String CostID) {
         Cost cost = null;
-        for(Cost c : this.CostDB) {
+        for (Cost c : this.CostDB) {
             if (c.getCostID().equalsIgnoreCase(costId)) {
                 cost = c;
                 break;
@@ -39,26 +40,28 @@ public class CostRepositoryImpl implements CostRepository {
             return cost;
         }
 
-        @Override
-        public Cost update(Cost cost); {
+        //This method updates an existing cost
+        public Cost update (Cost cost);
+        {
             Set<Cost> oldCost = read(cost.getCostID());
-            if(oldCost != null){
+            if (oldCost != null) {
                 this.CostDB.remove(oldCost);
                 this.CostDB.add(cost);
             }
             return cost;
         }
 
-            //This method removes and cost object
-        public void delete(String CostID); {
+        //This method removes and cost object
+        public void delete (String CostID);
+        {
             Cost cost = read(CostID);
-            if(cost != null);
+            if (cost != null) ;
             this.CostDB.remove(cost);
 
         }
         @Override
-        public Set<Cost> getAll() {
+        public Set<Cost> getAll () {
             return this.CostDB;
         }
     }
-
+}

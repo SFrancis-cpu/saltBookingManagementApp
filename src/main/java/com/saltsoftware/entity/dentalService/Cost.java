@@ -1,9 +1,14 @@
 package com.saltsoftware.entity.dentalService;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Set;
+
 /* @Author: Junade Frizlar
  *   StudentNumber : 208046402
  *   This is a cost entity class.
  * */
-public class Cost {
+public class Cost implements Set<Cost> {
     public String costID;
     public Double amount;
 
@@ -27,6 +32,71 @@ public class Cost {
         this.costID = builder.costID;
         this.amount = builder.amount;
 
+
+    }
+
+    @Override
+    public int size() {
+        return 0;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return false;
+    }
+
+    @Override
+    public Iterator<Cost> iterator() {
+        return null;
+    }
+
+    @Override
+    public Object[] toArray() {
+        return new Object[0];
+    }
+
+    @Override
+    public <T> T[] toArray(T[] a) {
+        return null;
+    }
+
+    @Override
+    public boolean add(Cost cost) {
+        return false;
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean addAll(Collection<? extends Cost> c) {
+        return false;
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public void clear() {
 
     }
 
