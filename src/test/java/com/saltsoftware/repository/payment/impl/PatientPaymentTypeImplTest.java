@@ -22,6 +22,7 @@ import static org.junit.Assert.assertNotEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PatientPaymentTypeImplTest {
 
+
     private static PatientPaymentTypeRepository Repository = PatientPaymentTypeImpl.getPatientPaymentTypeRepository();
     private static PatientPaymentType patientPaymentType = PatientPaymentTypeFactory.createPaymentType("Debit Card");
 

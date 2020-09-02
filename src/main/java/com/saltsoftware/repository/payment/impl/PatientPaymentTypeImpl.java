@@ -16,6 +16,7 @@ public class PatientPaymentTypeImpl implements PatientPaymentTypeRepository {
 
     // Data Structure type Set, used to manipulate data in the Patient Payment Type DB
     private Set<PatientPaymentType> patientPaymentTypeDB;
+    // Encapsulate PatientPayment Repository
     private static PatientPaymentTypeRepository patientPaymentTypeRepository = null;
 
     // Constructor
@@ -23,6 +24,7 @@ public class PatientPaymentTypeImpl implements PatientPaymentTypeRepository {
         this.patientPaymentTypeDB = new HashSet<>();
     }
 
+    // Apply Singleton pattern
     public static PatientPaymentTypeRepository getPatientPaymentTypeRepository() {
         if(patientPaymentTypeRepository == null) patientPaymentTypeRepository = new PatientPaymentTypeImpl();
         return patientPaymentTypeRepository;
