@@ -17,7 +17,6 @@ package com.saltsoftware.repository.employee.impl;
  * */
 
 import com.saltsoftware.entity.employee.EmployeeRole;
-import com.saltsoftware.repository.Repository;
 import com.saltsoftware.repository.employee.EmployeeRoleRepository;
 
 import java.util.HashSet;
