@@ -16,7 +16,8 @@ public abstract class CostRepositoryImpl implements CostRepository {
     private Set<Cost> CostDB;
 
     //Constructor
-    public CostRepositoryImpl() {
+    public CostRepositoryImpl(Cost cost) {
+        this.cost = cost;
         this.CostDB = new HashSet<>();
     }
 
@@ -29,7 +30,7 @@ public abstract class CostRepositoryImpl implements CostRepository {
 
     //This method reads from Cost database
     @Override
-    public Set<Cost> read(String CostID) {
+    public Cost read(String CostID) {
         Cost cost = null;
         for (Cost c : this.CostDB) {
             if (c.getCostID().equalsIgnoreCase(CostID)) {
@@ -37,29 +38,34 @@ public abstract class CostRepositoryImpl implements CostRepository {
                 break;
             }
         }
-            return cost;
-        }
+        return cost;
+    }
 
-        //This method updates an existing cost
-        public abstract Cost update(Cost cost);
+    //This method updates an existing cost
+    public abstract Cost update(Cost cost);
 
-    {
-            Set<Cost> oldCost = read(cost.getCostID());
-            if (oldCost != null) {
-                this.CostDB.remove(oldCost);
-                this.CostDB.add(cost);
-            }
-            return cost;
-        }
-
-        //This method removes and cost object
-        public void delete (String CostID);
-
-    private final String CostID;
+    private Cost cost = null;
 
     {
-            Cost cost = read(CostID);
-            if (cost != null) ;
+        Set<Cost> oldCost = read(cost.getCostID());
+        if (oldCost != null) {
+            this.CostDB.remove(oldCost);
+            this.CostDB.add(cost);
+        }
+        return cost;
+    }
+
+    //This method removes and cost object
+    public void delete(String CostID) {
+
+    }
+
+    private final String CostID = null;
+
+
+    {
+            Cost cost = (Cost) read(CostID);
+            if (cost != null);
             this.CostDB.remove(cost);
 
         }
