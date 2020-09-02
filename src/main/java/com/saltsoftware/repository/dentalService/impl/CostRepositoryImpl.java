@@ -12,7 +12,7 @@ import java.util.Set;
  *   This is a cost repository.
  * */
 
-public class CostRepositoryImpl implements CostRepository {
+public abstract class CostRepositoryImpl implements CostRepository {
     private Set<Cost> CostDB;
 
     //Constructor
@@ -32,17 +32,18 @@ public class CostRepositoryImpl implements CostRepository {
     public Set<Cost> read(String CostID) {
         Cost cost = null;
         for (Cost c : this.CostDB) {
-            if (c.getCostID().equalsIgnoreCase(costId)) {
+            if (c.getCostID().equalsIgnoreCase(CostID)) {
                 cost = c;
                 break;
             }
-
+        }
             return cost;
         }
 
         //This method updates an existing cost
-        public Cost update (Cost cost);
-        {
+        public abstract Cost update(Cost cost);
+
+    {
             Set<Cost> oldCost = read(cost.getCostID());
             if (oldCost != null) {
                 this.CostDB.remove(oldCost);
@@ -53,7 +54,10 @@ public class CostRepositoryImpl implements CostRepository {
 
         //This method removes and cost object
         public void delete (String CostID);
-        {
+
+    private final String CostID;
+
+    {
             Cost cost = read(CostID);
             if (cost != null) ;
             this.CostDB.remove(cost);
@@ -63,5 +67,5 @@ public class CostRepositoryImpl implements CostRepository {
         public Set<Cost> getAll () {
             return this.CostDB;
         }
-    }
+
 }
