@@ -1,13 +1,14 @@
 package com.saltsoftware.repository.dentalService.impl;
 
-import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.entity.cost;
+import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.repository.Repository;
-import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
+import java.util.Set;
+
+import static org.junit.Assert.assertEquals;
+/**
         * Created by :Junade Frizlar
         * Student no: 208046402
         * Desc: Create test class for  CostRepositoryImpl
