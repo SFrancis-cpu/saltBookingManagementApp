@@ -7,6 +7,11 @@ import com.saltsoftware.repository.employee.RoleRepository;
 import java.util.HashSet;
 import java.util.Set;
 
+/* @author - Noluthando Nqwelo
+/* @std no - 215029003
+/* @Description - Create Role Repository
+ */
+
 public class RoleRepositoryImpl implements RoleRepository {
 
     private Set<Role> roleDB;
@@ -15,13 +20,13 @@ public class RoleRepositoryImpl implements RoleRepository {
         this.roleDB = new HashSet<>();
     }
 
-    //Role Description Doctor, Receptionist...
+    //Role Doctor, Receptionist...
 
     public Role create(Role role) {
         this.roleDB.add(role);
         return role;
     }
-
+// read role
     public Role read(String RoleID){
         Role role = null;
         for (Role r: this.roleDB){
@@ -53,7 +58,7 @@ public class RoleRepositoryImpl implements RoleRepository {
         this.roleDB.remove(Role);
 
     }
-
+//GetAll
     @Override
     public Set<Role> getAll() {
         return this.roleDB;
