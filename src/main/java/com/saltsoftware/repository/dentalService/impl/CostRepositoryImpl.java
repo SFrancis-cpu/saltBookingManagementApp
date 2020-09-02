@@ -30,15 +30,17 @@ public class CostRepositoryImpl implements CostRepository {
     @Override
     public Set<Cost> read(String CostID) {
         Cost cost = null;
-        for(Cost c : this.CostDB){
-            if(c.getCostID().equalsIgnoreCase(costId)){
+        for(Cost c : this.CostDB) {
+            if (c.getCostID().equalsIgnoreCase(costId)) {
                 cost = c;
                 break;
             }
-        }
-        return cost;
 
-        public Cost update(Cost cost) {
+            return cost;
+        }
+
+        @Override
+        public Cost update(Cost cost); {
             Set<Cost> oldCost = read(cost.getCostID());
             if(oldCost != null){
                 this.CostDB.remove(oldCost);
@@ -48,7 +50,7 @@ public class CostRepositoryImpl implements CostRepository {
         }
 
             //This method removes and cost object
-        public void delete(String CostID) {
+        public void delete(String CostID); {
             Cost cost = read(CostID);
             if(cost != null);
             this.CostDB.remove(cost);
