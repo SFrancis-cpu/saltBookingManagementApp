@@ -17,7 +17,6 @@ package com.saltsoftware.repository.employee.impl;
  * */
 
 import com.saltsoftware.entity.employee.EmployeeRole;
-import com.saltsoftware.repository.Repository;
 import com.saltsoftware.repository.employee.EmployeeRoleRepository;
 
 import java.util.HashSet;
@@ -33,7 +32,9 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
     }
 
     public static EmployeeRoleRepository getEmployeeRoleRepository(){
-        if (employeeRoleRepository == null) employeeRoleRepository = new EmployeeRoleRepositoryImpl();
+        if (employeeRoleRepository == null)
+
+            employeeRoleRepository = new EmployeeRoleRepositoryImpl();
         return employeeRoleRepository;
     }
 
