@@ -10,13 +10,13 @@ import java.util.Set;
  * */
 public class Cost implements Set<Cost> {
     public String costID;
-    public Double amount;
+    public String amount;
 
     public String getCostID() {
         return costID;
     }
 
-    public Double getAmount() {
+    public String getAmount() {
         return amount;
     }
 
@@ -103,14 +103,14 @@ public class Cost implements Set<Cost> {
     public static class Builder{
 
         public String costID;
-        public Double amount;
+        public String amount;
 
         public Builder setCostID(String costID) {
             this.costID = costID;
             return this;
         }
 
-        public Builder setAmount(Double amount) {
+        public Builder setAmount(String amount) {
             this.amount = amount;
             return this;
         }

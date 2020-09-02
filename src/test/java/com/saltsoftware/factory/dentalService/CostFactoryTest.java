@@ -1,7 +1,6 @@
 package com.saltsoftware.factory.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
-import com.saltsoftware.factory.dentalService.CostFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +49,6 @@ public class CostFactoryTest {
     public void testAmount() {
         //A equality test for amount
         Cost p1 = CostFactory.createCost("a1b2", 20.50);
-        assertEquals(20.50, p1.getAmount(),22.45);
+        assertEquals(String.valueOf(20.50), p1.getAmount(),22.45);
     }
 }
