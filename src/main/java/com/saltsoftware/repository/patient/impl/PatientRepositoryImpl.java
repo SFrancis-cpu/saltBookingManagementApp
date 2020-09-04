@@ -56,6 +56,7 @@ public class PatientRepositoryImpl implements PatientRepository {
         this.PatientDB.remove(patient);
 
     }
+    // retrieves all the objects from the database
     @Override
     public Set<Patient> getAll() {
         return this.PatientDB;
