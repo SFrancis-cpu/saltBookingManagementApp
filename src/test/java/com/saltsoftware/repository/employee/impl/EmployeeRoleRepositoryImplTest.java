@@ -3,6 +3,7 @@ package com.saltsoftware.repository.employee.impl;
 import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.factory.employee.EmployeeRoleFactory;
 import com.saltsoftware.repository.employee.EmployeeRoleRepository;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -51,11 +52,20 @@ public class EmployeeRoleRepositoryImplTest {
         System.out.println("Update: " + updated);
     }
 
-    //Delete Method
+   //Delete Method
     @Test
     public void e_delete() {
         repository.delete(employeeRole.getEmpID());
     }
+
+ /*
+    //Delete Method
+    @Test
+    public void e_delete() {
+        boolean deleted = repository.delete(employeeRole.getEmpID());
+        Assert.assertTrue(deleted);
+    }
+*/
 
     //GetAll from the DB
     @Test
