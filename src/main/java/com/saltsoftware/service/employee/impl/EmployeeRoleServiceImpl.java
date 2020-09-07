@@ -20,7 +20,8 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     private static EmployeeRoleService service = null;
     private EmployeeRoleRepository repository;
 
-    public EmployeeRoleServiceImpl (){
+    public EmployeeRoleServiceImpl ()
+    {
         this.repository = EmployeeRoleRepositoryImpl.getEmployeeRoleRepository();
     }
 
