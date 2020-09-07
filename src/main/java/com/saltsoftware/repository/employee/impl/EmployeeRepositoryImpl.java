@@ -49,11 +49,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     //This method removes and employee object
-    public void delete(String empId) {
+    public boolean delete(String empId) {
         Employee employee = read(empId);
         if(employee != null);
         this.EmployeeDB.remove(employee);
 
+        return false;
     }
     @Override
     public Set<Employee> getAll() {

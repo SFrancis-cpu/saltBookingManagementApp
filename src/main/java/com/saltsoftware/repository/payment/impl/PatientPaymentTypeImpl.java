@@ -63,10 +63,11 @@ public class PatientPaymentTypeImpl implements PatientPaymentTypeRepository {
 
     // Remove Patient Payment object from Database
     @Override
-    public void delete(String paymentTypeID) {
+    public boolean delete(String paymentTypeID) {
         PatientPaymentType patientPaymentType = read(paymentTypeID);
         if(patientPaymentType != null);
         this.patientPaymentTypeDB.remove(patientPaymentType);
+        return false;
     }
 
     @Override

@@ -77,11 +77,12 @@ public class ServiceCostRepositoryImpl implements ServiceCostRepository{
     }
     // Method to remove the record from the DB
     @Override
-    public void delete(String s) {
+    public boolean delete(String s) {
         ServiceCost toDelete = read(s);
         if (toDelete != null) {
             this.serviceCostDB.remove(toDelete);
         }
+        return false;
     }
 
 }

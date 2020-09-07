@@ -7,6 +7,6 @@ public interface Repository <T, genericID> {
     T create(T t);
     T read(genericID id);
     T update(T t);
-    void delete(genericID id);
+    boolean delete(genericID id);
 
 }

@@ -60,12 +60,13 @@ public class PatientPaymentRecordImpl implements PatientPaymentRecordRepository
     }
 
         //this method deletes an internal record : PatientPaymentRecord
-        public void delete(String patientPaymentRecord)
+        public boolean delete(String patientPaymentRecord)
             {
             PatientPaymentRecord patientPaymentRecord1 = read(patientPaymentRecord);
 
             if (patientPaymentRecord1 != null);
                     this.PatientPaymentRecordImplDB.remove(patientPaymentRecord1);
+                return false;
             }
 
     @Override
