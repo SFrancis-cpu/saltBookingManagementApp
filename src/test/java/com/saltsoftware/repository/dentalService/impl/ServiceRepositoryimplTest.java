@@ -36,7 +36,6 @@ public class ServiceRepositoryimplTest {
     public void b_read()
     {
         Service read = repo.read(service.getServiceId() );
-        //Need to work on this
         assertEquals(service.getServiceId(), read.getServiceId());
         System.out.println("Read:"+" " +read);
     }

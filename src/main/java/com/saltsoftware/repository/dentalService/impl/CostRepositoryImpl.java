@@ -50,11 +50,12 @@ public class CostRepositoryImpl implements CostRepository {
     }
 
     //This method removes and employee object
-    public void delete(String CostID) {
+    public boolean delete(String CostID) {
         Cost cost = read(CostID);
         if(cost != null);
         this.CostDB.remove(cost);
 
+        return false;
     }
     @Override
     public Set<Cost> getAll() {
