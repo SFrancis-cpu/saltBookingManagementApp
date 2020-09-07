@@ -7,11 +7,7 @@ package com.saltsoftware.repository.dentalService.impl;
  */
 
 import com.saltsoftware.entity.dentalService.Service;
-import com.saltsoftware.factory.dentalService.ServiceFactory;
-import com.saltsoftware.repository.Repository;
 import com.saltsoftware.repository.dentalService.ServiceRepository;
-import com.saltsoftware.repository.employee.EmployeeRoleRepository;
-import com.saltsoftware.repository.employee.impl.EmployeeRoleRepositoryImpl;
 
 
 import java.util.HashSet;
@@ -77,7 +73,7 @@ public class ServiceRepositoryimpl implements ServiceRepository {
 
     }
     //Removing what the database has recorded based on what has been specified
-    public void delete(String serviceId)
+    public boolean delete(String serviceId)
     {
         Service service = read(serviceId);
         if(service != null)
@@ -87,7 +83,7 @@ public class ServiceRepositoryimpl implements ServiceRepository {
         }
 
 
-
+        return false;
     }
 
     @Override
