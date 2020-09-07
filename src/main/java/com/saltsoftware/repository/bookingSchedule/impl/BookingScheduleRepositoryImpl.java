@@ -67,10 +67,12 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
      *
      * @param bookingID
      * This method removes and booking object
+     * @return
      */
-    public void delete(String bookingID){
+    public boolean delete(String bookingID){
         BookingSchedule bookingSchedule = read(bookingID);
         if (bookingSchedule != null) this.bookingSchedulesDB.remove(bookingSchedule);
+        return false;
     }
 
     @Override
