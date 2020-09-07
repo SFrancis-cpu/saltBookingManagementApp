@@ -17,7 +17,6 @@ package com.saltsoftware.repository.employee.impl;
  * */
 
 import com.saltsoftware.entity.employee.EmployeeRole;
-import com.saltsoftware.repository.Repository;
 import com.saltsoftware.repository.employee.EmployeeRoleRepository;
 
 import java.util.HashSet;
@@ -69,11 +68,12 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
     }
 
     //this method deletes an internal record : EmployeeRole
-    public void delete(String empID){
+    public boolean delete(String empID){
         EmployeeRole employeeRole = read(empID);
         if (employeeRole != null);
             this.employeeRoleDB.remove(employeeRole);
 
+        return false;
     }
 
     @Override

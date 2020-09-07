@@ -1,5 +1,7 @@
 package com.saltsoftware.repository.employee.impl;
 import com.saltsoftware.entity.employee.Employee;
+import com.saltsoftware.repository.employee.EmployeeRepository;
+
 import java.util.HashSet;
 import java.util.Set;
 /**
@@ -47,11 +49,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     //This method removes and employee object
-    public void delete(String empId) {
+    public boolean delete(String empId) {
         Employee employee = read(empId);
         if(employee != null);
         this.EmployeeDB.remove(employee);
 
+        return false;
     }
     @Override
     public Set<Employee> getAll() {

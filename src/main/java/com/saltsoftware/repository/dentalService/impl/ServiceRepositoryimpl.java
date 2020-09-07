@@ -7,11 +7,7 @@ package com.saltsoftware.repository.dentalService.impl;
  */
 
 import com.saltsoftware.entity.dentalService.Service;
-import com.saltsoftware.factory.dentalService.ServiceFactory;
-import com.saltsoftware.repository.Repository;
 import com.saltsoftware.repository.dentalService.ServiceRepository;
-import com.saltsoftware.repository.employee.EmployeeRoleRepository;
-import com.saltsoftware.repository.employee.impl.EmployeeRoleRepositoryImpl;
 
 
 import java.util.HashSet;
@@ -23,10 +19,18 @@ public class ServiceRepositoryimpl implements ServiceRepository {
     // manipulating database to create, read, update and delete
 
     private final Set<Service> serviceDB;
+    private static ServiceRepository serviceRepository = null;
 
-    public ServiceRepositoryimpl()
+    private ServiceRepositoryimpl()
     {
         this.serviceDB = new HashSet<>();
+    }
+    public static ServiceRepository getServiceRepository()
+    {
+        if(serviceRepository  == null)
+            serviceRepository = new ServiceRepositoryimpl();
+
+        return serviceRepository;
     }
 
 
@@ -58,8 +62,8 @@ public class ServiceRepositoryimpl implements ServiceRepository {
     public Service update(Service service)
     {   //Creating an object
         //Updating the database
-        Service previousService = read(service.getServiceId());
-        if(previousService != null)
+        Service previousService = read(service.getServiceId()); //Creating an object of Service
+        if(previousService != null) //If the previous service id not null it should remove and add the prompt one
         {
         this.serviceDB.remove(previousService);
         this.serviceDB.add(service);
@@ -69,19 +73,21 @@ public class ServiceRepositoryimpl implements ServiceRepository {
 
     }
     //Removing what the database has recorded based on what has been specified
-    public void delete(String serviceId)
+    public boolean delete(String serviceId)
     {
         Service service = read(serviceId);
         if(service != null)
         {
             this.serviceDB.remove(service);
+
         }
 
 
-
+        return false;
     }
 
     @Override
+    //Retrieving all the information within the service DB
     public Set<Service> getAll() {
         return this.serviceDB;
     }

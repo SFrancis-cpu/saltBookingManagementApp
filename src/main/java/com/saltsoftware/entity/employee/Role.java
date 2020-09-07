@@ -4,19 +4,20 @@ package com.saltsoftware.entity.employee;
 /* @Description - Create Role Entity with roleID and roleDescription
  */
 public class Role {
-        private String roleID, roleDesc;
+        private static String roleID;
+    private static String roleDesc;
 
         private Role(Builder builder) {
             this.roleID = builder.roleID;
             this.roleDesc = builder.roleDesc;
         }
 
-        public String getRoleID() {
-            return roleID;
-        }
+    public String getRoleID() {
+        return roleID;
+    }
 
-        public String getRoleDesc() {
-            return roleDesc;
+    public String getRoleDesc() {
+        return roleDesc;
         }
 
         @Override
