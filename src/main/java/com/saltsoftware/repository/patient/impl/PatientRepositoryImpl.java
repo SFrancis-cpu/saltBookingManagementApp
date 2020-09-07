@@ -50,11 +50,12 @@ public class PatientRepositoryImpl implements PatientRepository {
 
     /*This method reads deletes and removes patient*/
 
-    public void delete(String patientID) {
+    public boolean delete(String patientID) {
         Patient patient = read(patientID);
         if(patientID != null);
         this.PatientDB.remove(patient);
 
+        return false;
     }
     // retrieves all the objects from the database
     @Override

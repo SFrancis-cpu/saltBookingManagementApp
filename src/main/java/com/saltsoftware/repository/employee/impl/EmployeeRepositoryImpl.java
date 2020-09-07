@@ -12,10 +12,17 @@ import java.util.Set;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private Set<Employee>EmployeeDB;
+    public static EmployeeRepository employeeRepository = null;
 
 //Constructor
     public EmployeeRepositoryImpl(){
         this.EmployeeDB = new HashSet<>();
+    }
+
+    public static EmployeeRepository getEmployeeRepository(){
+        if(employeeRepository == null)
+            employeeRepository = new EmployeeRepositoryImpl();
+        return employeeRepository;
     }
 
 
@@ -49,11 +56,12 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     //This method removes and employee object
-    public void delete(String empId) {
+    public boolean delete(String empId) {
         Employee employee = read(empId);
         if(employee != null);
         this.EmployeeDB.remove(employee);
 
+        return false;
     }
     @Override
     public Set<Employee> getAll() {

@@ -11,6 +11,7 @@ import com.saltsoftware.util.GenericHelper;
 
 public class EmployeeFactory {
 
+
     public static Employee  createEmployee(String empName, String empLastName){
         String employeeID = GenericHelper.generateID();
         Employee employee = new Employee.Builder()
