@@ -5,7 +5,6 @@ import com.saltsoftware.repository.patient.PatientRepository;
 import com.saltsoftware.repository.patient.impl.PatientRepositoryImpl;
 import com.saltsoftware.service.patient.PatientService;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /*author: Bathi Ntshinga

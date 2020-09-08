@@ -7,8 +7,6 @@ package com.saltsoftware.service.patient.impl;
 
 import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
-import com.saltsoftware.repository.patient.PatientRepository;
-import com.saltsoftware.repository.patient.impl.PatientRepositoryImpl;
 import com.saltsoftware.service.patient.PatientService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;

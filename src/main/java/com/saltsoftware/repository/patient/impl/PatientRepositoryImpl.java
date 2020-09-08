@@ -1,7 +1,5 @@
 package com.saltsoftware.repository.patient.impl;
 import com.saltsoftware.entity.patient.Patient;
-import com.saltsoftware.repository.employee.EmployeeRepository;
-import com.saltsoftware.repository.employee.impl.EmployeeRepositoryImpl;
 import com.saltsoftware.repository.patient.PatientRepository;
 import java.util.HashSet;
 import java.util.Set;
