@@ -1,24 +1,21 @@
-package com.saltsoftware.repository.dentalService.impl;
-
+package com.saltsoftware.service.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.repository.dentalService.ServiceCostRepository;
+import com.saltsoftware.repository.dentalService.impl.ServiceCostRepositoryImpl;
+import com.saltsoftware.service.dentalService.ServiceCostService;
+import com.saltsoftware.repository.dentalService.ServiceCostRepository;
+
 
 import java.util.HashSet;
 import java.util.Set;
-/*
-        Author: Lebusa Letsoha
-        Description: This class has a sole responsibility of updating the instance of the ServiceCost in the database (applying the CRUD principle)
-        Date: 31-Aug-2020
- */
 
-public class ServiceCostRepositoryImpl implements ServiceCostRepository{
-
+public class ServiceCostServiceImpl implements ServiceCostService {
 
     private static ServiceCostRepository repository = null;
     private Set<ServiceCost> serviceCostDB;
 
-    public ServiceCostRepositoryImpl(){
+    private ServiceCostServiceImpl(){
         this.serviceCostDB = new HashSet<>();
     }
 
