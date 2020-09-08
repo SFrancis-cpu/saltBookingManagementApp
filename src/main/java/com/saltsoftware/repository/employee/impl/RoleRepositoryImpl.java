@@ -1,8 +1,9 @@
 package com.saltsoftware.repository.employee.impl;
 
 import com.saltsoftware.entity.employee.Role;
-import com.saltsoftware.factory.employee.RoleFactory;
 import com.saltsoftware.repository.employee.RoleRepository;
+
+
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,10 +15,17 @@ import java.util.Set;
 
 public class RoleRepositoryImpl implements RoleRepository {
 
+    private static RoleRepository RoleRepository = null;
     private Set<Role> roleDB;
 
     public RoleRepositoryImpl(){
         this.roleDB = new HashSet<>();
+    }
+
+    public static RoleRepository getRoleRepository() {
+        if(RoleRepository == null)
+            RoleRepository =  new RoleRepositoryImpl();
+        return RoleRepository;
     }
 
     //Role Doctor, Receptionist...
@@ -52,11 +60,12 @@ public class RoleRepositoryImpl implements RoleRepository {
     }
 
     //delete role
-    public void delete(String roleID){
+    public boolean delete(String roleID){
         Role Role = read(roleID);
         if (Role != null);
         this.roleDB.remove(Role);
 
+        return false;
     }
 //GetAll
     @Override

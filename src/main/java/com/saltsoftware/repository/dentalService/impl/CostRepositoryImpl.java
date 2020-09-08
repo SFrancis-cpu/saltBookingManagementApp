@@ -2,6 +2,8 @@ package com.saltsoftware.repository.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.repository.dentalService.CostRepository;
+import com.saltsoftware.repository.employee.EmployeeRepository;
+import com.saltsoftware.repository.employee.impl.EmployeeRepositoryImpl;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +19,13 @@ public class CostRepositoryImpl implements CostRepository {
     //Constructor
     public CostRepositoryImpl(){
         this.CostDB = new HashSet<>();
+    }
+
+    public static CostRepository getCostRepository(){
+        CostRepositoryImpl costRepository = null;
+        if(costRepository == null)
+            costRepository = new CostRepositoryImpl();
+        return costRepository;
     }
 
 
@@ -50,11 +59,12 @@ public class CostRepositoryImpl implements CostRepository {
     }
 
     //This method removes and employee object
-    public void delete(String CostID) {
+    public boolean delete(String CostID) {
         Cost cost = read(CostID);
         if(cost != null);
         this.CostDB.remove(cost);
 
+        return false;
     }
     @Override
     public Set<Cost> getAll() {
