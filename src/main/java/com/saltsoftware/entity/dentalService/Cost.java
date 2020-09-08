@@ -5,7 +5,7 @@ package com.saltsoftware.entity.dentalService;
  * */
 public class Cost {
     public String costID;
-    public Double amount;
+    public double amount;
 
     public String getCostID() {
         return costID;
