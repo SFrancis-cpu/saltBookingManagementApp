@@ -7,11 +7,12 @@ package com.saltsoftware.entity.bookingSchedule;
  */
 
 public class BookingSchedule {
-    private String bookingID;
+    private String bookingID, patientID;
 
     //constructor
-    private BookingSchedule(Builder builder){
+    private BookingSchedule(Builder builder) {
         this.bookingID = builder.bookingID;
+        this.patientID = builder.patientID;
     }
 
     //inner builder class
@@ -19,48 +20,46 @@ public class BookingSchedule {
         return bookingID;
     }
 
+    public String getPatientID() {
+        return patientID;
+    }
+
     //toString
     @Override
     public String toString() {
         return "BookingSchedule{" +
                 "bookingID=" + bookingID +
+                ", patientID=" + patientID +
                 '}';
     }
 
 
     //inner builder class
-    public static class Builder{
-        private String bookingID;
-
+    public static class Builder {
+        private String bookingID, patientID;
         //inner class constructor
-        public Builder setBookingID(String bookingID){
+        public Builder setBookingID(String bookingID) {
             this.bookingID = bookingID;
             return this;
         }
 
-        //getters
-        public Builder copy(BookingSchedule bookingSchedule){
-            this.bookingID = bookingSchedule.bookingID;
+        public Builder setPatientID(String patientID) {
+            this.patientID = patientID;
             return this;
         }
 
-        //builder method
-        public BookingSchedule build(){
 
-            return new BookingSchedule(this);
+            //getters
+            public Builder copy (BookingSchedule bookingSchedule){
+                this.bookingID = bookingSchedule.bookingID;
+                this.patientID = bookingSchedule.patientID;
+                return this;
+            }
+
+            //builder method
+            public BookingSchedule build () {
+
+                return new BookingSchedule(this);
+            }
         }
-
     }
-    public static void createBooking(){
-
-    }
-    public static void deleteBooking(){
-
-    }
-    public static void updateBooking(){
-
-    }
-    public static void viewBooking(){
-
-    }
-}
