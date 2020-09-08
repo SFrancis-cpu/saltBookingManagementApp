@@ -12,10 +12,17 @@ import java.util.Set;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
     private Set<Employee>EmployeeDB;
+    public static EmployeeRepository employeeRepository = null;
 
 //Constructor
     public EmployeeRepositoryImpl(){
         this.EmployeeDB = new HashSet<>();
+    }
+
+    public static EmployeeRepository getEmployeeRepository(){
+        if(employeeRepository == null)
+            employeeRepository = new EmployeeRepositoryImpl();
+        return employeeRepository;
     }
 
 

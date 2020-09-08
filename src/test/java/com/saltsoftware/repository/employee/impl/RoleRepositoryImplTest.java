@@ -1,6 +1,7 @@
 package com.saltsoftware.repository.employee.impl;
 
 
+import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.entity.employee.Role;
 import com.saltsoftware.factory.employee.RoleFactory;
 
@@ -16,16 +17,16 @@ import static org.junit.Assert.*;
 
 /* @author - Noluthando Nqwelo
 /* @std no - 215029003
-/* @Description - Create Role Repository
+/* @Description - Create Role Repository test
  */
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class RoleRepositoryImplTest {
     private static RoleRepository repository = (RoleRepository) new RoleRepositoryImpl();
-    private Role role = RoleFactory.createRole("Reception");
+    private static Role role = RoleFactory.createRole("Reception");
 
-    //Create
+    //Creating the role
     @Test
     public void a_createRole() {
         Role created = repository.create(role);
@@ -33,34 +34,34 @@ public class RoleRepositoryImplTest {
         System.out.println("Create Role: " + created);
     }
 
-    //Read
+    //Reading the role information
     @Test
     public void b_readRoleID() {
         Role read = repository.read(role.getRoleID());
-        assertNotEquals(role.getRoleID(),read.getRoleID());
+        Assert.assertEquals(role.getRoleID(),read.getRoleID());
         System.out.println("Read Role: " +read);
     }
 
-    //Update
+    //Updating the description of the role
     @Test
     public void c_updateRole() {
 
         Role updated = new Role.Builder().copy(role).setRoleDesc("Receptionist").build();
-        repository.update(updated);
+        updated = repository.update(updated);
         System.out.println("Role Update: " + updated);
     }
 
-    //Delete
+    //Deleting the role
     @Test
     public void e_delete() {
         repository.delete(role.getRoleID());
     }
 
-    //GetAll
+    //GetAll the information
     @Test
     public void d_getAllRoles() {
-        Set<Role> Roles = repository.getAll();
-        assertNotEquals(1, Roles.size());
+        Set<Role> roles = repository.getAll();
+        assertEquals(1,roles.size());
         System.out.println(repository.getAll());
     }
 }
