@@ -1,5 +1,6 @@
 package com.saltsoftware.repository.bookingSchedule.impl;
 
+
 import com.saltsoftware.entity.bookingSchedule.BookingSchedule;
 import com.saltsoftware.repository.bookingSchedule.BookingScheduleRepository;
 
@@ -16,10 +17,16 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
 
     //Constructor
 
-    private Set<BookingSchedule> bookingSchedulesDB;
+    private static BookingScheduleRepository bookingScheduleRepository = null;
+    private Set<BookingSchedule> BookingSchedulesDB;
 
-    public BookingScheduleRepositoryImpl() {
-        this.bookingSchedulesDB = new HashSet<>();
+    BookingScheduleRepositoryImpl() {
+        this.BookingSchedulesDB = new HashSet<>();
+    }
+
+    public static BookingScheduleRepository getBookingScheduleRepository() {
+        if (bookingScheduleRepository == null) bookingScheduleRepository = new BookingScheduleRepositoryImpl();
+        return bookingScheduleRepository;
     }
 
     /**
@@ -28,7 +35,7 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
      * @return This method creates a Booking Schedule
      */
     public BookingSchedule create(BookingSchedule bookingSchedule) {
-        this.bookingSchedulesDB.add(bookingSchedule);
+        this.BookingSchedulesDB.add(bookingSchedule);
         return bookingSchedule;
     }
 
@@ -39,7 +46,7 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
      */
     public BookingSchedule read(String bookingID){
         BookingSchedule bookingSchedule = null;
-        for(BookingSchedule b : this.bookingSchedulesDB) {
+        for(BookingSchedule b : this.BookingSchedulesDB) {
             if (b.getBookingID().equalsIgnoreCase(bookingID)){
                 bookingSchedule = b;
                 break;
@@ -57,8 +64,8 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
         //get the object and update
         BookingSchedule oldBookingSchedule = read(bookingSchedule.getBookingID());
         if (oldBookingSchedule != null) {
-            this.bookingSchedulesDB.remove(oldBookingSchedule);
-            this.bookingSchedulesDB.add(bookingSchedule);
+            this.BookingSchedulesDB.remove(oldBookingSchedule);
+            this.BookingSchedulesDB.add(bookingSchedule);
         }
         return bookingSchedule;
     }
@@ -71,13 +78,13 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
      */
     public boolean delete(String bookingID){
         BookingSchedule bookingSchedule = read(bookingID);
-        if (bookingSchedule != null) this.bookingSchedulesDB.remove(bookingSchedule);
+        if (bookingSchedule != null) this.BookingSchedulesDB.remove(bookingSchedule);
         return false;
     }
 
     @Override
     public Set<BookingSchedule> getAll() {
-        return null;
+        return this.BookingSchedulesDB;
     }
 }
 
