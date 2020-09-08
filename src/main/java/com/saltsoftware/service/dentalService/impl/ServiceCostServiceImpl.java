@@ -4,11 +4,15 @@ import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.repository.dentalService.ServiceCostRepository;
 import com.saltsoftware.repository.dentalService.impl.ServiceCostRepositoryImpl;
 import com.saltsoftware.service.dentalService.ServiceCostService;
-import com.saltsoftware.repository.dentalService.ServiceCostRepository;
-
 
 import java.util.HashSet;
 import java.util.Set;
+
+/*
+        Author: Lebusa Letsoha
+        Description: The class implements interface ServiceCostService interface to achieve the highest level of abstraction
+        Date: 07-Sep-2020
+ */
 
 public class ServiceCostServiceImpl implements ServiceCostService {
 

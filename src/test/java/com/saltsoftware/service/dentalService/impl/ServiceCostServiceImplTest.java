@@ -11,6 +11,12 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
+/*
+        Author: Lebusa Letsoha
+        Description: This is a test class for the ServiceCostServiceImpl class
+        Date: 07-Sep-2020
+ */
+
 import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ServiceCostServiceImplTest {
