@@ -1,5 +1,7 @@
 package com.saltsoftware.repository.patient.impl;
 import com.saltsoftware.entity.patient.Patient;
+import com.saltsoftware.repository.employee.EmployeeRepository;
+import com.saltsoftware.repository.employee.impl.EmployeeRepositoryImpl;
 import com.saltsoftware.repository.patient.PatientRepository;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,12 +14,20 @@ import java.util.Set;
 
 
 public class PatientRepositoryImpl implements PatientRepository {
+
+
     private Set<Patient>PatientDB;
+    public static PatientRepository patientRepository = null;
 
     public PatientRepositoryImpl(){
         this.PatientDB = new HashSet<>();
     }
 
+    public static PatientRepository getPatientRepository(){
+        if(patientRepository == null)
+            patientRepository = new PatientRepositoryImpl();
+        return patientRepository;
+    }
 
     // At this method will be used to create patient
     @Override
