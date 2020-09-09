@@ -25,7 +25,7 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
         this.repository = EmployeeRoleRepositoryImpl.getEmployeeRoleRepository();
     }
 
-    public static EmployeeRoleService PatientPaymentRecord(){
+    public static EmployeeRoleService getService(){
         if (service == null) service = new EmployeeRoleServiceImpl();
             return service;
     }
