@@ -12,12 +12,20 @@ import java.util.Set;
 
 
 public class PatientRepositoryImpl implements PatientRepository {
+
+
     private Set<Patient>PatientDB;
+    public static PatientRepository patientRepository = null;
 
     public PatientRepositoryImpl(){
         this.PatientDB = new HashSet<>();
     }
 
+    public static PatientRepository getPatientRepository(){
+        if(patientRepository == null)
+            patientRepository = new PatientRepositoryImpl();
+        return patientRepository;
+    }
 
     // At this method will be used to create patient
     @Override
