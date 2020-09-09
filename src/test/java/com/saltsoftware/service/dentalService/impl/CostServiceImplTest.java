@@ -1,4 +1,4 @@
-package com.saltsoftware.service.employee.impl;
+package com.saltsoftware.service.dentalService.impl;
 import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.factory.dentalService.CostFactory;
 import com.saltsoftware.service.dentalService.CostService;

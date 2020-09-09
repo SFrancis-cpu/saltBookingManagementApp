@@ -2,14 +2,9 @@ package com.saltsoftware.factory.bookingSchedule;
 
 
 import com.saltsoftware.entity.bookingSchedule.BookingSchedule;
-import com.saltsoftware.factory.bookingSchedule.BookingScheduleFactory;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.*;
 
 /**
  * Created by :Craig Carr AKA Fish84
@@ -19,30 +14,37 @@ import static org.junit.Assert.assertNotSame;
 
 public class BookingScheduleFactoryTest {
 
+    private BookingSchedule book1;
+    private BookingSchedule book2;
+
     @Before
-    public void setUp(){
-        //Test data
-        BookingSchedule b = BookingScheduleFactory.createBookingSchedule();
+    public void testCreateBookingSchedule() {
+        book1 = BookingScheduleFactory.createBookingSchedule();
+        book2 = BookingScheduleFactory.createBookingSchedule();
     }
 
     @Test
-    public void createBookingSchedule() {
-        //Test data
-        BookingSchedule b1 = BookingScheduleFactory.createBookingSchedule();
-        BookingSchedule b2 = BookingScheduleFactory.createBookingSchedule();
+    public void testEquality() {
 
         //Equality test
-        assertEquals(b1.getBookingID(),b1.getBookingID());
-
-        //Identity tests
-        assertSame(b2.getBookingID(),b2.getBookingID());
-        assertNotSame(b1.getBookingID(),b2.getBookingID());
+        assertEquals(book1.getBookingID(),book1.getBookingID());
+        assertEquals(book2.getPatientID(),book2.getPatientID());
     }
 
     @Test
-    public void testFail(){
-        //Fail test
-        Assert.fail();
-        System.out.println();
+    public void testNotNull() {
+
+        //NotNull test
+        assertNotNull(book1.getBookingID());
+        assertNotNull(book2.getPatientID());
     }
+
+    @Test
+    public void testIdentity() {
+
+        //Identity test
+        assertSame(book1.getBookingID(), book1.getBookingID());
+        assertSame(book2.getPatientID(), book2.getPatientID());
+    }
+
 }
