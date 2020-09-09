@@ -1,5 +1,11 @@
 package com.saltsoftware.service.employee.impl;
 
+/*
+        Author: Sakeena Francis
+        Description: EmployeeRoleService - Difference between the service and repository is that the repository contains the database, the service does not, it only implements the business logic and whatever is in the repository
+        Test Case
+ */
+
 import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.factory.employee.EmployeeRoleFactory;
 import com.saltsoftware.service.employee.EmployeeRoleService;
