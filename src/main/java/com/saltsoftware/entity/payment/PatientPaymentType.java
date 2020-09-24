@@ -1,11 +1,15 @@
 package com.saltsoftware.entity.payment;
 
 
-public class PatientPaymentType {
+import java.io.Serializable;
+
+public class PatientPaymentType implements Serializable {
 
     //required parameters
     private String paymentTypeID, paymentDescrip;
 
+    //default constructor
+    private PatientPaymentType(){}
 
     //constructor
     private PatientPaymentType(Builder builder) {
