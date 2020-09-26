@@ -12,7 +12,8 @@ import java.util.Set;
 /*
     Author: Abduragmaan Frank
     Student no: 217009069
-    Desc: Employee Controller
+    Desc: Employee Controller implementation
+    Date: 26-09-2020
  */
 
 @RestController
@@ -22,10 +23,7 @@ public class EmployeeController {
     @Autowired
   private EmployeeService employeeService;
 
-    //Business Logic
-
-
-   @PostMapping("/create")
+     @PostMapping("/create")
     public Employee create(@RequestBody Employee employee){
        // return employee;
        employee = EmployeeFactory.createEmployee(employee.getEmpName(),employee.getEmpLastName());
