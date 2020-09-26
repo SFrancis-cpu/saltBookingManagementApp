@@ -1,5 +1,4 @@
 package com.saltsoftware.repository.patient;
-
 import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.repository.Repository;
 import java.util.Set;

@@ -3,6 +3,7 @@ package com.saltsoftware.repository.dentalService.impl;
 import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.repository.dentalService.CostRepository;
 
+
 import java.util.HashSet;
 import java.util.Set;
 /**
@@ -19,14 +20,21 @@ public class CostRepositoryImpl implements CostRepository {
         this.CostDB = new HashSet<>();
     }
 
+    public static CostRepository getCostRepository(){
+        CostRepositoryImpl costRepository = null;
+        if(costRepository == null)
+            costRepository = new CostRepositoryImpl();
+        return costRepository;
+    }
 
-    // This method creates a Employee
+
+    // This method creates a cost
     @Override
     public Cost create(Cost cost) {
         this.CostDB.add(cost);
         return cost;
     }
-    //This method reads from Employee database
+    //This method reads from cost database
     @Override
     public Cost read(String empId) {
         Cost cost = null;
@@ -39,7 +47,7 @@ public class CostRepositoryImpl implements CostRepository {
         return cost;
     }
 
-    //This method updates an existing employee
+    //This method updates an existing cost
     public Cost update(Cost cost) {
         Cost oldCost = read(cost.getCostID());
         if(oldCost != null){
@@ -49,7 +57,7 @@ public class CostRepositoryImpl implements CostRepository {
         return cost;
     }
 
-    //This method removes and employee object
+    //This method removes and cost object
     public boolean delete(String CostID) {
         Cost cost = read(CostID);
         if(cost != null);

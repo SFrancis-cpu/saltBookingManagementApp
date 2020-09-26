@@ -3,6 +3,8 @@ package com.saltsoftware.repository.employee.impl;
 import com.saltsoftware.entity.employee.Role;
 import com.saltsoftware.repository.employee.RoleRepository;
 
+
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,10 +15,17 @@ import java.util.Set;
 
 public class RoleRepositoryImpl implements RoleRepository {
 
+    private static RoleRepository RoleRepository = null;
     private Set<Role> roleDB;
 
     public RoleRepositoryImpl(){
         this.roleDB = new HashSet<>();
+    }
+
+    public static RoleRepository getRoleRepository() {
+        if(RoleRepository == null)
+            RoleRepository =  new RoleRepositoryImpl();
+        return RoleRepository;
     }
 
     //Role Doctor, Receptionist...

@@ -9,4 +9,7 @@ package com.saltsoftware.service;
         T update(T t);
         boolean delete(genericID id);
 
+
+
+
     }
