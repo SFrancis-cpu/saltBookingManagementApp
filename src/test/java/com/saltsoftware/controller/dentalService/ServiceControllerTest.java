@@ -50,7 +50,7 @@ public class ServiceControllerTest {
     {
         String url = baseURL + "read/" + service.getServiceId();
         System.out.println("URL: " +url);
-        Service service = restTemp.withBasicAuth("service","service")
+        Service service = restTemp.withBasicAuth("service","service")//just creating a basic authentication
                 .getForObject(url + "/service", Service.class);
         System.out.println(service.getServiceId());
         assertNotNull(service);
