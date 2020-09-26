@@ -4,14 +4,14 @@ import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.repository.patient.PatientRepository;
 import com.saltsoftware.repository.patient.impl.PatientRepositoryImpl;
 import com.saltsoftware.service.patient.PatientService;
-
+import org.springframework.stereotype.Service;
 import java.util.Set;
 
 /*author: Bathi Ntshinga
  *Std no:214198227
  *Date: 2020/09/08
  */
-
+@Service
 public class PatientServiceImpl implements PatientService {
 
     public static PatientService service = null;
