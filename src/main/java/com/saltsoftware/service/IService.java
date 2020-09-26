@@ -5,7 +5,7 @@ package com.saltsoftware.service;
     public interface IService<T, genericID> {
 
         T create(T t);
-        T read(genericID id);
+        static T read(genericID id);
         T update(T t);
         boolean delete(genericID id);
 
