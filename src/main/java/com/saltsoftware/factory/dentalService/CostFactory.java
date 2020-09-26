@@ -24,6 +24,7 @@ public class CostFactory {
         return cost;
     }
 
-    public static Cost buildCost(String costID) {
+    public static Cost buildCost() {
+        return buildCost();
     }
 }
