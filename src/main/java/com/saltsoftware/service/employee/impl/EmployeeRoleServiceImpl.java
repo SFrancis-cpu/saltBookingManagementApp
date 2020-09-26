@@ -11,9 +11,11 @@ import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.repository.employee.EmployeeRoleRepository;
 import com.saltsoftware.repository.employee.impl.EmployeeRoleRepositoryImpl;
 import com.saltsoftware.service.employee.EmployeeRoleService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
 
