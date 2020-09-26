@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Set;
 
+/* Student: Abram Rakgotho
+ * Student Number: 215031393
+ * Group: Part time
+ * Role: Creating the functionality of serviceController
+ */
+
 @RestController //enables the class to be ready for use by spring MVC to handle web requests.
 @RequestMapping("/service") //Maps / to the index method.
 
@@ -28,6 +34,8 @@ public class ServiceController {
     public Service read(@PathVariable String id)
     {
         return serviceService.read(id);
+
+
 
     }
     @GetMapping("/all")
