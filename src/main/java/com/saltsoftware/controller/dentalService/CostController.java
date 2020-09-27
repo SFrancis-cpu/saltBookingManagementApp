@@ -22,7 +22,7 @@ public class CostController {
 
     private CostService costService;
 
-    @RequestMapping("/createcost")
+    //@RequestMapping("/createcost")
 
     @PostMapping("/create")
     public Cost create(@RequestBody Cost cost){
