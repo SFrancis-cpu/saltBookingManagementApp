@@ -36,7 +36,7 @@ public class ServiceControllerTest {
     private String baseURL = "Http://localhost:8080/service/";
 
     @Test
-    public void d_create()
+    public void a_create()
     {
         //Service service = ServiceFactory.createService("Dentist", "Teeth alignment");
         String url = baseURL + "create";
@@ -47,7 +47,7 @@ public class ServiceControllerTest {
         System.out.println(postResponse.getBody());
     }
     @Test
-    public void e_read()
+    public void b_read()
     {
         //it passes 200 ok but does not display the required content
         String url = baseURL + "read/" + service.getServiceId();
@@ -63,7 +63,7 @@ public class ServiceControllerTest {
 
     }
     @Test
-    public void f_update()
+    public void c_update()
     {
         Service updated = new Service.Builder().copy(service).setServiceName("Dentist")
                 .setServiceDescrip("Teeth removal").build();
@@ -75,7 +75,7 @@ public class ServiceControllerTest {
 
     }
     @Test
-    public void g_getAll()
+    public void d_getAll()
     {
         //The server has not found anything matching the requestit  URL
         String url = baseURL + " all";
@@ -91,7 +91,7 @@ public class ServiceControllerTest {
 
     }
     @Test
-    public void h_delete()
+    public void e_delete()
     {
 
         String url = baseURL + "delete/" + service.getServiceId();
