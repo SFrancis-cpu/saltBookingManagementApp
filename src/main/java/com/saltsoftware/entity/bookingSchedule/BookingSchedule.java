@@ -1,13 +1,16 @@
 package com.saltsoftware.entity.bookingSchedule;
 
+import java.io.Serializable;
+
 /**
  * Created by :Craig Carr AKA Fish84
  * Student no: 204111307
  * Desc: Create BookingSchedule Builder
  */
 
-public class BookingSchedule {
+public class BookingSchedule implements Serializable {
     private String bookingID, patientID;
+    private BookingSchedule(){}
 
     //constructor
     private BookingSchedule(Builder builder) {
