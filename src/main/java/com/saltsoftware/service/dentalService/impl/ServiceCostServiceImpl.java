@@ -4,6 +4,7 @@ import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.repository.dentalService.ServiceCostRepository;
 import com.saltsoftware.repository.dentalService.impl.ServiceCostRepositoryImpl;
 import com.saltsoftware.service.dentalService.ServiceCostService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +15,7 @@ import java.util.Set;
         Date: 07-Sep-2020
  */
 
+@Service
 public class ServiceCostServiceImpl implements ServiceCostService {
 
     private static ServiceCostRepository repository = null;
