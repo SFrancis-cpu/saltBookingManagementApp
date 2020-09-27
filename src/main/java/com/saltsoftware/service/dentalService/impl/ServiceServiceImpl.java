@@ -12,7 +12,7 @@ import java.util.Set;
  * Group: Part time
  * Role passed: Created ServiceService implementation that implements the local interface ServiceService
  */
-
+@org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {
 
 
