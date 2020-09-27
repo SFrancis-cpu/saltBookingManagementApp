@@ -52,16 +52,18 @@ public class EmployeeControllerTest {
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
         System.out.println(response);
         System.out.println(response.getBody());
+        assertNotNull(response);
     }
     //still wip
     @Test
     public void b_read() {
         String url = myURL + "read/"+ employee.getEmpName();
         System.out.println("URL "+ url);
+        System.out.println(url);
         ResponseEntity<Employee> getResponse = restTemplate.getForEntity(url,Employee.class);
         System.out.println("this is response--> "+getResponse);
         assertNotNull(getResponse);
-       // Assert.assertEquals(employee,getResponse.getBody().getEmpId());
+       // Assert.assertEquals(employee.getEmpName(),getResponse.getBody().getEmpName());
     }
 
     //Testing if i can successfully update my LastName
@@ -77,5 +79,8 @@ public class EmployeeControllerTest {
 
     @Test
     public void e_delete() {
+        String url = myURL +"delete/"+ employee.getEmpId();
+        System.out.println("URL: "+url);
+        restTemplate.delete(url);
     }
 }
