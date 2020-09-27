@@ -4,6 +4,7 @@ import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.repository.payment.PatientPaymentTypeRepository;
 import com.saltsoftware.repository.payment.impl.PatientPaymentTypeImpl;
 import com.saltsoftware.service.payment.PatientPaymentTypeService;
+import org.springframework.stereotype.Service;
 
 
 import java.util.Set;
@@ -14,6 +15,7 @@ import java.util.Set;
  * Desc: Create Patient Payment Type Service Implementation
  */
 
+@Service
 public class PatientPaymentTypeServiceImpl implements PatientPaymentTypeService {
 
     // Encapsulate PatientPayment Repository

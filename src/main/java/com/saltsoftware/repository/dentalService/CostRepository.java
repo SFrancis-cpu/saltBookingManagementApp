@@ -1,6 +1,7 @@
 package com.saltsoftware.repository.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
+import com.saltsoftware.repository.dentalService.CostRepository;
 import com.saltsoftware.repository.Repository;
 
 import java.util.Set;
