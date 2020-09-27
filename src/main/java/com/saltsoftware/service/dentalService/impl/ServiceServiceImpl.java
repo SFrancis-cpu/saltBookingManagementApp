@@ -32,27 +32,22 @@ public class ServiceServiceImpl implements ServiceService {
         return service;
     }
 
-    @Override
     public Set<Service> getAll() {
         return this.sRepository.getAll();
     }
 
-    @Override
     public Service create(Service service) {
         return this.sRepository.create(service);
     }
 
-    @Override
     public Service read(String s) {
         return this.sRepository.read(s);
     }
 
-    @Override
     public Service update(Service service) {
         return this.sRepository.update(service);
     }
 
-    @Override
     public boolean delete(String s) {
         return this.sRepository.delete(s);
     }
