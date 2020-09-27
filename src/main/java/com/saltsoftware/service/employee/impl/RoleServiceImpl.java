@@ -3,6 +3,7 @@ package com.saltsoftware.service.employee.impl;
 import com.saltsoftware.entity.employee.Role;
 import com.saltsoftware.repository.employee.impl.RoleRepositoryImpl;
 import com.saltsoftware.service.employee.RoleService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -11,7 +12,7 @@ import java.util.Set;
 /* @std no - 215029003
 /* @Description - Creating Role Service
  */
-
+@Service
 public class RoleServiceImpl implements RoleService {
 
     private static com.saltsoftware.service.employee.RoleService RoleService = null;

@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 
     @FixMethodOrder(MethodSorters.NAME_ASCENDING)
     public class RoleServiceImplTest {
-        private static com.saltsoftware.service.employee.RoleService RoleService = (RoleService) new RoleServiceImpl();
+        private static RoleService RoleService = (RoleService) new RoleServiceImpl();
         private static Role role = RoleFactory.createRole("Reception");
 
 
