@@ -23,8 +23,6 @@ import static org.junit.Assert.*;
 
 public class ServiceCostControllerTest {
 
-
-
         @Autowired
         private TestRestTemplate restTemplate;
         private String baseURL = "http://localhost:8080/servicecost/";
