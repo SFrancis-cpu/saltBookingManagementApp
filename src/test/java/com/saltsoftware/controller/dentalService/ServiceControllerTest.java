@@ -1,6 +1,7 @@
 package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.Service;
+import com.saltsoftware.entity.employee.Role;
 import com.saltsoftware.factory.dentalService.ServiceFactory;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -49,13 +51,13 @@ public class ServiceControllerTest {
     @Test
     public void b_read()
     {
-        //it passes 200 ok but does not display the required content
-        String url = baseURL + "read/" + service.getServiceId();
 
-        System.out.println("URL: " +url);
-        ResponseEntity<Service> response = restTemp.getForEntity(url, Service.class);
-        assertEquals(service.getServiceId(), service.getServiceId());
-        System.out.println(response);
+        String url = baseURL + "read" + service.getServiceId();
+        System.out.println("read  " +service);
+        ResponseEntity<Service> res = restTemp.getForEntity(url,Service.class);
+        assertNotNull(res);
+        assertNotNull(res.getBody());
+
         /*Service service = restTemp.withBasicAuth("service","service")//just creating a basic authentication
                 .getForObject(url + "/service", Service.class);
         System.out.println(service.getServiceId());
