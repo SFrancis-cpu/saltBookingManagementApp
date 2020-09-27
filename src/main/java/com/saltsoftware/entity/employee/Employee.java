@@ -2,10 +2,15 @@ package com.saltsoftware.entity.employee;
 
 //Created by: Abduragmaan Frank
 //Student Number: 217009069
+// Employee Entity with Builder pattern
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private String empName, empLastName,empId;
 
+    //Default Constructor
+    private Employee(){}
 
     private Employee(Builder builder){
         this.empName= builder.empName;
