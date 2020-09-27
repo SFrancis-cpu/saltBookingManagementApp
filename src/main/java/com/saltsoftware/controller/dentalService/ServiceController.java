@@ -16,13 +16,13 @@ import java.util.Set;
  */
 
 @RestController //enables the class to be ready for use by spring MVC to handle web requests.
-@RequestMapping("/service") //Maps / to the index method.
+@RequestMapping("/service") //Maps / to the index method and that is in my service class.
 
 public class ServiceController {
     @Autowired
     private ServiceServiceImpl serviceService;
 
-    @PostMapping("/create")
+    @PostMapping("/create") //this annotation maps to create
     public Service create(@RequestBody Service service)
     {
         Service nService = ServiceFactory.createService(service.getServiceName(), service.getServiceDescrip());
