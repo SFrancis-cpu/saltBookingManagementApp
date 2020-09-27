@@ -29,20 +29,17 @@ public class ServiceCostServiceImpl implements ServiceCostService {
     }
 
     // return all object in the database records
-    @Override
     public Set<ServiceCost> getAll() {
         return this.serviceCostDB;
     }
 
     //Responsible for the record creation and writing to the DB
-    @Override
     public ServiceCost create(ServiceCost serviceCost) {
         this.serviceCostDB.add(serviceCost);
         return serviceCost;
     }
 
     // Read from the database and return the instance of ServiceCost
-    @Override
     public ServiceCost read(String id) {
 
         for (ServiceCost serviceCost : this.serviceCostDB)
@@ -64,7 +61,6 @@ public class ServiceCostServiceImpl implements ServiceCostService {
     }
 
     // Responsible for updating the existing record in the database and return the instance of ServiceCost
-    @Override
     public ServiceCost update(ServiceCost serviceCost) {
         ServiceCost toDelete = search(serviceCost.getServiceId());
         if (toDelete != null){
@@ -74,7 +70,6 @@ public class ServiceCostServiceImpl implements ServiceCostService {
         return null;
     }
     // Method to remove the record from the DB
-    @Override
     public boolean delete(String s) {
         ServiceCost toDelete = read(s);
         if (toDelete != null) {
