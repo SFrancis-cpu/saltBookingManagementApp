@@ -43,8 +43,8 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public Service read(String s) {
-        return this.sRepository.read(s);
+    public Service read(String service) {
+        return this.sRepository.read(service);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public boolean delete(String s) {
-        return this.sRepository.delete(s);
+    public boolean delete(String service) {
+        return this.sRepository.delete(service);
     }
 }
