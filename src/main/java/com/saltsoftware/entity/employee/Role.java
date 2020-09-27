@@ -1,11 +1,16 @@
 package com.saltsoftware.entity.employee;
+
+import java.io.Serializable;
+
 /* @author - Noluthando Nqwelo
 /* @std no - 215029003
 /* @Description - Create Role Entity with roleID and roleDescription
  */
-public class Role {
+public class Role implements Serializable {
         private static String roleID;
     private static String roleDesc;
+
+    private Role(){}
 
         private Role(Builder builder) {
             this.roleID = builder.roleID;
