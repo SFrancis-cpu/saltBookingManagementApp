@@ -67,6 +67,14 @@ public class EmployeeRoleControllerTest {
         System.out.println(response);
         System.out.println(response.getBody());
         assertNotNull(response);
-
     }
+
+    @Test
+    public void e_delete(){
+        EmployeeRole employeeRole = EmployeeRoleFactory.buildEmployeeRole("b438ce8f-76b8-40f8-9a18-bf8b3592613E");
+        String url = baseURL +"delete/" + employeeRole.getEmpID();
+        System.out.println("URL: " +url);
+        restTemplate.delete(url);
+    }
+
 }
