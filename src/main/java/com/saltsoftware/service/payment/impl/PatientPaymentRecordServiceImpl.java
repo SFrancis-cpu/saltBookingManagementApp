@@ -5,6 +5,7 @@ import com.saltsoftware.entity.payment.PatientPaymentRecord;
 import com.saltsoftware.repository.payment.PatientPaymentRecordRepository;
 import com.saltsoftware.repository.payment.impl.PatientPaymentRecordImpl;
 import com.saltsoftware.service.payment.PatientPaymentRecordService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
 /* @student number - 216182848
 /* @Description - Creating Patient Payment Record Service
  */
-
+@Service
 public class PatientPaymentRecordServiceImpl implements PatientPaymentRecordService {
 
 

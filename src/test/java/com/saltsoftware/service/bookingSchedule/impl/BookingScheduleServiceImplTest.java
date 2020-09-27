@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by :Craig Carr AKA Fish84
  * Student no: 204111307
- * Desc: Create BookingScheduleServiceImplTest testing of
+ * Desc: Create BookingScheduleServiceImplTest testing of21
  */
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

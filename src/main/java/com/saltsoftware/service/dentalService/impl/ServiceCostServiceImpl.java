@@ -4,6 +4,7 @@ import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.repository.dentalService.ServiceCostRepository;
 import com.saltsoftware.repository.dentalService.impl.ServiceCostRepositoryImpl;
 import com.saltsoftware.service.dentalService.ServiceCostService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +15,7 @@ import java.util.Set;
         Date: 07-Sep-2020
  */
 
+@Service
 public class ServiceCostServiceImpl implements ServiceCostService {
 
     private static ServiceCostRepository repository = null;
@@ -29,20 +31,17 @@ public class ServiceCostServiceImpl implements ServiceCostService {
     }
 
     // return all object in the database records
-    @Override
     public Set<ServiceCost> getAll() {
         return this.serviceCostDB;
     }
 
     //Responsible for the record creation and writing to the DB
-    @Override
     public ServiceCost create(ServiceCost serviceCost) {
         this.serviceCostDB.add(serviceCost);
         return serviceCost;
     }
 
     // Read from the database and return the instance of ServiceCost
-    @Override
     public ServiceCost read(String id) {
 
         for (ServiceCost serviceCost : this.serviceCostDB)
@@ -64,7 +63,6 @@ public class ServiceCostServiceImpl implements ServiceCostService {
     }
 
     // Responsible for updating the existing record in the database and return the instance of ServiceCost
-    @Override
     public ServiceCost update(ServiceCost serviceCost) {
         ServiceCost toDelete = search(serviceCost.getServiceId());
         if (toDelete != null){
@@ -74,7 +72,6 @@ public class ServiceCostServiceImpl implements ServiceCostService {
         return null;
     }
     // Method to remove the record from the DB
-    @Override
     public boolean delete(String s) {
         ServiceCost toDelete = read(s);
         if (toDelete != null) {

@@ -11,7 +11,6 @@ import java.io.Serializable;
 public class EmployeeRole implements Serializable {
 
        private String empID, roleID;
-
        private EmployeeRole(){}
 
         private EmployeeRole(Builder builder) {
