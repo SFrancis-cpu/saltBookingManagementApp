@@ -41,4 +41,6 @@ public class GenericHelper {
     public static String generateCostID(){ return UUID.randomUUID().toString(); }
 }
 
+@interface Override {
+}
 
