@@ -1,7 +1,11 @@
 package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.ServiceCost;
+import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.factory.dentalService.ServiceCostFactory;
+import com.saltsoftware.factory.employee.EmployeeRoleFactory;
+import com.saltsoftware.service.dentalService.ServiceCostService;
+import com.saltsoftware.service.dentalService.impl.ServiceCostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,41 +22,41 @@ import java.util.Set;
 @RestController
 @RequestMapping("/serviceCost")
 public class ServiceCostController {
-    @Autowired //used to create a connection to the service package
-    private ServiceCost serviceCost;
+    @Autowired //This handles everyt related serviceCost operations
+    //private ServiceCostServiceImpl service;
+    private ServiceCostService costService;
 
     //@RequestMapping("/create")
     @PostMapping("/create")
     public ServiceCost create(@RequestBody ServiceCost serviceCost){
-        ServiceCost newServiceCost = ServiceCostFactory.buildServiceCost(serviceCost.getServiceId(), serviceCost.getCostId());
-        return null;
-
+        ServiceCost newServiceCost = ServiceCostFactory.buildServiceCost(serviceCost.getServiceId(), serviceCost.getServiceId());
+        return costService.create(serviceCost);
     }
 
     //read
     @GetMapping("/read/{id}")
     @ResponseBody
     public ServiceCost read(@PathVariable String id){
-        return null;
+        return costService.read(id);
     }
 
     //getall
     @GetMapping("/all")
     public Set<ServiceCost> getall(){
-        return null;
+        return costService.getAll();
     }
 
     //update
     @PostMapping("/update")
     public ServiceCost update(@RequestBody ServiceCost serviceCost){
-        return null;
+        return costService.update(serviceCost);
     }
 
     //delete
     @DeleteMapping ("/delete/{id}")
     @ResponseBody
     public void delete(@PathVariable String id){
-        // delete
+        costService.delete(id);
     }
 
 }
