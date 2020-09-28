@@ -61,12 +61,12 @@ public class PatientControllerTest {
     }
     @Test
     public void c_update() {
-        Patient updated = new Patient().Builder().copy(patient).setempPatientName("Bathi").build();
+        Patient updated = new Patient().Builder().copy(patient).setPatientName("Bathi").build();
         String url = myURL + "update";
         System.out.println("url "+ url);
         ResponseEntity<Patient> response = restTemplate.postForEntity(url,updated,Patient.class);
         System.out.println(response.getBody().getPatientSurname());
-        assertEquals(updated.PatientSurname(), response.getBody().getEmpLastName());
+        assertEquals(updated.PatientSurname(), response.getBody().getPatientName());
     }
 
     @Test
