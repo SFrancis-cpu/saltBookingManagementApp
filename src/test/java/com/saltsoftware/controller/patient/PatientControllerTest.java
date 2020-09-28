@@ -66,7 +66,7 @@ public class PatientControllerTest {
         System.out.println("url "+ url);
         ResponseEntity<Patient> response = restTemplate.postForEntity(url,updated,Patient.class);
         System.out.println(response.getBody().getPatientSurname());
-        assertEquals(updated.PatientSurname(), response.getBody().getPatientName());
+        assertEquals(updated.getPatientName(), response.getBody().getPatientSurname());
     }
 
     @Test
