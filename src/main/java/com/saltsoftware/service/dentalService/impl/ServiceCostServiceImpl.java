@@ -6,7 +6,6 @@ import com.saltsoftware.repository.dentalService.impl.ServiceCostRepositoryImpl;
 import com.saltsoftware.service.dentalService.ServiceCostService;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Set;
 
 /*
@@ -14,70 +13,45 @@ import java.util.Set;
         Description: The class implements interface ServiceCostService interface to achieve the highest level of abstraction
         Date: 07-Sep-2020
  */
-
 @Service
 public class ServiceCostServiceImpl implements ServiceCostService {
 
-    private static ServiceCostRepository repository = null;
-    private Set<ServiceCost> serviceCostDB;
+    private static ServiceCostService service = null;
+    private ServiceCostRepository repository;
 
-    private ServiceCostServiceImpl(){
-        this.serviceCostDB = new HashSet<>();
+    public ServiceCostServiceImpl ()
+    {
+        this.repository = ServiceCostRepositoryImpl.getRepository();
     }
 
-    public static ServiceCostRepository getRepository(){
-        if (repository == null) repository = new ServiceCostRepositoryImpl();
-        return repository;
+    public static ServiceCostService getService(){
+        if (service == null) service = new ServiceCostServiceImpl();
+        return service;
     }
 
-    // return all object in the database records
+    @Override
     public Set<ServiceCost> getAll() {
-        return this.serviceCostDB;
+        return this.repository.getAll();
     }
 
-    //Responsible for the record creation and writing to the DB
+    @Override
     public ServiceCost create(ServiceCost serviceCost) {
-        this.serviceCostDB.add(serviceCost);
-        return serviceCost;
+        return this.repository.create(serviceCost);
     }
 
-    // Read from the database and return the instance of ServiceCost
-    public ServiceCost read(String id) {
-
-        for (ServiceCost serviceCost : this.serviceCostDB)
-        {
-            if(serviceCost.getServiceId().equalsIgnoreCase(id))
-                return serviceCost;
-        }
-        return null;
+    @Override
+    public ServiceCost read(String s) {
+        return this.repository.read(s);
     }
 
-    // Search function when doing a database query
-    private ServiceCost search(String id){
-        for(ServiceCost serviceCost: serviceCostDB){
-            if(serviceCost.getServiceId().equals(id)){
-                return serviceCost;
-            }
-        }
-        return null;
-    }
-
-    // Responsible for updating the existing record in the database and return the instance of ServiceCost
+    @Override
     public ServiceCost update(ServiceCost serviceCost) {
-        ServiceCost toDelete = search(serviceCost.getServiceId());
-        if (toDelete != null){
-            this.serviceCostDB.remove(toDelete);
-            return create(serviceCost);
-        }
-        return null;
+        return this.repository.update(serviceCost);
     }
-    // Method to remove the record from the DB
+
+    @Override
     public boolean delete(String s) {
-        ServiceCost toDelete = read(s);
-        if (toDelete != null) {
-            this.serviceCostDB.remove(toDelete);
-        }
-        return false;
+        return this.repository.delete(s);
     }
 
 }
