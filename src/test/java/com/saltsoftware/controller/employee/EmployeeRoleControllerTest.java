@@ -44,18 +44,8 @@ public class EmployeeRoleControllerTest {
 
         System.out.println(postResponse);
         System.out.println(postResponse.getBody());
-
     }
 
-    @Test
-    public void read() {
-    }
-
-
-
-    @Test
-    public void c_update() {
-    }
 
     @Test
     public void d_getall() {
