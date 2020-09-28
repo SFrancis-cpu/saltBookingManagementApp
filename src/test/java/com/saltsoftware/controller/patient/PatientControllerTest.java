@@ -14,6 +14,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.FixMethodOrder;
+@FixMethodOrder (MethodSorters.NAME_ASCENDING)
+
+/* author: Bathi Ntshinga
+/* std no:214198227
+/* Description: Test Case for Domain Driven Patient Controller
+ */
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -22,10 +29,14 @@ import static org.junit.Assert.*;
 public class PatientControllerTest {
 
     private TestRestTemplate restTemplate;
+    private static Patient patient = PatientFactory.createPatient("Bathi","Ntshinga");
+
     private String baseURL = "http://localhost:8080/patient/";
 
+    //Testing the creation of patientName
     @Test
     public void a_create() {
+
         Patient patient = PatientFactory.createPatient("Bathi");
         String url = baseURL + "create";
         System.out.println(url);
@@ -37,9 +48,8 @@ public class PatientControllerTest {
         System.out.println(postResponse);
         System.out.println(postResponse.getBody());
 
-
     }
-
+    // Test the read command
     @Test
     public void b_read() {
         String url = myURL + "read/"+ patient.getPatientName();
@@ -66,11 +76,11 @@ public class PatientControllerTest {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null,headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET,entity,String.class);
-        System.out.println(response);
         System.out.println(response.getBody());
         assertNotNull(response);
     }
 
+    //Testing the delete method
     @Test
     public void e_delete() {
         String url = myURL +"delete/"+ patient.getPatientId();
