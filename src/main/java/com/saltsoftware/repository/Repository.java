@@ -2,6 +2,7 @@ package com.saltsoftware.repository;
 
 //Author: Sakeena Francis, Repository for common methods
 
+@Deprecated
 public interface Repository <T, genericID> {
 
     T create(T t);

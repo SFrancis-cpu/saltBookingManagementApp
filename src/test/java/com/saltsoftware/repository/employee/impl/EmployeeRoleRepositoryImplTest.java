@@ -1,4 +1,4 @@
-package com.saltsoftware.repository.employee.impl;
+/*package com.saltsoftware.repository.employee.impl;
 
 import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.factory.employee.EmployeeRoleFactory;
@@ -12,12 +12,6 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
-/*
-        Author: Sakeena Francis
-        Description: EmployeeRoleRepository Implementation Test Case (Create / Read / Update and Delete)
-        Date: 19-July-2020
-
- */
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeRoleRepositoryImplTest {
@@ -57,21 +51,13 @@ public class EmployeeRoleRepositoryImplTest {
     public void e_delete() {
         repository.delete(employeeRole.getEmpID());
     }
-
- /*
-    //Delete Method
-    @Test
-    public void e_delete() {
-        boolean deleted = repository.delete(employeeRole.getEmpID());
-        Assert.assertTrue(deleted);
-    }
-*/
-
+/
     //GetAll from the DB
-    @Test
-    public void d_getAll() {
+    //@Test
+    //public void d_getAll() {
         Set<EmployeeRole> employeeRoles = repository.getAll();
         assertEquals(1, employeeRoles.size());
         System.out.println(repository.getAll());
     }
 }
+*/

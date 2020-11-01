@@ -1,6 +1,7 @@
 package com.saltsoftware.controller.payment;
 
 
+import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.factory.payment.PatientPaymentTypeFactory;
 import com.saltsoftware.service.payment.impl.PatientPaymentTypeServiceImpl;
@@ -29,8 +30,28 @@ public class PatientPaymentTypeController {
         return paymentTypeService.create(newPaymentType);
     }
 
+    //read
+    @GetMapping("/read/{id}")
+    @ResponseBody
+    public PatientPaymentType read(@PathVariable String id){
+        return paymentTypeService.read(id);
+    }
+
     @GetMapping("/all") //send to the server
     public Set<PatientPaymentType> getall(){
         return paymentTypeService.getAll();
+    }
+
+    //update
+    @PostMapping("/update")
+    public PatientPaymentType update(@RequestBody PatientPaymentType patientPaymentType){
+        return paymentTypeService.update(patientPaymentType);
+    }
+
+    //delete
+    @DeleteMapping ("/delete/{id}")
+    @ResponseBody
+    public void delete(@PathVariable String id){
+        paymentTypeService.delete(id);
     }
 }
