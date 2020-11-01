@@ -4,10 +4,12 @@ package com.saltsoftware.entity.patient;
 /* Description: Entity for Patient
  */
 
-public class Patient{
-    private String patientID;
-    private String patientName;
-    private String patientSurname;
+import java.io.Serializable;
+
+public class Patient implements Serializable {
+    private static String patientID;
+    private static String patientName;
+    private static String patientSurname;
 
     private Patient (Builder builder){
         this.patientID = builder.patientID;
