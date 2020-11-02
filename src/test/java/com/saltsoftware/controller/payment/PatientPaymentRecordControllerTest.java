@@ -34,7 +34,7 @@ public class PatientPaymentRecordControllerTest {
     @Test
     public void create() {
     }
-
+    //Test case for getAll method
     @Test
     public void getAll()
     {
@@ -53,7 +53,7 @@ public class PatientPaymentRecordControllerTest {
     @Test
     public void update() {
     }
-
+    //Test case for delete method
     @Test
     public void delete()
     {
