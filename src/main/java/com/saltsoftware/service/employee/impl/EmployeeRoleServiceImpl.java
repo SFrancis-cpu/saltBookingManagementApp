@@ -9,51 +9,49 @@ package com.saltsoftware.service.employee.impl;
 
 import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.repository.employee.EmployeeRoleRepository;
-import com.saltsoftware.repository.employee.impl.EmployeeRoleRepositoryImpl;
 import com.saltsoftware.service.employee.EmployeeRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
-
     private static EmployeeRoleService service = null;
+
+    @Autowired
     private EmployeeRoleRepository repository;
-
-    public EmployeeRoleServiceImpl ()
-    {
-        this.repository = EmployeeRoleRepositoryImpl.getEmployeeRoleRepository();
-    }
-
-    public static EmployeeRoleService getService(){
-        if (service == null) service = new EmployeeRoleServiceImpl();
-            return service;
-    }
 
     @Override
     public Set<EmployeeRole> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public EmployeeRole create(EmployeeRole employeeRole) {
-        return this.repository.create(employeeRole);
+        return this.repository.save(employeeRole);
     }
 
     @Override
     public EmployeeRole read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public EmployeeRole update(EmployeeRole employeeRole) {
-        return this.repository.update(employeeRole);
+        if(this.repository.existsById(employeeRole.getEmpID())) {
+            return this.repository.save(employeeRole);
+        }
+        return null;
     }
+
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if(this.repository.existsById(s)) return false;
+        else return true;
     }
 }
