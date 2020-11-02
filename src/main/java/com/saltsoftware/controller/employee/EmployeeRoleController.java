@@ -1,9 +1,12 @@
 package com.saltsoftware.controller.employee;
 
 
+import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.entity.employee.EmployeeRole;
+import com.saltsoftware.factory.employee.EmployeeFactory;
 import com.saltsoftware.factory.employee.EmployeeRoleFactory;
 import com.saltsoftware.service.employee.EmployeeRoleService;
+import com.saltsoftware.service.employee.impl.EmployeeRoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,13 +25,13 @@ import java.util.Set;
 public class EmployeeRoleController {
 
     @Autowired //used to create a connection to the service package
-    private EmployeeRoleService employeeRoleService;
+    private EmployeeRoleServiceImpl employeeRoleService;
 
     //@RequestMapping("/create")
     @PostMapping("/create")
-    public EmployeeRole create(@RequestBody EmployeeRole employeeRole){
-        EmployeeRole newEmployeeRole = EmployeeRoleFactory.buildEmployeeRole(employeeRole.getEmpID());
-        return employeeRoleService.create(newEmployeeRole);
+    public EmployeeRole create(@RequestBody EmployeeRole empRole){
+        EmployeeRole newEmpRole = EmployeeRoleFactory.buildEmployeeRole(empRole.getEmpID(),empRole.getRoleID());
+        return employeeRoleService.create(newEmpRole);
     }
 
     //read

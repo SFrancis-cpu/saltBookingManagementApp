@@ -1,9 +1,9 @@
-package com.saltsoftware.controller.employee;
+package com.saltsoftware.controller.payment;
 
-import com.saltsoftware.entity.employee.EmployeeRole;
-import com.saltsoftware.factory.employee.EmployeeRoleFactory;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -13,54 +13,52 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
-
 import static org.junit.Assert.*;
-
+//random port to avoid an already used port
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
-public class EmployeeRoleControllerTest {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
+/*
+    Author: Linton Appollis
+    Student no: 216182484
+    Desc: Patient Payment Record Implementation
+    Date: 27 Sept
+ */
+public class PatientPaymentRecordControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8080/remployeerole/";
+    private String baseURL = "http://localhost:8080/patientpaymentrecord/";
 
-    //create
     @Test
     public void create() {
-        EmployeeRole employeeRole = EmployeeRoleFactory.buildEmployeeRole("b438ce8f-76b8-40f8-9a18-bf8b3592613E");
-        String url = baseURL + "create";
-        System.out.println(url);
-
-        ResponseEntity<EmployeeRole> postResponse = restTemplate.postForEntity(url, employeeRole, EmployeeRole.class);
-        assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
-
-        System.out.println(postResponse);
-        System.out.println(postResponse.getBody());
-
+    }
+    //Test case for getAll method
+    @Test
+    public void getAll()
+    {
+        String url = baseURL + "all";
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        System.out.println(response);
+        System.out.println(response.getBody());
     }
 
     @Test
     public void read() {
     }
 
-    /*//get all
-    @Test
-    public void getall() {
-        String url = baseURL = "all";
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-        System.out.println(response);
-        System.out.println(response.getBody());
-    }*/
-
     @Test
     public void update() {
     }
-
+    //Test case for delete method
     @Test
-    public void delete() {
-    }
+    public void delete()
+    {
+    String url = baseURL +"/paymentrecord"+restTemplate;
+        System.out.println("URL: "+url);
+        restTemplate.delete(url);
+     }
 }

@@ -4,6 +4,7 @@ import com.saltsoftware.entity.bookingSchedule.BookingSchedule;
 import com.saltsoftware.repository.bookingSchedule.BookingScheduleRepository;
 import com.saltsoftware.repository.bookingSchedule.impl.BookingScheduleRepositoryImpl;
 import com.saltsoftware.service.bookingSchedule.BookingScheduleService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
@@ -12,7 +13,7 @@ import java.util.Set;
  * Student no: 204111307
  * Desc: Create BookingScheduleServiceImpl similar to repository without DB access
  */
-
+@Service
 public class BookingScheduleServiceImpl implements BookingScheduleService {
 
 

@@ -1,13 +1,18 @@
 package com.saltsoftware.entity.dentalService;
+
+import java.io.Serializable;
+
 /* @Author : Abram Rakhotho
 *  Stud#:215031393
 * This is the service account responsible for creating and deleting services provided.
 */
-public class Service
+public class Service implements Serializable
 {
     private String serviceName;
     private String serviceDescrip;
     private String serviceId;
+
+    public Service(){}
 
     public String getServiceName() {
         return serviceName;
@@ -38,6 +43,7 @@ public class Service
 
 
     }
+    //CREATING AN INNER BUILDER CLASS
     public static class Builder
     {
 

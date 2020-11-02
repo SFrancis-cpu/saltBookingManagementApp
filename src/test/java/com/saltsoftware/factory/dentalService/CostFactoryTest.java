@@ -37,7 +37,7 @@ public class CostFactoryTest {
 
         //Equality test
         assertEquals(p1.getCostID(), p2.getCostID());
-        assertEquals(p1.getAmount(), p2.getAmount());
+
     }
     @Test
     public void testCostID() {
