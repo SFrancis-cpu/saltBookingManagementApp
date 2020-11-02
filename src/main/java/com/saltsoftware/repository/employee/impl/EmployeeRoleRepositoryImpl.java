@@ -1,4 +1,6 @@
-/*create, read, update and delete
+/*
+create, read, update and delete
+
 
     EmployeeRole is an internal report that is created when a new employee is
     assigned to a specific role example "Receptionist / Dentist" etc. or an
@@ -6,7 +8,7 @@
     Or the role has become obsolete therefore deleting the EmployeeRole.
     A specific employee has a specific role. the person must provide an empID in order to update or delete and EmployeeRole
 
- */
+
 
 package com.saltsoftware.repository.employee.impl;
 
@@ -14,7 +16,7 @@ package com.saltsoftware.repository.employee.impl;
  *   StudentNumber : 215006097
  *   This is a EmployeeRole repository responsible for create, read, update and delete EmployeeRoles
  *   Date: 18-07-2020
- * */
+
 
 import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.repository.employee.EmployeeRoleRepository;
@@ -22,9 +24,10 @@ import com.saltsoftware.repository.employee.EmployeeRoleRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
+//@Deprecated
+//public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
 
-    private Set<EmployeeRole> employeeRoleDB;
+    //private Set<EmployeeRole> employeeRoleDB;
     private static EmployeeRoleRepository employeeRoleRepository = null;
 
     public EmployeeRoleRepositoryImpl(){
@@ -81,3 +84,4 @@ public class EmployeeRoleRepositoryImpl implements EmployeeRoleRepository {
         return this.employeeRoleDB;
     }
 }
+*/
