@@ -1,5 +1,6 @@
 package com.saltsoftware.controller.dentalService;
 
+import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.factory.dentalService.ServiceCostFactory;
 import com.saltsoftware.service.dentalService.ServiceCostService;
@@ -26,6 +27,12 @@ public class ServiceCostController {
     //@RequestMapping("/create")
     @PostMapping("/create")
     public ServiceCost create(@RequestBody ServiceCost serviceCost){
+        boolean costIdExist = false;
+        boolean serviceIdExist = false;
+
+        System.out.println(serviceCost.getCostId());
+
+
         ServiceCost newServiceCost = ServiceCostFactory.buildServiceCost(serviceCost.getServiceId(), serviceCost.getServiceId());
         return serviceCostService.create(serviceCost);
     }
