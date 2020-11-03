@@ -4,13 +4,19 @@ package com.saltsoftware.entity.employee;
 //Student Number: 217009069
 // Employee Entity with Builder pattern
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
+@Entity
 public class Employee implements Serializable {
-    private String empName, empLastName,empId;
+    @Id
+    private String empId;
+    private String empName, empLastName;
 
     //Default Constructor
-    private Employee(){}
+    protected Employee(){}
 
     private Employee(Builder builder){
         this.empName= builder.empName;
@@ -63,6 +69,19 @@ public class Employee implements Serializable {
         }
         public Employee build(){
             return new Employee(this);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return empId.equals(builder.empId);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(empId);
         }
     }
 }
