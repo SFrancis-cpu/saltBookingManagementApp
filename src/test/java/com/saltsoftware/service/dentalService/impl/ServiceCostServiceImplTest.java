@@ -1,8 +1,8 @@
+/*
 package com.saltsoftware.service.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.factory.dentalService.ServiceCostFactory;
-import com.saltsoftware.repository.dentalService.ServiceCostRepository;
 import com.saltsoftware.repository.dentalService.impl.ServiceCostRepositoryImpl;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -11,11 +11,13 @@ import org.junit.runners.MethodSorters;
 
 import java.util.Set;
 
+*/
 /*
         Author: Lebusa Letsoha
         Description: This is a test class for the ServiceCostServiceImpl class
         Date: 07-Sep-2020
- */
+ *//*
+
 
 import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -55,4 +57,4 @@ public class ServiceCostServiceImplTest {
         assertEquals(1, serviceCosts.size());
         System.out.println(repository.getAll());
     }
-}
+}*/
