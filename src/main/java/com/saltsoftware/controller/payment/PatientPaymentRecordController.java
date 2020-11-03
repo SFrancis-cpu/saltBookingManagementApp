@@ -11,14 +11,14 @@ import java.util.Set;
 /*
     Author: Linton Appollis
     Student no: 216182484
-    Desc: Patient Payment Record Implementation
+    Desc: Patient Payment Record Controller
     Date: 27 Sept
  */
 @RestController
 @RequestMapping("/paymentrecord")
 public class PatientPaymentRecordController
 {
-
+    //used to create a connection to the service package
     @Autowired
     private PatientPaymentRecordService patientPaymentRecordService;
 

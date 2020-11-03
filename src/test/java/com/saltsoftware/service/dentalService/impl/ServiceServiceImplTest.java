@@ -2,13 +2,10 @@ package com.saltsoftware.service.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.factory.dentalService.ServiceFactory;
-import com.saltsoftware.repository.dentalService.ServiceRepository;
-import com.saltsoftware.repository.dentalService.impl.ServiceRepositoryimpl;
-import com.saltsoftware.service.dentalService.ServiceService;
-import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 /*
@@ -23,8 +20,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class ServiceServiceImplTest {
-
-    private static ServiceService service = ServiceServiceImpl.getService();
+    @Autowired
+    private ServiceService service;
     private static Service ser = ServiceFactory.createService("Dentistry", "teeth alignment");
 
     //Get all functionalities of service

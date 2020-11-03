@@ -9,9 +9,11 @@ package com.saltsoftware.service.employee.impl;
 import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.factory.employee.EmployeeRoleFactory;
 import com.saltsoftware.service.employee.EmployeeRoleService;
+import com.saltsoftware.util.GenericHelper;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -20,8 +22,10 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeRoleServiceImplTest {
 
-    private static EmployeeRoleService service = EmployeeRoleServiceImpl.getService();
-    private static EmployeeRole employeeRole = EmployeeRoleFactory.buildEmployeeRole("Ma885");
+    @Autowired
+    private static EmployeeRoleService service;
+    private static String empId = GenericHelper.generateID();
+    private  static EmployeeRole employeeRole = EmployeeRoleFactory.buildEmployeeRole("MSF556", "Dentist001");
 
 
     //GetAll from the DB
