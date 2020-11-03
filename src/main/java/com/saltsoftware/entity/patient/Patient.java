@@ -4,9 +4,11 @@ package com.saltsoftware.entity.patient;
 /* Description: Entity for Patient
  */
 
-import java.io.Serializable;
 
-public class Patient implements Serializable {
+import javax.persistence.Entity;
+
+
+public class Patient {
     private static String patientID;
     private static String patientName;
     private static String patientSurname;
@@ -70,5 +72,3 @@ public class Patient implements Serializable {
         }
     }
 }
-
-
