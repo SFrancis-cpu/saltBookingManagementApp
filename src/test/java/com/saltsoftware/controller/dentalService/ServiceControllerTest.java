@@ -39,7 +39,7 @@ public class ServiceControllerTest {
     @Test
     public void a_create()
     {
-        //Service service = ServiceFactory.createService("Dentist", "Teeth alignment");
+        Service service = ServiceFactory.createService("Dentist", "Teeth alignment");
         String url = baseURL + "create";
         System.out.println("URL: " + url);
         ResponseEntity<Service> postResponse = restTemp.postForEntity(url, service, Service.class);
