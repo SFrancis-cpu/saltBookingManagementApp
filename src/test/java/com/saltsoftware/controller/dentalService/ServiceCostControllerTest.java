@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.ServiceCost;
@@ -65,3 +66,4 @@ public class ServiceCostControllerTest {
             assertNotNull(response);
         }
 }
+*/

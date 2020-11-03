@@ -1,16 +1,19 @@
+/*
 package com.saltsoftware.service.dentalService.impl;
 import com.saltsoftware.entity.dentalService.Cost;
-import com.saltsoftware.factory.dentalService.CostFactory;
+import com.saltsoftware.factory.dentalServicea.CostFactory;
 import com.saltsoftware.service.dentalService.CostService;
 import com.saltsoftware.service.dentalService.impl.CostServiceImpl;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+*/
 /*
         * @author name: Junade Frizlar
         * student number: 208046402
-        **/
+        **//*
+
 import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -49,3 +52,4 @@ public class CostServiceImplTest {
         service.delete(cost.getCostID());
     }
 }
+*/

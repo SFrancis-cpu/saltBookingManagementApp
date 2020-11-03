@@ -1,9 +1,12 @@
+/*
 package com.saltsoftware.factory.dentalService;
+*/
 /*
 *@Author: Abram Rakgotho
 *Student Number: 215031393
 * Created a test case to test the Service factory class
- */
+
+
 
 import com.saltsoftware.entity.dentalService.Service;
 //import com.sun.org.apache.xerces.internal.xs.datatypes.XSQName;
@@ -47,4 +50,4 @@ public class ServiceFactoryTest {
 
 
     }
-}
+}*/
