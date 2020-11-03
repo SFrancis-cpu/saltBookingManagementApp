@@ -1,7 +1,8 @@
 package com.saltsoftware.repository.employee;
 
 import com.saltsoftware.entity.employee.Employee;
-import com.saltsoftware.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import java.util.Set;
  * Student no: 217009069
  * */
 
-public interface EmployeeRepository extends Repository<Employee, String> {
-    Set<Employee>getAll();
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee,String>{
+
 }

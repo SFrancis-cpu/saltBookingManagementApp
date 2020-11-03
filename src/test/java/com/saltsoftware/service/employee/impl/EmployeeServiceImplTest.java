@@ -7,13 +7,14 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeServiceImplTest {
-
-    private static EmployeeService service = EmployeeServiceImpl.getService();
+    @Autowired
+    private EmployeeService service;
     private static Employee employee = EmployeeFactory.createEmployee("Abduragmaan","Frank");
 
     @Test
