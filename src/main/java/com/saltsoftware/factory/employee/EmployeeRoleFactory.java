@@ -5,6 +5,7 @@ package com.saltsoftware.factory.employee;
  *   Create an EmployeeRole Factory
  * */
 
+;
 import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.util.GenericHelper;
 
@@ -21,5 +22,6 @@ public class EmployeeRoleFactory {
         return employeeRole;
     }
 }
+
 
 
