@@ -3,7 +3,6 @@ import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
 import com.saltsoftware.service.patient.impl.PatientServiceImpl;
 import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.beans.factory.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
