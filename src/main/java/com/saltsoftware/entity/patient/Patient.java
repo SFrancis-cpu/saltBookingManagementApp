@@ -6,12 +6,19 @@ package com.saltsoftware.entity.patient;
 
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 
-
+@Entity
+@IdClass(PatientNameId.class)
 public class Patient {
-    private static String patientID;
-    private static String patientName;
-    private static String patientSurname;
+
+    @Id
+    private String patientID;
+    private String patientName;
+    private String patientSurname;
+
+   protected Patient(){}
 
     private Patient (Builder builder){
         this.patientID = builder.patientID;
