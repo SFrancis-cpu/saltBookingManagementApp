@@ -1,9 +1,9 @@
+/*
+
 package com.saltsoftware.repository.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.ServiceCost;
-import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.factory.dentalService.ServiceCostFactory;
-import com.saltsoftware.repository.dentalService.ServiceCostRepository;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -16,7 +16,8 @@ import static org.junit.Assert.*;
         Author: Lebusa Letsoha
         Description: This a tester class with regards to the object updating in the database system (ie.CRUD principle)
         Date: 31-Aug-2020
- */
+
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ServiceCostRepositoryImplTest {
@@ -59,4 +60,4 @@ public class ServiceCostRepositoryImplTest {
     }
 }
 
-
+/*
