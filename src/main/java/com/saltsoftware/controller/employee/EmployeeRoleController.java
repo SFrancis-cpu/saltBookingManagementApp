@@ -1,10 +1,16 @@
 package com.saltsoftware.controller.employee;
 
 
+
 import com.saltsoftware.entity.employee.EmployeeRole;
+import com.saltsoftware.entity.employee.Employee;
+import com.saltsoftware.entity.employee.Role;
 import com.saltsoftware.factory.employee.EmployeeRoleFactory;
-import com.saltsoftware.service.employee.EmployeeRoleService;
+import com.saltsoftware.service.employee.impl.EmployeeRoleServiceImpl;
+import com.saltsoftware.service.employee.impl.EmployeeServiceImpl;
+import com.saltsoftware.service.employee.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.web.bind.annotation.*;
 
 /*
@@ -21,27 +27,40 @@ import java.util.Set;
 @RequestMapping("/employeerole")
 public class EmployeeRoleController {
 
-    @Autowired //used to create a connection to the service package
-    private EmployeeRoleService employeeRoleService;
+    @MockBean
+    private EmployeeRoleServiceImpl employeeRoleService;
 
-    //@RequestMapping("/create")
+    @Autowired //used to create a connection to the Employee service package
+    private EmployeeServiceImpl employeeService;
+
+    @Autowired //used to create a connection to the Role service package
+    private RoleServiceImpl roleService;
+
     @PostMapping("/create")
-    public EmployeeRole create(@RequestBody EmployeeRole employeeRole){
-        EmployeeRole newEmployeeRole = EmployeeRoleFactory.buildEmployeeRole(employeeRole.getEmpID());
-        return employeeRoleService.create(newEmployeeRole);
+    public EmployeeRole create(@RequestBody EmployeeRole employeeRole) {
+        boolean employeeExist = false;
+        boolean roleExist = false;
+
+        Employee employee = employeeService.read(employeeRole.getEmpID()); //call employee using EmpID
+        if (employee != null) {
+            employeeExist = true;
+        }
+
+        Role role = roleService.read(employeeRole.getRoleID()); //call role using RoleID
+        if (role != null) {
+            roleExist = true;
+        }
+
+        if (employeeExist && roleExist)
+            return employeeRoleService.create(employeeRole);
+        else return EmployeeRoleFactory.buildEmployeeRole("", "");
     }
 
     //read
     @GetMapping("/read/{id}")
     @ResponseBody
-    public EmployeeRole read(@PathVariable String id){
+    public EmployeeRole read(@PathVariable String id) {
         return employeeRoleService.read(id);
-    }
-
-    //getall
-    @GetMapping("/all")
-    public Set<EmployeeRole> getall(){
-       return employeeRoleService.getAll();
     }
 
     //update
@@ -50,10 +69,18 @@ public class EmployeeRoleController {
         return employeeRoleService.update(employeeRole);
     }
 
+    //getall
+    @GetMapping("/all")
+    public Set<EmployeeRole> getall(){
+        return employeeRoleService.getAll();
+    }
+
     //delete
     @DeleteMapping ("/delete/{id}")
     @ResponseBody
     public void delete(@PathVariable String id){
         employeeRoleService.delete(id);
     }
+
 }
+

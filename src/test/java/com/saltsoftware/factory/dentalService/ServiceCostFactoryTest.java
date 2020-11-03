@@ -1,18 +1,9 @@
-package com.saltsoftware.factory.dentalService;
 
 
-import com.saltsoftware.entity.dentalService.ServiceCost;
-import org.junit.Assert;
-import org.junit.Test;
+
+
+
 /*
- *
- * @author Lebusa.Letsoha
- * Student#: 216059186
- * Class Desc: Test class  for the ServiceCost class
- * Date: 14 Jul 2020
-
- */
-
 public class ServiceCostFactoryTest {
 
     @Test
@@ -28,3 +19,4 @@ public class ServiceCostFactoryTest {
 
 
 }
+*/

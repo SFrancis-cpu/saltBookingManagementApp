@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.repository.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.Cost;
@@ -8,12 +9,14 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+*/
 /**
  * Created by :Junade Frizlar
  * Student no: 208046402
  * Desc: Create test class for  CostRepositoryImpl
  * This is my test class
- */
+ *//*
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 class CostRepositoryImplTest {
@@ -46,4 +49,4 @@ class CostRepositoryImplTest {
         Repository.delete(cost.getCostID());
 
     }
-}
+}*/

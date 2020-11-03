@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.factory.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
@@ -9,12 +10,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 
+*/
 /*
  * @author name: Junade Frizlar
  * student number: 208046402
  * Description: creating a Test Case for CostFactory
  * date: 12 July 2020
- **/
+ **//*
+
 public class CostFactoryTest {
 
     @Before
@@ -52,4 +55,4 @@ public class CostFactoryTest {
         Cost p1 = CostFactory.createCost("a1b2", 20.50);
         assertEquals(20.50, p1.getAmount(),22.45);
     }
-}
+}*/
