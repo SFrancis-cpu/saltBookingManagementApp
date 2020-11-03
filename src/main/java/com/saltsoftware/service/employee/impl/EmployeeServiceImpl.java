@@ -2,11 +2,12 @@ package com.saltsoftware.service.employee.impl;
 
 import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.repository.employee.EmployeeRepository;
-import com.saltsoftware.repository.employee.impl.EmployeeRepositoryImpl;
 import com.saltsoftware.service.employee.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /* Author: Abduragmaan Frank
    Student no: 217009069
@@ -17,47 +18,39 @@ import java.util.Set;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private static EmployeeService service = null;
+    @Autowired
     private EmployeeRepository repository;
-
-    public EmployeeServiceImpl(){
-
-        this.repository = EmployeeRepositoryImpl.getEmployeeRepository();
-    }
-
-    public static EmployeeService getService(){
-        if(service == null)
-            service =  new EmployeeServiceImpl();
-        return service;
-
-    }
 
     @Override
     public Set<Employee> getAll() {
 
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public Employee create(Employee employee) {
 
-        return this.repository.create(employee);
+        return this.repository.save(employee);
     }
 
     @Override
     public Employee read(String s) {
-
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public Employee update(Employee employee) {
-
-        return this.repository.update(employee);
+        if (this.repository.existsById(employee.getEmpId())) {
+            return this.repository.save(employee);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
 
-        return this.repository.delete(s);
+         this.repository.deleteById(s);
+         if(this.repository.existsById(s)) return false;
+         else  return true;
     }
 }
