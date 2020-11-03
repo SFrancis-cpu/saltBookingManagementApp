@@ -3,9 +3,20 @@ package com.saltsoftware.entity.dentalService;
  *   StudentNumber : 208046402
  *   This is a cost entity class.
  * */
+
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
+import org.springframework.data.annotation.Id;
+
+import javax.persistence.Entity;
+
+@Entity
 public class Cost {
-    public String costID;
-    public double amount;
+
+    @Id
+    private MysqlxDatatypes.Scalar.String costID;
+    private double amount;
+
+    Protected Cost(){}
 
     public String getCostID() {
         return costID;
@@ -55,5 +66,17 @@ public class Cost {
         public Cost build() {
             return new Cost(this);
         }
+    }
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Cost cost = (Cost) object;
+        return costID.equals(cost.costID);
+    }
+
+    public int hashCode() {
+        return java.util.Objects.hash(super.hashCode(), costID);
     }
 }
