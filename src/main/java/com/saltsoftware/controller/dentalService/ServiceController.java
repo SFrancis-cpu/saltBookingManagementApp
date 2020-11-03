@@ -2,7 +2,7 @@ package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.factory.dentalService.ServiceFactory;
-import com.saltsoftware.service.dentalService.impl.ServiceServiceImpl;
+import com.saltsoftware.service.dentalService.ServiceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
