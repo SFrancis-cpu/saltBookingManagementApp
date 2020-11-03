@@ -1,25 +1,18 @@
 package com.saltsoftware.entity.dentalService;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Objects;
 
 /* @Author : Abram Rakhotho
 *  Stud#:215031393
 * This is the service account responsible for creating and deleting services provided.
 */
-@Entity
 public class Service implements Serializable
 {
-
-    @Id
-    private String serviceId;
     private String serviceName;
     private String serviceDescrip;
+    private String serviceId;
 
-
-   protected Service(){}
+    public Service(){}
 
     public String getServiceName() {
         return serviceName;
@@ -102,16 +95,6 @@ public class Service implements Serializable
 
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Service service = (Service) o;
-        return serviceId.equals(service.serviceId);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(serviceId);
-    }
+
 }

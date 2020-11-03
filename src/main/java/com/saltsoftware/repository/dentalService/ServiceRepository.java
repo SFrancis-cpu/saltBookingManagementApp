@@ -1,12 +1,12 @@
 package com.saltsoftware.repository.dentalService;
 
 import com.saltsoftware.entity.dentalService.Service;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import com.saltsoftware.entity.employee.EmployeeRole;
+import com.saltsoftware.repository.Repository;
 
+import java.util.Set;
 
-@Repository
-public interface ServiceRepository extends JpaRepository<Service, String>
+public interface ServiceRepository extends Repository<Service, String>
 {
-
+    Set<Service> getAll();
 }
