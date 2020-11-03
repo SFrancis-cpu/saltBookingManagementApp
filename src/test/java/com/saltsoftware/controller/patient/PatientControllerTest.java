@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.controller.patient;
 import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
@@ -17,10 +18,12 @@ import static org.junit.Assert.*;
 import org.junit.FixMethodOrder;
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
 
+*/
 /* author: Bathi Ntshinga
 /* std no:214198227
 /* Description: Test Case for Domain Driven Patient Controller
- */
+ *//*
+
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -87,4 +90,4 @@ public class PatientControllerTest {
         System.out.println("URL: "+url);
         restTemplate.delete(url);
     }
-}
+}*/

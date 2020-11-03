@@ -54,7 +54,7 @@ public class RoleControllerTest {
         System.out.println("read " + role);
         ResponseEntity<Role> responseEntity = restTemplate.getForEntity(url,Role.class);
         assertNotNull(responseEntity);
-        assertNotNull(responseEntity.getBody());
+
     }
 
     //updating the description on the role

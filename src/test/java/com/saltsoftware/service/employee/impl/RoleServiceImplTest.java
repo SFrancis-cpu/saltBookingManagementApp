@@ -6,6 +6,7 @@ import com.saltsoftware.service.employee.RoleService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -17,8 +18,11 @@ import static org.junit.Assert.*;
   */
 
     @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
     public class RoleServiceImplTest {
-        private static RoleService RoleService = (RoleService) new RoleServiceImpl();
+
+        @Autowired
+        private static RoleService RoleService ;
         private static Role role = RoleFactory.createRole("Reception");
 
 
@@ -27,8 +31,8 @@ import static org.junit.Assert.*;
     @Test
     public void d_getAllRoles() {
         Set<Role> roles = RoleService.getAll();
-        assertEquals(1, roles.size());
-        System.out.println(RoleService.getAll());
+        assertEquals(-1,roles.size());
+        System.out.println("Roles" + role);
     }
 
     //creating role

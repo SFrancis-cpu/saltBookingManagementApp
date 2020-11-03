@@ -3,7 +3,6 @@ import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
 import com.saltsoftware.service.patient.impl.PatientServiceImpl;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,11 +19,11 @@ public class PatientController {
     @Autowired
     private PatientServiceImpl PatientService;
 
-    @PostMapping("/create")
-    public Patient create(@RequestBody Patient patient){
-        Patient newPatient = PatientFactory.createPatient(patient.getPatientID());
-        return PatientService.create(newPatient);
-    }
+ //   @PostMapping("/create")
+    //public Patient create(@RequestBody Patient patient){
+   //     Patient newPatient = PatientFactory.createPatient(patient.getPatientID());
+   // }
+
     /*to get all*/
     @GetMapping("/all")
     public Set<Patient> getall(){

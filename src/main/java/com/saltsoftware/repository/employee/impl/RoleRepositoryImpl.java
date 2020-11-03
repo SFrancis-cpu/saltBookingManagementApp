@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.repository.employee.impl;
 
 import com.saltsoftware.entity.employee.Role;
@@ -8,11 +9,13 @@ import com.saltsoftware.repository.employee.RoleRepository;
 import java.util.HashSet;
 import java.util.Set;
 
+*/
 /* @author - Noluthando Nqwelo
 /* @std no - 215029003
 /* @Description - Create Role Repository
- */
+ *//*
 
+@Deprecated
 public class RoleRepositoryImpl implements RoleRepository {
 
     private static RoleRepository RoleRepository = null;
@@ -74,3 +77,4 @@ public class RoleRepositoryImpl implements RoleRepository {
     }
 }
 
+*/

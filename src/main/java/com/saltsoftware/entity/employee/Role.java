@@ -1,16 +1,25 @@
 package com.saltsoftware.entity.employee;
 
-import java.io.Serializable;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
 
 /* @author - Noluthando Nqwelo
 /* @std no - 215029003
 /* @Description - Create Role Entity with roleID and roleDescription
  */
-public class Role implements Serializable {
-        private static String roleID;
-    private static String roleDesc;
 
-    private Role(){}
+@Entity
+public class Role{
+
+    @Id
+    private String roleID;
+    private String roleDesc;
+
+    protected Role(){}
 
         private Role(Builder builder) {
             this.roleID = builder.roleID;
@@ -58,6 +67,20 @@ public class Role implements Serializable {
             public Role build(){
                 return new Role(this);
 
+            }
+
+            @Override
+            public boolean equals(Object object){
+                if(this == object) return true;
+                if(this == null || getClass() != object.getClass()) return false;
+                Role role = (Role) object;
+                return roleID.equals(role.roleID);
+
+            }
+
+            @Override
+            public int hashCode() {
+                return Objects.hash(roleID);
             }
         }
     }
