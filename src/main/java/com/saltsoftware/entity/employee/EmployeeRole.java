@@ -18,7 +18,7 @@ import java.util.Objects;
 public class EmployeeRole implements Serializable {
 
     @Id
-       private String empID, roleID;
+    private String empID, roleID;
 
        protected EmployeeRole(){}
 
