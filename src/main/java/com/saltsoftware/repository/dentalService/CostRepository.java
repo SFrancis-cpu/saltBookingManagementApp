@@ -2,11 +2,12 @@ package com.saltsoftware.repository.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.repository.dentalService.CostRepository;
-import com.saltsoftware.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Set;
 
-public interface CostRepository extends Repository<Cost, String>
-{
-    Set<Cost> getAll();
+@Repository
+public interface CostRepository extends JpaRepository<Cost, String> {
+
 }
