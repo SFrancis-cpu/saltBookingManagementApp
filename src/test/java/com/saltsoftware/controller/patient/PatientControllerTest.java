@@ -71,7 +71,7 @@ public class PatientControllerTest {
     }
 
     @Test
-    public void d_getall() {
+    public void d_getAll() {
         String url = myURL + "all";
         System.out.println("URL "+ url);
         HttpHeaders headers = new HttpHeaders();
