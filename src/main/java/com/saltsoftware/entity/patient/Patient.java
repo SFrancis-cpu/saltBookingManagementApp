@@ -1,8 +1,5 @@
 package com.saltsoftware.entity.patient;
-/* author: Bathi Ntshinga
-/* std no:214198227
-/* Description: Entity for Patient
- */
+
 
 
 import javax.persistence.Entity;

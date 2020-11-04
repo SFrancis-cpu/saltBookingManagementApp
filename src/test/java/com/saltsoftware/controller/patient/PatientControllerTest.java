@@ -1,4 +1,4 @@
-package com.saltsoftware.controller.patient;
+/*package com.saltsoftware.controller.patient;
 import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
 import org.junit.runner.RunWith;
@@ -15,7 +15,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.FixMethodOrder;
-@FixMethodOrder (MethodSorters.NAME_ASCENDING)
 
 /* author: Bathi Ntshinga
 /* std no:214198227
@@ -23,11 +22,14 @@ import org.junit.FixMethodOrder;
  */
 
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+/*@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
+@FixMethodOrder (MethodSorters.NAME_ASCENDING)
+
 
 public class PatientControllerTest {
 
+    @Autowired
     private TestRestTemplate restTemplate;
     private static Patient patient = PatientFactory.createPatient("Bathi","Ntshinga");
 
@@ -37,7 +39,6 @@ public class PatientControllerTest {
     @Test
     public void a_create() {
 
-        Patient patient = PatientFactory.createPatient("Bathi");
         String url = baseURL + "create";
         System.out.println(url);
 
@@ -87,4 +88,4 @@ public class PatientControllerTest {
         System.out.println("URL: "+url);
         restTemplate.delete(url);
     }
-}
+}*/

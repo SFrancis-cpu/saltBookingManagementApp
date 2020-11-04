@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 /*author: Bathi Ntshinga
@@ -24,7 +25,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PatientServiceImplTest {
 
-    private static PatientService service = PatientServiceImpl.getService();
+    @Autowired
+    private static PatientService service;
     private Patient patient = PatientFactory.createPatient("Bathi","Ntshinga");
 
     @Test

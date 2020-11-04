@@ -1,5 +1,10 @@
 package com.saltsoftware.entity.patient;
-
+/* author: Bathi Ntshinga
+/* std no:214198227
+/* date: 2020/11/02
+ */
+/* Description: Adding HashCode
+ */
 import java.io.Serializable;
 import java.util.Objects;
 
