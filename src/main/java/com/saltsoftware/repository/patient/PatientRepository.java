@@ -8,7 +8,7 @@ import java.util.Set;
 /* author: Bathi Ntshinga
 /* std no:214198227
 /*Description: Create Payment interface to get all patient methods
-/*Date: 2020/09/01
+/*Date: 2020/12/03
  */
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, String> {
