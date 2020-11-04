@@ -1,4 +1,4 @@
-/* package com.saltsoftware.controller.patient;
+ package com.saltsoftware.controller.patient;
 import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
 import com.saltsoftware.service.patient.impl.PatientServiceImpl;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
-/* author: Bathi Ntshinga
-/* std no:214198227
-/* Description: Creating the Patient Controller
-
+ /*author: Bathi Ntshinga
+ std no:214198227
+/Description: Creating the Patient Controller
+*/
 
 @RestController
 @RequestMapping("/patient")
@@ -24,25 +24,22 @@ public class PatientController {
         Patient newPatient = PatientFactory.createPatient(patient.getPatientID(),patient.getPatientSurname());
         return PatientService.create(newPatient);
     }
-    /*to get all*/
-/*
+    //to get all
     @GetMapping("/all")
     public Set<Patient> getall(){
         return PatientService.getAll();
     }
 
-    /*to update*/
-/*
+    //to update
     @PostMapping("/update")
     public Patient update(@RequestBody Patient patient){
         return PatientService.update(patient);
     }
-/*
 
 
 
-    /*to delete*/
-/*
+
+    //to delete
     @DeleteMapping ("/delete/{id}")
     @ResponseBody
     public void delete(@PathVariable String id){
@@ -51,4 +48,3 @@ public class PatientController {
 
 }
 
-        */
