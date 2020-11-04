@@ -1,4 +1,4 @@
-package com.saltsoftware.service.dentalService.impl;
+package com.saltsoftware.service.dentalService;
 
 import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.service.IService;

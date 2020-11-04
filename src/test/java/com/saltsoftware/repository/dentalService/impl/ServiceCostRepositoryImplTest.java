@@ -1,6 +1,5 @@
-/*
 
-package com.saltsoftware.repository.dentalService.impl;
+/*package com.saltsoftware.repository.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.factory.dentalService.ServiceCostFactory;
@@ -12,7 +11,7 @@ import org.junit.runners.MethodSorters;
 import java.util.Set;
 
 import static org.junit.Assert.*;
-/*
+
         Author: Lebusa Letsoha
         Description: This a tester class with regards to the object updating in the database system (ie.CRUD principle)
         Date: 31-Aug-2020
@@ -60,4 +59,4 @@ public class ServiceCostRepositoryImplTest {
     }
 }
 
-/*
+*/

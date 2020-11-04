@@ -2,12 +2,13 @@ package com.saltsoftware.service.payment.impl;
 
 import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.repository.payment.PatientPaymentTypeRepository;
-import com.saltsoftware.repository.payment.impl.PatientPaymentTypeImpl;
 import com.saltsoftware.service.payment.PatientPaymentTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by :Heinrich Arends
@@ -21,42 +22,34 @@ public class PatientPaymentTypeServiceImpl implements PatientPaymentTypeService 
     // Encapsulate PatientPayment Repository
     private static PatientPaymentTypeService patientPaymentTypeService = null;
 
-
+    @Autowired
     private PatientPaymentTypeRepository repository;
-
-    // Constructor
-    private PatientPaymentTypeServiceImpl() {
-        this.repository = PatientPaymentTypeImpl.getPatientPaymentTypeRepository();
-    }
-
-    // Apply Singleton pattern
-    public static PatientPaymentTypeService getPatientPaymentTypeService() {
-        if(patientPaymentTypeService == null) patientPaymentTypeService = new PatientPaymentTypeServiceImpl();
-        return patientPaymentTypeService;
-    }
 
     @Override
     public Set<PatientPaymentType> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public PatientPaymentType create(PatientPaymentType patientPaymentType) {
-        return this.repository.create(patientPaymentType);
+        return this.repository.save(patientPaymentType);
     }
 
     @Override
     public PatientPaymentType read(String s) {
-        return this.repository.read(s);
+
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public PatientPaymentType update(PatientPaymentType patientPaymentType) {
-        return this.repository.update(patientPaymentType);
+        return this.repository.save(patientPaymentType);
     }
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if(this.repository.existsById(s)) return false;
+        else return true;
     }
 }

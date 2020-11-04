@@ -1,9 +1,7 @@
-package com.saltsoftware.service.dentalService.impl;
+package com.saltsoftware.service.dentalService;
 
 import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.factory.dentalService.ServiceFactory;
-
-import com.saltsoftware.service.dentalService.ServiceService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
