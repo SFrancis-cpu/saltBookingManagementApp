@@ -13,8 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 //@RestController
-@EnableAutoConfiguration
+
 @SpringBootApplication
+
 public class SaltBookingManagementApp {
 
     public static void main(String[] args){

@@ -1,3 +1,5 @@
+
+/*
 package com.saltsoftware.repository.dentalService.impl;
 
 /*
@@ -5,7 +7,7 @@ package com.saltsoftware.repository.dentalService.impl;
  * Student Number: 215031393
  * Created Repository for service entity under the package name dental service
  */
-
+/*
 import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.repository.dentalService.ServiceRepository;
 
@@ -91,4 +93,4 @@ public class ServiceRepositoryimpl implements ServiceRepository {
     public Set<Service> getAll() {
         return this.serviceDB;
     }
-}
+}*/

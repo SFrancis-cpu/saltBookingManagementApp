@@ -1,9 +1,9 @@
 package com.saltsoftware.repository.payment;
 
 import com.saltsoftware.entity.payment.PatientPaymentType;
-import com.saltsoftware.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Set;
 
 /**
  * Created by :Heinrich Arends
@@ -11,6 +11,7 @@ import java.util.Set;
  * Desc: Create Patient Payment Type Repository Interface
  */
 
-public interface PatientPaymentTypeRepository extends Repository<PatientPaymentType, String> {
-    Set<PatientPaymentType> getAll();
+@Repository
+public interface PatientPaymentTypeRepository extends JpaRepository<PatientPaymentType, String>{
+
 }

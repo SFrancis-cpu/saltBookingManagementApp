@@ -2,11 +2,13 @@ package com.saltsoftware.service.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.repository.dentalService.ServiceCostRepository;
-import com.saltsoftware.repository.dentalService.impl.ServiceCostRepositoryImpl;
 import com.saltsoftware.service.dentalService.ServiceCostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /*
         Author: Lebusa Letsoha
@@ -16,42 +18,51 @@ import java.util.Set;
 @Service
 public class ServiceCostServiceImpl implements ServiceCostService {
 
-    private static ServiceCostService service = null;
+
+    @Autowired
     private ServiceCostRepository repository;
 
-    public ServiceCostServiceImpl ()
-    {
-        this.repository = ServiceCostRepositoryImpl.getRepository();
-    }
-
-    public static ServiceCostService getService(){
-        if (service == null) service = new ServiceCostServiceImpl();
-        return service;
-    }
 
     @Override
     public Set<ServiceCost> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public ServiceCost create(ServiceCost serviceCost) {
-        return this.repository.create(serviceCost);
+        return this.repository.save(serviceCost);
     }
 
     @Override
     public ServiceCost read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public ServiceCost update(ServiceCost serviceCost) {
-        return this.repository.update(serviceCost);
+        if (this.repository.existsById(serviceCost.getCostId()))
+        {
+            return this.repository.save(serviceCost);}
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if(this.repository.existsById(s)) return false;
+        else return true;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ServiceCostServiceImpl that = (ServiceCostServiceImpl) o;
+        return repository.equals(that.repository);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(repository);
+    }
 }

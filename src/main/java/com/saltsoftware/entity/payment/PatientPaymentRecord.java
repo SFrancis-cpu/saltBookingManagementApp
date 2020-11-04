@@ -1,15 +1,23 @@
 package com.saltsoftware.entity.payment;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * @author name: Linton Appollis
  *student num: 216182484
  *Desc: Entity for PatientPaymentRecord
  *date: 3 July 2020
 */
+@Entity
+
 public class PatientPaymentRecord
 {
 // changing attributes to Private appose to UML
+    protected PatientPaymentRecord(){}
 
+    @Id
     private String payReceiptNumber;
     private String payDate;
     private String payAmount;

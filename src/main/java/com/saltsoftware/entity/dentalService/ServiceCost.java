@@ -1,5 +1,8 @@
 package com.saltsoftware.entity.dentalService;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.util.Objects;
 
 
@@ -9,12 +12,18 @@ import java.util.Objects;
  *   Date: 7 Jul 2020
  * */
 
+@Entity
+@IdClass(ServiceCostId.class)
 
 public class ServiceCost {
 
+    @Id
     private String costId, serviceId;
+    private String serviceIdDesc;
 
-    public ServiceCost(Builder builder) {
+    protected ServiceCost(){}
+
+    private ServiceCost(Builder builder) {
 
         this.costId = builder.costId;
 
@@ -66,6 +75,19 @@ public class ServiceCost {
                     '}';
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Builder builder = (Builder) o;
+            return costId.equals(builder.costId) &&
+                    serviceId.equals(builder.serviceId);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(costId, serviceId);
+        }
     }
 
 }

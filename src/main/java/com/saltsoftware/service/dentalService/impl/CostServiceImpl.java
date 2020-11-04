@@ -1,9 +1,10 @@
 package com.saltsoftware.service.dentalService.impl;
 
+
 import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.repository.dentalService.CostRepository;
 import com.saltsoftware.repository.dentalService.impl.CostRepositoryImpl;
-import com.saltsoftware.service.dentalService.CostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /*
  * @author name: Junade Frizlar
@@ -15,37 +16,30 @@ import java.util.Set;
 public class CostServiceImpl implements CostService {
 
     private static CostService service = null;
+    @Autowired
     private CostRepository repository;
 
-    public CostServiceImpl(){
-        this.repository = CostRepositoryImpl.getCostRepository();
-    }
-
-    public static CostService getService(){
-        if(service == null)
-            service =  new com.saltsoftware.service.dentalService.impl.CostServiceImpl();
-        return service;
-
-    }
 
     public Set<Cost> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     public Cost create(Cost cost) {
-        return this.repository.create(cost);
+        return this.repository.save(cost);
     }
 
     public Cost read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
+
     }
 
     public Cost update(Cost cost) {
-        return this.repository.update(cost);
+        return this.repository.save(cost);
     }
 
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if (this.repository.existsById(s)) return false;
+        else return true;
     }
 }
-
