@@ -3,14 +3,13 @@ import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
 import com.saltsoftware.service.patient.impl.PatientServiceImpl;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 /* author: Bathi Ntshinga
 /* std no:214198227
-/* Description: Creating the Patient Controller
+/* Description: Adding Annotations
  */
 
 @RestController
@@ -22,12 +21,12 @@ public class PatientController {
 
     @PostMapping("/create")
     public Patient create(@RequestBody Patient patient){
-        Patient newPatient = PatientFactory.createPatient(patient.getPatientID());
-        return PatientService.create(newPatient);
+        patient = PatientFactory.createPatient(patient.getPatientName(), patient.getPatientSurname());
+        return PatientService.create(patient);
     }
     /*to get all*/
     @GetMapping("/all")
-    public Set<Patient> getall(){
+    public Set<Patient> getAll(){
         return PatientService.getAll();
     }
 

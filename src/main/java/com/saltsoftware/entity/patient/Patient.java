@@ -1,6 +1,9 @@
 package com.saltsoftware.entity.patient;
 
-
+/* author: Bathi Ntshinga
+/* std no:214198227
+/* Description: Adding Annotations
+ */
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

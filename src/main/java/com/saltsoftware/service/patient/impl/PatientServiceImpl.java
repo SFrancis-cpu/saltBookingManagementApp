@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /*author: Bathi Ntshinga
  *Std no:214198227
  *Date: 2020/11/02
- * Desc:Implementation of Patient Service
+ * Desc: Patient Service
  */
 @Service
 public class PatientServiceImpl implements PatientService {
