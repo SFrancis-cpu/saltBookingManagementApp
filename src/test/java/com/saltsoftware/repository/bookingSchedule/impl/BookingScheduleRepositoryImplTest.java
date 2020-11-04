@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.repository.bookingSchedule.impl;
 
 
@@ -7,21 +8,33 @@ import com.saltsoftware.repository.bookingSchedule.BookingScheduleRepository;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
+*/
 /**
  * Created by :Craig Carr AKA Fish84
  * Student no: 204111307
  * Desc: Create BookingScheduleRepositoryImplTest
- */
+ *//*
+
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BookingScheduleRepositoryImplTest {
 
-    private static BookingScheduleRepository repository = BookingScheduleRepositoryImpl.getBookingScheduleRepository();
+    @Autowired
+    private static BookingScheduleRepository repository;
     private static BookingSchedule bookingSchedule = BookingScheduleFactory.buildBookingSchedule("3eesaf");
+
+    //GetAll from the DB
+    @Test
+    public void d_getAll() {
+        Set<BookingSchedule> bookingSchedule = repository.findAll();
+        assertEquals(1, bookingSchedule.size());
+        System.out.println(repository.getAll());
+    }
 
     //Create Method
     @Test
@@ -53,11 +66,5 @@ public class BookingScheduleRepositoryImplTest {
 
     }
 
-    //GetAll from the DB
-    @Test
-    public void d_getAll() {
-        Set<BookingSchedule> bookingSchedule = repository.getAll();
-        assertEquals(1, bookingSchedule.size());
-        System.out.println(repository.getAll());
-    }
-}
+
+}*/

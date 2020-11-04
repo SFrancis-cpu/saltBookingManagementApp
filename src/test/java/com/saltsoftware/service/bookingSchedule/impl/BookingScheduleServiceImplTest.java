@@ -7,6 +7,7 @@ import com.saltsoftware.service.bookingSchedule.BookingScheduleService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -21,7 +22,8 @@ import static org.junit.Assert.assertEquals;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class BookingScheduleServiceImplTest {
 
-    private static BookingScheduleService bookingScheduleService = BookingScheduleServiceImpl.getBookingScheduleService();
+    @Autowired
+    private static BookingScheduleService bookingScheduleService;
     private BookingSchedule bookingSchedule = BookingScheduleFactory.buildBookingSchedule("56865");
 
     @Test
