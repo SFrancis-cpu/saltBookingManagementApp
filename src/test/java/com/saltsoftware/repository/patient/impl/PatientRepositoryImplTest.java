@@ -1,4 +1,4 @@
-//package com.saltsoftware.repository.patient.impl;
+package com.saltsoftware.repository.patient.impl;
 
 //import com.saltsoftware.entity.patient.Patient;
 //import com.saltsoftware.factory.patient.PatientFactory;
