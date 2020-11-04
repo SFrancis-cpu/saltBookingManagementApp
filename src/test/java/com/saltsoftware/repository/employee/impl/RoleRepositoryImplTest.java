@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.repository.employee.impl;
 
 
@@ -15,10 +16,12 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
+*/
 /* @author - Noluthando Nqwelo
 /* @std no - 215029003
 /* @Description - Create Role Repository test
- */
+ *//*
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
@@ -64,4 +67,4 @@ public class RoleRepositoryImplTest {
         assertEquals(1,roles.size());
         System.out.println(repository.getAll());
     }
-}
+}*/
