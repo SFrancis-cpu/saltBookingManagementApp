@@ -1,0 +1,96 @@
+
+/*
+package com.saltsoftware.repository.dentalService.impl;
+
+/*
+ * Author: Abram Rakgotho
+ * Student Number: 215031393
+ * Created Repository for service entity under the package name dental service
+ */
+/*
+import com.saltsoftware.entity.dentalService.Service;
+import com.saltsoftware.repository.dentalService.ServiceRepository;
+
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class ServiceRepositoryimpl implements ServiceRepository {
+
+
+    // manipulating database to create, read, update and delete
+
+    private final Set<Service> serviceDB;
+    private static ServiceRepository serviceRepository = null;
+
+    private ServiceRepositoryimpl()
+    {
+        this.serviceDB = new HashSet<>();
+    }
+    public static ServiceRepository getServiceRepository()
+    {
+        if(serviceRepository  == null)
+            serviceRepository = new ServiceRepositoryimpl();
+
+        return serviceRepository;
+    }
+
+
+   //creating a local variable that references the Service class where it
+    //will get stored in the out service database
+    public Service create(Service service)
+    {
+        this.serviceDB.add(service);
+        return service;
+
+    }
+    public Service read(String serviceId)
+    {
+        //The for loop will access all functionalities in the database to display the required value specified
+        //by the if statement.
+        Service service = null;
+        for(Service ser:this.serviceDB)
+        {
+            if(ser.getServiceId().equalsIgnoreCase(serviceId))
+            {
+                service = ser;
+                break;
+            }
+
+        }
+        return service;
+
+    }
+    public Service update(Service service)
+    {   //Creating an object
+        //Updating the database
+        Service previousService = read(service.getServiceId()); //Creating an object of Service
+        if(previousService != null) //If the previous service id not null it should remove and add the prompt one
+        {
+        this.serviceDB.remove(previousService);
+        this.serviceDB.add(service);
+
+        }
+        return service;
+
+    }
+    //Removing what the database has recorded based on what has been specified
+    public boolean delete(String serviceId)
+    {
+        Service service = read(serviceId);
+        if(service != null)
+        {
+            this.serviceDB.remove(service);
+
+        }
+
+
+        return false;
+    }
+
+    @Override
+    //Retrieving all the information within the service DB
+    public Set<Service> getAll() {
+        return this.serviceDB;
+    }
+}*/

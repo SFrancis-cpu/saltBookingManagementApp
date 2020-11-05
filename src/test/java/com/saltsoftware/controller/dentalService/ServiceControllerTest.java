@@ -1,7 +1,6 @@
 package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.Service;
-import com.saltsoftware.entity.employee.Role;
 import com.saltsoftware.factory.dentalService.ServiceFactory;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -40,7 +39,7 @@ public class ServiceControllerTest {
     @Test
     public void a_create()
     {
-        //Service service = ServiceFactory.createService("Dentist", "Teeth alignment");
+        Service service = ServiceFactory.createService("Dentist", "Teeth alignment");
         String url = baseURL + "create";
         System.out.println("URL: " + url);
         ResponseEntity<Service> postResponse = restTemp.postForEntity(url, service, Service.class);
@@ -53,7 +52,7 @@ public class ServiceControllerTest {
     {
 
         String url = baseURL + "read" + service.getServiceId();
-        System.out.println("read  " +service);
+        System.out.println("read  " + service);
         ResponseEntity<Service> res = restTemp.getForEntity(url,Service.class);
         assertNotNull(res);
         assertNotNull(res.getBody());

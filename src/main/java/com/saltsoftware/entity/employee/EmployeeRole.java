@@ -2,8 +2,7 @@ package com.saltsoftware.entity.employee;
 
 /* @Author: Sakeena Francis
  *   StudentNumber : 215006097
- *   This is a EmployeeRole class
- *   change RoleTypes
+ *   ENTITY: This is a EmployeeRole class is a bridging class for Role ID and Employee ID
  * */
 
 import javax.persistence.Entity;
@@ -19,7 +18,7 @@ import java.util.Objects;
 public class EmployeeRole implements Serializable {
 
     @Id
-       private String empID, roleID;
+    private String empID, roleID;
 
        protected EmployeeRole(){}
 
