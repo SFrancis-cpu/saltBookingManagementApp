@@ -1,6 +1,6 @@
 package com.saltsoftware.controller.dentalService;
 
-import com.saltsoftware.entity.dentalService.Service;
+
 import com.saltsoftware.entity.dentalService.ServiceCost;
 import com.saltsoftware.factory.dentalService.ServiceCostFactory;
 import com.saltsoftware.service.dentalService.ServiceCostService;
