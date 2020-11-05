@@ -13,10 +13,11 @@ import javax.persistence.Entity;
 public class Cost {
 
     @Id
-    private MysqlxDatatypes.Scalar.String costID;
+    private String costID;
     private double amount;
 
-    Protected Cost(){}
+    //Default Constructor
+    protected Cost(){}
 
     public String getCostID() {
         return costID;
@@ -68,13 +69,6 @@ public class Cost {
         }
     }
 
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Cost cost = (Cost) object;
-        return costID.equals(cost.costID);
-    }
 
     public int hashCode() {
         return java.util.Objects.hash(super.hashCode(), costID);
