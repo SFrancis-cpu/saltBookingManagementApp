@@ -1,15 +1,24 @@
 package com.saltsoftware.entity.patient;
+
 /* author: Bathi Ntshinga
 /* std no:214198227
-/* Description: Entity for Patient
+/* Description: Adding Annotations
  */
 
-import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 
-public class Patient implements Serializable {
-    private static String patientID;
-    private static String patientName;
-    private static String patientSurname;
+@Entity
+@IdClass(PatientIdName.class)
+public class Patient {
+
+    @Id
+    private String patientID;
+    private String patientName;
+    private String patientSurname;
+
+    protected Patient(){}
 
     private Patient (Builder builder){
         this.patientID = builder.patientID;
@@ -70,5 +79,3 @@ public class Patient implements Serializable {
         }
     }
 }
-
-

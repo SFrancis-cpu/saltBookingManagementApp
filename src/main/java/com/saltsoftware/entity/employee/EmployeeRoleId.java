@@ -1,5 +1,11 @@
 package com.saltsoftware.entity.employee;
 
+/**
+ * Created by :Sakeena Francis
+ * Student no: 215006097
+ * Desc: initialising primary keys for database
+ */
+
 import java.io.Serializable;
 import java.util.Objects;
 
