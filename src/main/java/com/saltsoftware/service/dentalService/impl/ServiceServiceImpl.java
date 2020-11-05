@@ -20,7 +20,7 @@ public class ServiceServiceImpl implements ServiceService {
     //
 
     @Autowired
-    private static ServiceService service = null;
+    protected  ServiceService service = null;
     private  ServiceRepository sRepository;
 
 
