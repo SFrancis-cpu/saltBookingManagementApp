@@ -2,6 +2,7 @@ package com.saltsoftware.entity.employee;
 
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,6 +10,7 @@ import java.util.Objects;
 /* @std no - 215029003
 /* @Description - Create Role Entity with roleID and roleDescription
  */
+@Entity
 public class Role {
 
     @Id
