@@ -7,5 +7,4 @@ import java.util.Set;
 
 public interface ServiceService extends IService<Service, String > {
     Set<Service>getAll();
-
 }
