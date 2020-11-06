@@ -3,8 +3,9 @@ package com.saltsoftware.service.payment.impl;
 
 import com.saltsoftware.entity.payment.PatientPaymentRecord;
 import com.saltsoftware.repository.payment.PatientPaymentRecordRepository;
-import com.saltsoftware.repository.payment.impl.PatientPaymentRecordImpl;
 import com.saltsoftware.service.payment.PatientPaymentRecordService;
+import com.saltsoftware.service.payment.PatientPaymentTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -18,12 +19,10 @@ public class PatientPaymentRecordServiceImpl implements PatientPaymentRecordServ
 
 
     private static PatientPaymentRecordService service = null;
+
+    @Autowired
     private PatientPaymentRecordRepository repository;
 
-    public PatientPaymentRecordServiceImpl  ()
-    {
-        this.repository = PatientPaymentRecordImpl.getPatientPaymentRecordRepository();
-    }
 
     public static PatientPaymentRecordService getPatientPaymentRecord(){
         if (service == null) service = new com.saltsoftware.service.payment.impl.PatientPaymentRecordServiceImpl();
@@ -39,21 +38,23 @@ public class PatientPaymentRecordServiceImpl implements PatientPaymentRecordServ
     // Create new Patient Payment Record
     @Override
     public PatientPaymentRecord create(PatientPaymentRecord patientPaymentRecord) {
-        return this.repository.create(patientPaymentRecord);
+        return this.repository.save(patientPaymentRecord);
     }
     // Read the record and return
     @Override
     public PatientPaymentRecord read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
     // update a record
     @Override
     public PatientPaymentRecord update(PatientPaymentRecord patientPaymentRecord) {
-        return this.repository.update(patientPaymentRecord);
+        return this.repository.save(patientPaymentRecord);
     }
     // drop record from this table
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if(this.repository.existsById(s)) return false;
+        else return true;
     }
 }
