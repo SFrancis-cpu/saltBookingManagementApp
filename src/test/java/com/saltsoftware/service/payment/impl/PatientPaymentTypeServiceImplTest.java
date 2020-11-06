@@ -2,13 +2,12 @@ package com.saltsoftware.service.payment.impl;
 
 import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.factory.payment.PatientPaymentTypeFactory;
-import com.saltsoftware.repository.payment.PatientPaymentTypeRepository;
-import com.saltsoftware.repository.payment.impl.PatientPaymentTypeImpl;
 import com.saltsoftware.service.payment.PatientPaymentTypeService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 
@@ -23,7 +22,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PatientPaymentTypeServiceImplTest {
 
-    private static PatientPaymentTypeService Service = PatientPaymentTypeServiceImpl.getPatientPaymentTypeService();
+    @Autowired
+    private static PatientPaymentTypeService Service;
     private static PatientPaymentType patientPaymentType = PatientPaymentTypeFactory.createPaymentType("Debit Card");
 
     //Test case for getAll method
