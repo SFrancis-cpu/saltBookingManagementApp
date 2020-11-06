@@ -4,8 +4,8 @@ package com.saltsoftware.entity.dentalService;
  *   This is a cost entity class.
  * */
 
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
-import org.springframework.data.annotation.Id;
+
+import javax.persistence.Id;
 
 import javax.persistence.Entity;
 

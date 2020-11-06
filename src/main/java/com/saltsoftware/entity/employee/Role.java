@@ -1,5 +1,8 @@
 package com.saltsoftware.entity.employee;
 
+
+
+import javax.persistence.Entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -9,6 +12,7 @@ import java.util.Objects;
 /* @std no - 215029003
 /* @Description - Create Role Entity with roleID and roleDescription
  */
+
 
 @Entity
 public class Role  {
