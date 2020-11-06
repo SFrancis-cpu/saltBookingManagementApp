@@ -12,5 +12,5 @@ import java.util.Set;
  */
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, String> {
-    Set<Patient>getAll();
+
 }
