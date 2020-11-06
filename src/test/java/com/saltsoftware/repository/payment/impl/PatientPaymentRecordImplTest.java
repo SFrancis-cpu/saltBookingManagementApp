@@ -1,3 +1,4 @@
+/*
 package com.saltsoftware.repository.payment.impl;
 
 import com.saltsoftware.entity.payment.PatientPaymentRecord;
@@ -13,12 +14,14 @@ import org.junit.runners.MethodSorters;
 import java.util.Set;
 
 import static org.junit.Assert.*;
+*/
 /**
  * @author name: Linton Appollis
  *student num: 216182484
  *Desc: Creating Test Class for PatientPaymentRecord, Repository
  *date: August 2020
- * */
+ * *//*
+
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PatientPaymentRecordImplTest 
@@ -66,4 +69,4 @@ public class PatientPaymentRecordImplTest
         assertEquals(1,patientPaymentRecords.size());
         System.out.println(rep1.getAll());
     }
-}
+}*/
