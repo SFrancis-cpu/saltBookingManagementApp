@@ -7,7 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
+/*
+* Author: Abram Rakgotho
+* Student Number:215031393
+* Role: Responsible for creating serviceController to enable CRUD
 
+ */
+
+@RestController
+@RequestMapping("/service")
 public class ServiceController {
     @Autowired
     private ServiceServiceImpl serviceService;
