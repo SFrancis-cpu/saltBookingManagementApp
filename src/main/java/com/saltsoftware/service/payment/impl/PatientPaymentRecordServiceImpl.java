@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /* @author: Linton Appollis
 /* @student number - 216182848
@@ -32,8 +33,9 @@ public class PatientPaymentRecordServiceImpl implements PatientPaymentRecordServ
     //Get all patient payment records - TSQL, Select * from Table below name
     @Override
     public Set<PatientPaymentRecord> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
+
 
     // Create new Patient Payment Record
     @Override
