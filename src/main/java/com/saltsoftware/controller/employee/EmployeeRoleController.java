@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/employeerole")
+@RequestMapping("/saltbookingmanagementapp/employeerole")
 public class EmployeeRoleController {
 
     @MockBean
