@@ -41,8 +41,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/saltbookingmanagementapp/**/create", "/saltbookingmanagementapp/**/delete/**").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltbookingmanagementapp/**/read/**","/saltbookingmanagementapp/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/**/create", "/saltBookingManagementApp/**/delete/**").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/**/read/**","/saltBookingManagementApp/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employee/create","/saltBookingManagementApp/employee/update", "/saltBookingManagementApp/employee/delete/**").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/read/**","/saltBookingManagementApp/employee/all").hasRole(BASIC_ROLE)
                 .and()
                 .csrf().disable();
     }
