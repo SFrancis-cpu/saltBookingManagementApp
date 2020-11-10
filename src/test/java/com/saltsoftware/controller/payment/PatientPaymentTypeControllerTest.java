@@ -23,9 +23,9 @@ import static org.junit.Assert.*;
 
 public class PatientPaymentTypeControllerTest {
 
-    private PatientPaymentType paymentTypeService = PatientPaymentTypeFactory.createPaymentType("Debit Card");
-    private static String SECURITY_USERNAME = "Sally";
-    private static String SECURITY_PASSWORD = "3333";
+    private PatientPaymentType paymentTypeService = PatientPaymentTypeFactory.createPaymentType("EFT");
+    private static String SECURITY_USERNAME = "SUPER";
+    private static String SECURITY_PASSWORD = "5555";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -38,7 +38,7 @@ public class PatientPaymentTypeControllerTest {
         System.out.println("URL: "+url);
         System.out.println("Post data: "+paymentTypeService);
         ResponseEntity<PatientPaymentType> postResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url, paymentTypeService,PatientPaymentType.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
@@ -53,7 +53,9 @@ public class PatientPaymentTypeControllerTest {
     public void b_read() {
         String url = baseURL + "read/"+ paymentTypeService.getPaymentTypeID();
         System.out.println("URL "+ url);
-        ResponseEntity<PatientPaymentType> getResponse = restTemplate.getForEntity(url,PatientPaymentType.class);
+        ResponseEntity<PatientPaymentType> getResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url,PatientPaymentType.class);
         System.out.println("this is response--> "+getResponse);
         assertNotNull(getResponse);
 
@@ -66,7 +68,7 @@ public class PatientPaymentTypeControllerTest {
         String url = baseURL + "update";
         System.out.println("url "+ url);
         ResponseEntity<PatientPaymentType> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url,updated,PatientPaymentType.class);
         assertEquals(updated.getPaymentTypeID(), response.getBody().getPaymentTypeID());
     }
@@ -77,7 +79,9 @@ public class PatientPaymentTypeControllerTest {
         String url = baseURL + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -88,7 +92,7 @@ public class PatientPaymentTypeControllerTest {
         String url = baseURL + "delete/" + paymentTypeService.getPaymentTypeID();
         System.out.println("URL: "+ url);
         restTemplate
-                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .delete(url);
     }
 }
