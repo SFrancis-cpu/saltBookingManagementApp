@@ -11,17 +11,18 @@ import com.saltsoftware.util.GenericHelper;
 
 public class  BookingScheduleFactory {
     //BuildBookingSchedule with parameter
-    public static BookingSchedule buildBookingSchedule(String patientID) {
+    public static BookingSchedule createBookingSchedule(String bookingDate, String bookingTime) {
         String bookingID = GenericHelper.generateID();
         BookingSchedule bookingSchedule = new BookingSchedule.Builder()
                 .setBookingID(bookingID)
-                .setPatientID(patientID)
+                .setBookingDate(bookingDate)
+                .setBookingTime(bookingTime)
                 .build();
         return bookingSchedule;
     }
 
 
-    //CreateBookingSchedule without parameter
+    /*//CreateBookingSchedule without parameter
     public static BookingSchedule createBookingSchedule(){
 
         //Making use of generic helper utility
@@ -35,6 +36,6 @@ public class  BookingScheduleFactory {
                 .build();
 
         return bookingSchedule;
-    }
+    }*/
     }
 
