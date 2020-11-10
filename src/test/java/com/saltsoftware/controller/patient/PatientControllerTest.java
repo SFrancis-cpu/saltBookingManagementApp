@@ -68,7 +68,7 @@ public class PatientControllerTest {
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
     }
-
+    //Test the read command for application security
     @Test
     public void c_update() {
         Patient updated = new Patient.Builder().copy(patient).setPatientID("AAA").build();
