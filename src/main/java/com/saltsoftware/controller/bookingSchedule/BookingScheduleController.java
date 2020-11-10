@@ -2,7 +2,7 @@ package com.saltsoftware.controller.bookingSchedule;
 
 import com.saltsoftware.entity.bookingSchedule.BookingSchedule;
 import com.saltsoftware.factory.bookingSchedule.BookingScheduleFactory;
-import com.saltsoftware.service.bookingSchedule.impl.BookingScheduleServiceImpl;
+import com.saltsoftware.service.bookingSchedule.BookingScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,23 +19,21 @@ import java.util.Set;
 public class BookingScheduleController {
 
     @Autowired
-    private BookingScheduleServiceImpl bookingScheduleService;
+    private BookingScheduleService bookingScheduleService;
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    //@PostMapping("/create")
+    @PostMapping("/create")
     public BookingSchedule create(@RequestBody BookingSchedule bookingSchedule){
-        BookingSchedule newBookingSchedule = BookingScheduleFactory.buildBookingSchedule(bookingSchedule.getBookingID());
-        return bookingScheduleService.create(newBookingSchedule);
+        bookingSchedule = BookingScheduleFactory.createBookingSchedule(bookingSchedule.getBookingDate(), bookingSchedule.getBookingTime());
+        return bookingScheduleService.create(bookingSchedule);
     }
 
     @GetMapping("/all")
-    public Set<BookingSchedule> getall() {
+    public Set<BookingSchedule> getAll() {
         return bookingScheduleService.getAll();
     }
 
     //read
     @GetMapping("/read/{id}")
-    @ResponseBody
     public BookingSchedule read(@PathVariable String id){
         return bookingScheduleService.read(id);
     }
