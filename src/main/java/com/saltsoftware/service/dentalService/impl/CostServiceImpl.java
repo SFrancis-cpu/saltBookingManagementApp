@@ -1,6 +1,6 @@
 package com.saltsoftware.service.dentalService.impl;
 
-import com.saltsoftware.service.dentalService.impl.CostServiceImpl;
+import com.saltsoftware.service.dentalService.CostService;
 import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.repository.dentalService.CostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class CostServiceImpl implements CostService {
     private CostRepository repository;
 
 
-    public Set<Cost> getAll() {
+    public Cost getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
