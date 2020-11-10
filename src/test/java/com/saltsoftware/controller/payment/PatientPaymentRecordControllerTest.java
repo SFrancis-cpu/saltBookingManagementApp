@@ -1,5 +1,12 @@
 package com.saltsoftware.controller.payment;
 
+import com.saltsoftware.entity.employee.Employee;
+import com.saltsoftware.entity.employee.EmployeeRole;
+import com.saltsoftware.entity.payment.PatientPaymentRecord;
+import com.saltsoftware.entity.payment.PatientPaymentType;
+import com.saltsoftware.factory.employee.EmployeeFactory;
+import com.saltsoftware.factory.payment.PatientPaymentRecordFactory;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,58 +14,102 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
 //random port to avoid an already used port
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@RunWith(SpringRunner.class)
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
 
 /*
     Author: Linton Appollis
     Student no: 216182484
-    Desc: Patient Payment Record Implementation
+    Desc: Test cases for Patient Payment Record Controller with Security
     Date: 27 Sept
  */
-public class PatientPaymentRecordControllerTest {
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@RunWith(SpringRunner.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+
+public class PatientPaymentRecordControllerTest
+
+{
+
+    private static PatientPaymentRecord patientPaymentRecord = PatientPaymentRecordFactory.createPatientPaymentRecord("00001","1 December ","R10 000");
+    private static String SECURITY_USERNAME = "Linton";
+    private static String SECURITY_PASSWORD = "45678";
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8080/patientpaymentrecord/";
+    private String myURL = "http://localhost:3306/salt/";
 
     @Test
-    public void create() {
-    }
-    //Test case for getAll method
-    @Test
-    public void getAll()
-    {
-        String url = baseURL + "all";
-        HttpHeaders headers = new HttpHeaders();
-        HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-        System.out.println(response);
-        System.out.println(response.getBody());
-    }
-
-    @Test
-    public void read() {
-    }
-
-    @Test
-    public void update() {
-    }
-    //Test case for delete method
-    @Test
-    public void delete()
-    {
-    String url = baseURL +"/paymentrecord"+restTemplate;
+    public void a_create() {
+        String url = myURL + "create";
         System.out.println("URL: "+url);
-        restTemplate.delete(url);
-     }
+        System.out.println("Post data: "+patientPaymentRecord);
+
+        ResponseEntity<PatientPaymentRecord> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .postForEntity(url,patientPaymentRecord,PatientPaymentRecord.class);
+        assertNotNull(postResponse);
+        assertNotNull(postResponse.getBody());
+        patientPaymentRecord = postResponse.getBody();
+
+        System.out.println("Your Payment Record is as follows: "+patientPaymentRecord);
+        System.out.println(postResponse);
+        System.out.println(postResponse.getBody());
+
+        Assert.assertEquals(HttpStatus.FORBIDDEN, postResponse.getStatusCode());
+        Assert.assertEquals(patientPaymentRecord.getPayReceiptNumber(), patientPaymentRecord.getPayDate(),patientPaymentRecord.getPayAmount());
+    }
+
+    @Test
+    public void b_read() {
+        String url = myURL + "read/"+ patientPaymentRecord.getPayReceiptNumber();
+        System.out.println("URL "+ url);
+        System.out.println(url);
+        ResponseEntity<PatientPaymentRecord> responseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .getForEntity(url,PatientPaymentRecord.class);
+        assertNotNull(responseEntity);
+        assertNotNull(responseEntity.getBody());
+        System.out.println("this is response--> "+responseEntity);
+
+    }
+
+    //Testing if i can successfully update my Receipt Number
+    @Test
+    public void c_update() {
+        PatientPaymentRecord updated = new PatientPaymentRecord.Builder().copy(patientPaymentRecord).setpayReceiptNumber("2556677").setpayDate("30 March").setpayAmount("R20 000").build();
+        String url = myURL + "update";
+        System.out.println("url "+ url);
+        ResponseEntity<PatientPaymentRecord> responseEntity = restTemplate.postForEntity(url,updated,PatientPaymentRecord.class);
+        assertNotNull(responseEntity);
+        assertNotNull(updated);
+        System.out.println("updated " + updated);
+    }
+
+    @Test
+    public void e_delete() {
+        String url = myURL +"delete/"+ patientPaymentRecord.getPayReceiptNumber();
+        System.out.println("URL: "+url);
+        restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .delete(url);
+    }
+    @Test
+    public void d_getAll() {
+        String url = myURL + "all";
+        System.out.println("URL "+ url);
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(null,headers);
+        ResponseEntity<String> responseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET,entity,String.class);
+        System.out.println(responseEntity.getBody());
+        assertNotNull(responseEntity);
+
+    }
 }
