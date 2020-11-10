@@ -47,6 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/read/**","/saltBookingManagementApp/employee/all").hasRole(BASIC_ROLE)
                 .and()
                 .csrf().disable();
+
+        //Heinrich Arends 217166792 PatientPaymentController Authorization on endpoints 
         http.httpBasic()
                 .and()
                 .authorizeRequests()
