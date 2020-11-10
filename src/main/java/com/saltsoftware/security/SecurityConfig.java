@@ -43,10 +43,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/**/create", "/saltBookingManagementApp/**/delete/**").hasRole(SUPER_ROLE)
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/**/read/**","/saltBookingManagementApp/**/all").hasRole(BASIC_ROLE)
+
                 .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employee/create","/saltBookingManagementApp/employee/update", "/saltBookingManagementApp/employee/delete/**").hasRole(SUPER_ROLE)
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/read/**","/saltBookingManagementApp/employee/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/saltBookingManagementApp/employee/delete").hasRole(SUPER_ROLE)
                 .and()
                 .csrf().disable();
+
+        //Heinrich Arends 217166792 PatientPaymentController Authorization on endpoints 
         http.httpBasic()
                 .and()
                 .authorizeRequests()
