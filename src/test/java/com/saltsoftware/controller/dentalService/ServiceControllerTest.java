@@ -31,8 +31,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class ServiceControllerTest {
 
     private static Service service = ServiceFactory.createService("Dentist", "Teeth Alignment");
-    private static final String USERNAME = "man1";
-    private static final String PASSWORD = "password";
 
     @Autowired
     private TestRestTemplate restTemp;
@@ -44,8 +42,7 @@ public class ServiceControllerTest {
         Service service = ServiceFactory.createService("Dentist", "Teeth alignment");
         String url = baseURL + "create";
         System.out.println("URL: " + url);
-        ResponseEntity<Service> postResponse = restTemp.withBasicAuth(USERNAME, PASSWORD)
-                .postForEntity(url, service, Service.class);
+        ResponseEntity<Service> postResponse = restTemp.postForEntity(url, service, Service.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         System.out.println(postResponse.getBody());
@@ -56,8 +53,7 @@ public class ServiceControllerTest {
 
         String url = baseURL + "read" + service.getServiceId();
         System.out.println("read  " + service);
-        ResponseEntity<Service> res = restTemp.withBasicAuth(USERNAME, PASSWORD)
-                .getForEntity(url,Service.class);
+        ResponseEntity<Service> res = restTemp.getForEntity(url,Service.class);
         assertNotNull(res);
         assertNotNull(res.getBody());
 
@@ -74,9 +70,7 @@ public class ServiceControllerTest {
                 .setServiceDescrip("Teeth removal").build();
         String url = baseURL + "update";
         System.out.println("URL: " + url); //This printout enables me to literally display my URL to the output.
-        ResponseEntity<Service> response = restTemp
-                .withBasicAuth(USERNAME, PASSWORD)
-                .postForEntity(url, updated, Service.class);
+        ResponseEntity<Service> response = restTemp.postForEntity(url, updated, Service.class);
         assertEquals(service.getServiceId(), response.getBody().getServiceId());
         System.out.println(response);
 
@@ -90,8 +84,7 @@ public class ServiceControllerTest {
         HttpHeaders headers = new HttpHeaders();
 
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemp
-                .withBasicAuth(USERNAME,PASSWORD).exchange(url,
+        ResponseEntity<String> response = restTemp.exchange(url,
                 HttpMethod.GET, entity, String.class);
         assertNotNull(response.getBody());
         System.out.println(response.getBody());
@@ -104,7 +97,7 @@ public class ServiceControllerTest {
 
         String url = baseURL + "delete/" + service.getServiceId();
         System.out.println("URL: " +url);
-        restTemp.withBasicAuth(USERNAME, PASSWORD).delete(url);
+        restTemp.delete(url);
 
 
     }
