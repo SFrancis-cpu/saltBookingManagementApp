@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
     Author: Linton Appollis
     Student no: 216182484
     Desc: Test cases for Patient Payment Record Controller with Security
-    Date: 27 Sept
+    Date: 27 Sept and 09 November
  */
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -35,15 +35,16 @@ import static org.junit.Assert.*;
 public class PatientPaymentRecordControllerTest
 
 {
-
+    //Testing Super Role
     private static PatientPaymentRecord patientPaymentRecord = PatientPaymentRecordFactory.createPatientPaymentRecord("00001","1 December ","R10 000");
-    private static String SECURITY_USERNAME = "Linton";
-    private static String SECURITY_PASSWORD = "45678";
+    private static String SECURITY_USERNAME = "SUPER";
+    private static String SECURITY_PASSWORD = "5555";
 
     @Autowired
     private TestRestTemplate restTemplate;
     private String myURL = "http://localhost:3306/salt/";
 
+    //Testing if I can create a Patient Payment Record
     @Test
     public void a_create() {
         String url = myURL + "create";
@@ -65,6 +66,7 @@ public class PatientPaymentRecordControllerTest
         Assert.assertEquals(patientPaymentRecord.getPayReceiptNumber(), patientPaymentRecord.getPayDate(),patientPaymentRecord.getPayAmount());
     }
 
+    //Testing if I can read data for Patient Payment Record
     @Test
     public void b_read() {
         String url = myURL + "read/"+ patientPaymentRecord.getPayReceiptNumber();
@@ -79,7 +81,7 @@ public class PatientPaymentRecordControllerTest
 
     }
 
-    //Testing if i can successfully update my Receipt Number
+    //Testing if I can successfully update a Patient Payment Record
     @Test
     public void c_update() {
         PatientPaymentRecord updated = new PatientPaymentRecord.Builder().copy(patientPaymentRecord).setpayReceiptNumber("2556677").setpayDate("30 March").setpayAmount("R20 000").build();
@@ -90,7 +92,7 @@ public class PatientPaymentRecordControllerTest
         assertNotNull(updated);
         System.out.println("updated " + updated);
     }
-
+    //Testing if I can successfully drop a Patient Payment Record
     @Test
     public void e_delete() {
         String url = myURL +"delete/"+ patientPaymentRecord.getPayReceiptNumber();
@@ -99,6 +101,7 @@ public class PatientPaymentRecordControllerTest
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .delete(url);
     }
+
     @Test
     public void d_getAll() {
         String url = myURL + "all";
