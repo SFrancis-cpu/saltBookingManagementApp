@@ -9,11 +9,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 */
-/**
+/*
  * Created by :Craig Carr AKA Fish84
  * Student no: 204111307
  * Desc: Create BookingScheduleRepositoryImpl
- *//*
+ */
+/*
 
 
 public class BookingScheduleRepositoryImpl implements BookingScheduleRepository {
@@ -33,11 +34,7 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
     }
 
     */
-/**
-     *
-     * @param bookingSchedule
-     * @return This method creates a Booking Schedule
-     *//*
+/*
 
     public BookingSchedule create(BookingSchedule bookingSchedule) {
         this.BookingSchedulesDB.add(bookingSchedule);
@@ -45,11 +42,7 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
     }
 
     */
-/**
-     *
-     * @param bookingID
-     * @return This method reads from BookingSchedule database
-     *//*
+/*
 
     public BookingSchedule read(String bookingID){
         BookingSchedule bookingSchedule = null;
@@ -63,11 +56,7 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
     }
 
     */
-/**
-     *
-     * @param bookingSchedule
-     * @return This method updates an existing bookingSchedule
-     *//*
+/*
 
     public BookingSchedule update(BookingSchedule bookingSchedule){
         //get the object and update
@@ -80,12 +69,7 @@ public class BookingScheduleRepositoryImpl implements BookingScheduleRepository 
     }
 
     */
-/**
-     *
-     * @param bookingID
-     * This method removes and booking object
-     * @return
-     *//*
+/*
 
     public boolean delete(String bookingID){
         BookingSchedule bookingSchedule = read(bookingID);

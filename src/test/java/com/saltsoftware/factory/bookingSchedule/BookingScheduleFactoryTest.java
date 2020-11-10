@@ -19,8 +19,8 @@ public class BookingScheduleFactoryTest {
 
     @Before
     public void testCreateBookingSchedule() {
-        book1 = BookingScheduleFactory.createBookingSchedule();
-        book2 = BookingScheduleFactory.createBookingSchedule();
+        book1 = BookingScheduleFactory.createBookingSchedule("10-02-2020", "13:00");
+        book2 = BookingScheduleFactory.createBookingSchedule("22-02-2020", "14:00");
     }
 
     @Test
@@ -28,7 +28,8 @@ public class BookingScheduleFactoryTest {
 
         //Equality test
         assertEquals(book1.getBookingID(),book1.getBookingID());
-        assertEquals(book2.getPatientID(),book2.getPatientID());
+        assertEquals(book2.getBookingDate(),book2.getBookingDate());
+        assertEquals(book2.getBookingTime(),book2.getBookingTime());
     }
 
     @Test
@@ -36,7 +37,8 @@ public class BookingScheduleFactoryTest {
 
         //NotNull test
         assertNotNull(book1.getBookingID());
-        assertNotNull(book2.getPatientID());
+        assertNotNull(book2.getBookingDate());
+        assertNotNull(book2.getBookingTime());
     }
 
     @Test
@@ -44,7 +46,8 @@ public class BookingScheduleFactoryTest {
 
         //Identity test
         assertSame(book1.getBookingID(), book1.getBookingID());
-        assertSame(book2.getPatientID(), book2.getPatientID());
+        assertSame(book2.getBookingDate(), book2.getBookingDate());
+        assertSame(book2.getBookingTime(), book2.getBookingTime());
     }
 
 }

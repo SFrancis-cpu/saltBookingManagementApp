@@ -16,14 +16,15 @@ public class BookingSchedule implements Serializable {
 
     @Id
     private String bookingID;
-    private String patientID;
+    private String bookingDate, bookingTime;
 
     protected BookingSchedule(){}
 
     //constructor
     private BookingSchedule(Builder builder) {
         this.bookingID = builder.bookingID;
-        this.patientID = builder.patientID;
+        this.bookingDate = builder.bookingDate;
+        this.bookingTime = builder.bookingTime;
     }
 
     //inner builder class
@@ -31,31 +32,42 @@ public class BookingSchedule implements Serializable {
         return bookingID;
     }
 
-    public String getPatientID() {
-        return patientID;
+    public String getBookingDate() {
+        return bookingDate;
+    }
+
+    public String getBookingTime(){
+        return bookingTime;
     }
 
     //toString
     @Override
     public String toString() {
         return "BookingSchedule{" +
-                "bookingID=" + bookingID +
-                ", patientID=" + patientID +
+                "bookingID=" + bookingID + '\'' +
+                ", bookingDate=" + bookingDate + '\'' +
+                ", bookingTime=" + bookingTime +
                 '}';
     }
 
 
     //inner builder class
     public static class Builder {
-        private String bookingID, patientID;
+        private String bookingID, bookingDate, bookingTime;
+
         //inner class constructor
         public Builder setBookingID(String bookingID) {
             this.bookingID = bookingID;
             return this;
         }
 
-        public Builder setPatientID(String patientID) {
-            this.patientID = patientID;
+        public Builder setBookingDate(String bookingDate) {
+            this.bookingDate = bookingDate;
+            return this;
+        }
+
+        public Builder setBookingTime(String bookingTime) {
+            this.bookingTime = bookingTime;
             return this;
         }
 
@@ -63,7 +75,8 @@ public class BookingSchedule implements Serializable {
             //getters
             public Builder copy (BookingSchedule bookingSchedule){
                 this.bookingID = bookingSchedule.bookingID;
-                this.patientID = bookingSchedule.patientID;
+                this.bookingDate = bookingSchedule.bookingDate;
+                this.bookingTime = bookingSchedule.bookingTime;
                 return this;
             }
 
