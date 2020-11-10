@@ -2,7 +2,7 @@ package com.saltsoftware.controller.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
 import com.saltsoftware.factory.dentalService.CostFactory;
-import com.saltsoftware.controller.dentalService.
+import com.saltsoftware.controller.dentalService.CostController;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -27,7 +27,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class CostControllerTest {
 
-    private static Cost cost = CostFactory.buildCost("40","60")
+    private static Cost cost = CostFactory.buildCost("40","60");
     private static String SECURITY_USERNAME = "salt";
     private static String SECURITY_PASSWORD = "password";
 
@@ -53,7 +53,7 @@ public class CostControllerTest {
         System.out.println(postResponse.getBody());
 
         Assert.assertEquals(HttpStatus.FORBIDDEN, postResponse.getStatusCode());
-        Assert.assertEquals(cost.getCostID(), cost.toString(cost));
+        Assert.assertEquals(cost.getCostID(), cost.getCostID(cost));
     }
 
     //reading the Cost

@@ -9,5 +9,5 @@ import com.saltsoftware.service.IService;
 import java.util.Set;
 
 public interface CostService extends IService <Cost, String >{
-    Cost getAll();
+    Set<Cost> getAll();
 }

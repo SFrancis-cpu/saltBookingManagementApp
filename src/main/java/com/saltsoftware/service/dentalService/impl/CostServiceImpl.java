@@ -20,7 +20,7 @@ public class CostServiceImpl implements CostService {
     private CostRepository repository;
 
 
-    public Cost getAll() {
+    public Set<Cost> getAll() {
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 

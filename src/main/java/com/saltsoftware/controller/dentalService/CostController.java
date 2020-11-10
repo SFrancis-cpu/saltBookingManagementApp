@@ -35,8 +35,6 @@ public class CostController {
 
         System.out.println(cost.getCostID());
 
-
-        ServiceCost newServiceCost = ServiceCostFactory.buildServiceCost(serviceCost.getServiceId(), serviceCost.getServiceId());
         Cost newCost = CostFactory.builCost(cost.getCostID());
         return costService.create(cost);
     }
