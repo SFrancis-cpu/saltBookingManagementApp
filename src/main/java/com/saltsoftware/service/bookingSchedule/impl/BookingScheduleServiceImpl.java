@@ -2,11 +2,12 @@ package com.saltsoftware.service.bookingSchedule.impl;
 
 import com.saltsoftware.entity.bookingSchedule.BookingSchedule;
 import com.saltsoftware.repository.bookingSchedule.BookingScheduleRepository;
-import com.saltsoftware.repository.bookingSchedule.impl.BookingScheduleRepositoryImpl;
 import com.saltsoftware.service.bookingSchedule.BookingScheduleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by :Craig Carr AKA Fish84
@@ -18,44 +19,36 @@ public class BookingScheduleServiceImpl implements BookingScheduleService {
 
 
     //Constructor
-
-    private static BookingScheduleService bookingScheduleService = null;
+    @Autowired
     private BookingScheduleRepository bookingScheduleRepository;
-
-
-    private BookingScheduleServiceImpl() {
-        this.bookingScheduleRepository = BookingScheduleRepositoryImpl.getBookingScheduleRepository();
-    }
-
-    public static BookingScheduleService getBookingScheduleService() {
-        if (bookingScheduleService == null)
-
-            bookingScheduleService = new BookingScheduleServiceImpl();
-        return bookingScheduleService;
-    }
 
     @Override
     public Set<BookingSchedule> getAll() {
-        return this.bookingScheduleRepository.getAll();
+        return this.bookingScheduleRepository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
     public BookingSchedule create(BookingSchedule bookingSchedule) {
-        return this.bookingScheduleRepository.create(bookingSchedule);
+        return this.bookingScheduleRepository.save(bookingSchedule);
     }
 
     @Override
     public BookingSchedule read(String s) {
-        return this.bookingScheduleRepository.read(s);
+        return this.bookingScheduleRepository.findById(s).orElseGet(null);
     }
 
     @Override
     public BookingSchedule update(BookingSchedule bookingSchedule) {
-        return this.bookingScheduleRepository.update(bookingSchedule);
+        if (this.bookingScheduleRepository.existsById(bookingSchedule.getBookingID())) {
+            return this.bookingScheduleRepository.save(bookingSchedule);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return this.bookingScheduleRepository.delete(s);
+        this.bookingScheduleRepository.deleteById(s);
+        if (this.bookingScheduleRepository.existsById(s)) return false;
+        else return true;
     }
 }

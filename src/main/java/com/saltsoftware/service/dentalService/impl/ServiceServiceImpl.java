@@ -1,7 +1,8 @@
-package com.saltsoftware.service.dentalService;
+package com.saltsoftware.service.dentalService.impl;
 
 import com.saltsoftware.entity.dentalService.Service;
 import com.saltsoftware.repository.dentalService.ServiceRepository;
+import com.saltsoftware.service.dentalService.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
@@ -20,7 +21,7 @@ public class ServiceServiceImpl implements ServiceService {
     //
 
     @Autowired
-    private static ServiceService service = null;
+    protected  ServiceService service = null;
     private  ServiceRepository sRepository;
 
 
