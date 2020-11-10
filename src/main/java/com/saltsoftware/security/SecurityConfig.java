@@ -80,6 +80,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/cost/**/all").hasRole(BASIC_ROLE)
                 .and()
                 .csrf().disable();
+
+        //Abram Rakgotho 215031393 configuring endpoint
+        http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/service/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/service/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/service/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/service/**all**").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/service/delete").hasRole(SUPER_ROLE)
+                .and()
+                .csrf().disable();
+
     }
 
     @Bean
