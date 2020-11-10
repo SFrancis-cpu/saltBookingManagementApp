@@ -22,6 +22,8 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -45,13 +47,15 @@ public class PatientControllerTest {
     @Test
     public void a_create() {
         String url = baseURL + "create";
-
         System.out.println("Post data: "+ patient);
         ResponseEntity<Patient> postResponse = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url,patient,Patient.class);
         assertNotNull(postResponse);
-        Assert.assertEquals(patient.getPatientName(),postResponse.getBody().getPatientName());
+        assertNotNull(postResponse.getBody());
+        patient = postResponse.getBody();
+        System.out.println("Save data: "+ patient);
+        Assert.assertEquals(patient.getPatientID(),postResponse.getBody().getPatientID());
     }
     // Test the read command for application security
     @Test
@@ -67,14 +71,14 @@ public class PatientControllerTest {
 
     @Test
     public void c_update() {
-        Patient updated = new Patient.Builder().copy(patient).setPatientID("AAA").setPatientID("AAA").build();
+        Patient updated = new Patient.Builder().copy(patient).setPatientID("AAA").build();
         String url = baseURL + "update";
-        ResponseEntity<Patient> responseEntity = restTemplate
+        System.out.println("URL:" + url);
+        System.out.println("Post data " + updated);
+        ResponseEntity<Patient> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url,updated, Patient.class);
-        assertNotNull(responseEntity);
-        assertNotNull(updated);
-        System.out.println("updated " + updated);
+        assertEquals(patient.getPatientID(), response.getBody().getPatientID());
     }
 
     @Test
@@ -97,7 +101,6 @@ public class PatientControllerTest {
         String url = baseURL +"delete/"+ patient.getPatientID();
         System.out.println("URL: "+url);
         restTemplate
-                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
-                .delete(url);
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD).delete(url);
     }
 }
