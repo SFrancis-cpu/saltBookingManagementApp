@@ -23,5 +23,13 @@ public class CostFactory {
                 .build();
         return cost;
     }
+
+    public static Cost builCost(String costID) {
+        return null;
+    }
+
+    public static Cost buildCost(java.lang.String string, java.lang.String string1) {
+        return null;
+    }
 }
 
