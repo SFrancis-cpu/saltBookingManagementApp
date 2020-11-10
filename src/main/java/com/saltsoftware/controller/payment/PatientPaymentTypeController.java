@@ -49,7 +49,7 @@ public class PatientPaymentTypeController {
     }
 
     //delete
-    @DeleteMapping ("/delete ")
+    @DeleteMapping ("/delete/{id}")
     @ResponseBody
     public void delete(@PathVariable String id){
         paymentTypeService.delete(id);
