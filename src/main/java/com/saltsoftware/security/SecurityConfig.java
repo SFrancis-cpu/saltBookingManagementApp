@@ -24,13 +24,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("John")
+                .withUser("SUPER")
                 //.password("{noop}5555") without encryption
-                .password(encoder().encode("5555")) //with encrytion (plus bean configuration)
+                .password(encoder().encode("5555")) //with encryption (plus bean configuration)
                 .roles(BASIC_ROLE, SUPER_ROLE)
                 .and()
 
-                .withUser("Sally")
+                .withUser("BASIC")
                 //.password("{noop}3333") without encryption
                 .password(encoder().encode("3333")) //with encryption (plus bean configuration)
                 .roles(BASIC_ROLE);
@@ -41,8 +41,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/saltbookingmanagementapp/**/create", "/saltbookingmanagementapp/**/delete/**").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltbookingmanagementapp/**/read/**","/saltbookingmanagementapp/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/**/create", "/saltBookingManagementApp/**/delete/**").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/**/read/**","/saltBookingManagementApp/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employee/create","/saltBookingManagementApp/employee/update", "/saltBookingManagementApp/employee/delete/**").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/read/**","/saltBookingManagementApp/employee/all").hasRole(BASIC_ROLE)
                 .and()
                 .csrf().disable();
         http.httpBasic()
