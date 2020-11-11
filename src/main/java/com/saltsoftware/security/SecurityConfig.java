@@ -108,6 +108,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
 
+        //Sakeena Francis 215006097 EmployeeRoleController Authorization on endpoints
+        http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employeerole/create","/saltBookingManagementApp/employeerole/update", "/saltBookingManagementApp/employeerole/delete/**").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/readrole/**","/saltBookingManagementApp/employeerole/all").hasRole(BASIC_ROLE)
+                .and()
+                .csrf().disable();
+
         //Next Team member to add code below this mark
 
     }
