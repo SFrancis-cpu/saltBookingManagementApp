@@ -1,7 +1,6 @@
-package com.saltsoftware.service.dentalService.impl;
+package com.saltsoftware.service.dentalService;
 
 import com.saltsoftware.entity.dentalService.Cost;
-import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.service.IService;
 /*      Author: Junade Frizlar
         Student 208046402
