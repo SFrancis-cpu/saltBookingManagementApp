@@ -22,12 +22,16 @@ import static org.junit.Assert.*;
 public class ServiceCostControllerTest {
 
     private static ServiceCost serviceCost = ServiceCostFactory.buildServiceCost("GUMClean441", "VVIP1011");
-    private static String SECURITY_USERNAME = "userTest";
-    private static String SECURITY_PASSWORD = "userTest123";
+    /*private static String SECURITY_USERNAME = "general";
+    private static String SECURITY_PASSWORD = "g3n3r@l";
+*/
+    private static String SECURITY_USERNAME = "salt";
+    private static String SECURITY_PASSWORD = "password";
 
-        @Autowired
+    @Autowired
         private TestRestTemplate restTemplate;
-        private String userURL = "http://localhost:8080/saltbookingmanagementapp/servicecost/";
+        private String userURL = "http://localhost:8080/servicecost/";
+        //saltbookingmanagementapp/
 
     @Test
     public void a_create() {
@@ -41,7 +45,7 @@ public class ServiceCostControllerTest {
         assertNotNull(postResponse.getBody());
         serviceCost = postResponse.getBody();
 
-        System.out.println("User role IDENTITY: "+serviceCost);
+        System.out.println("User role identity: "+serviceCost);
         System.out.println(postResponse);
         System.out.println(postResponse.getBody());
 
@@ -91,7 +95,8 @@ public class ServiceCostControllerTest {
             HttpHeaders headers = new HttpHeaders();
 
             HttpEntity<String> entity = new HttpEntity<>(null,headers);
-            ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity,String.class);
+            ResponseEntity<String> response = restTemplate
+                    .exchange(url, HttpMethod.GET, entity,String.class);
 
             System.out.println(response);
             System.out.println(response.getBody());

@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/serviceCost")
+@RequestMapping("/servicecost")
 public class ServiceCostController {
     @MockBean
     private ServiceCostServiceImpl serviceCostService;
