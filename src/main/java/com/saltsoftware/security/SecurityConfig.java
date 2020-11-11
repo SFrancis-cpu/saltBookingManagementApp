@@ -120,8 +120,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
 
-        //Next Team member to add code below this mark
+        //Noluthando Nqwelo 215029003 Role endpoint authorization on endpoints
+        http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/role/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/role/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/role/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/role/**all**").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/role/delete").hasRole(SUPER_ROLE)
+                .and()
+                .csrf().disable();
 
+        // Next person to add
     }
 
     @Bean
