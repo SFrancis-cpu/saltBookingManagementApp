@@ -42,6 +42,10 @@ public class Cost {
 
     }
 
+    public Object getCostID(Cost cost) {
+        return null;
+    }
+
     public static class Builder{
 
         public String costID;
