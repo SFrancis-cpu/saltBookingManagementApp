@@ -108,7 +108,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
 
-       
+
 
         //Noluthando Nqwelo 215029003 Role endpoint authorization on endpoints
         http.httpBasic()
@@ -124,6 +124,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
+        //Linton Appollis 216182484 Setting Authorization For Patient Payment Record (11-01-2020)
+        http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/salt/create").hasAuthority(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST,"/saltBookingManagementApp/salt/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/saltBookingManagementApp/salt/delete").hasAuthority(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/salt/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/salt/**/all").hasRole(BASIC_ROLE)
+                .and()
+                .csrf().disable();
         // Next person to add
     }
 
