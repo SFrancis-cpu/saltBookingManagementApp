@@ -107,7 +107,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/bookingschedule/**/all").hasRole(BASIC_ROLE)
                 .and()
                 .csrf().disable();
-
+        //Linton Appollis 216182484 Setting Authorization For Patient Payment Record (11-01-2020)
+        http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/salt/create").hasAuthority(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST,"/saltBookingManagementApp/salt/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/saltBookingManagementApp/salt/delete").hasAuthority(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/salt/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/salt/**/all").hasRole(BASIC_ROLE)
+                .and()
+                .csrf().disable();
         //Next Team member to add code below this mark
 
     }
