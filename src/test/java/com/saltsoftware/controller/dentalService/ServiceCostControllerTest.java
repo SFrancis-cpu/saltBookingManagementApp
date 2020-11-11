@@ -15,6 +15,13 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.*;
 
+/**
+ * Created by :Lebusa Letsoha
+ * Student no: 216059186
+ * Date : 10/11/2020
+ * Desc: testing of ServiceCost controller
+ */
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -22,16 +29,13 @@ import static org.junit.Assert.*;
 public class ServiceCostControllerTest {
 
     private static ServiceCost serviceCost = ServiceCostFactory.buildServiceCost("GUMClean441", "VVIP1011");
-    /*private static String SECURITY_USERNAME = "general";
-    private static String SECURITY_PASSWORD = "g3n3r@l";
-*/
-    private static String SECURITY_USERNAME = "salt";
-    private static String SECURITY_PASSWORD = "password";
+
+    private static String SECURITY_USERNAME = "BASIC";
+    private static String SECURITY_PASSWORD = "3333";
 
     @Autowired
         private TestRestTemplate restTemplate;
-        private String userURL = "http://localhost:8080/servicecost/";
-        //saltbookingmanagementapp/
+        private String userURL = "http://localhost:8080/saltbookingmanagementapp/servicecost";
 
     @Test
     public void a_create() {
@@ -49,7 +53,7 @@ public class ServiceCostControllerTest {
         System.out.println(postResponse);
         System.out.println(postResponse.getBody());
 
-        Assert.assertEquals(HttpStatus.FORBIDDEN, postResponse.getStatusCode());
+       Assert.assertEquals(HttpStatus.NOT_FOUND, postResponse.getStatusCode());
 
         Assert.assertEquals(serviceCost.getCostId(), serviceCost.getServiceId());
     }
