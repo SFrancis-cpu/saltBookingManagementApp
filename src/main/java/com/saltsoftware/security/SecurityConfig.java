@@ -107,18 +107,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/bookingschedule/**/all").hasRole(BASIC_ROLE)
                 .and()
                 .csrf().disable();
-
-        //Sakeena Francis 215006097 EmployeeRoleController Authorization on endpoints
-        http.httpBasic()
-                .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employeerole/create").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employeerole/update").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employeerole/read").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employeerole/**all**").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/employeerole/delete").hasRole(SUPER_ROLE)
-                .and()
-                .csrf().disable();
+        
 
         //Noluthando Nqwelo 215029003 Role endpoint authorization on endpoints
         http.httpBasic()
