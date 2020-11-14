@@ -4,7 +4,6 @@ package com.saltsoftware.controller.payment;
 import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.factory.payment.PatientPaymentTypeFactory;
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
@@ -51,13 +50,14 @@ public class PatientPaymentTypeControllerTest {
 
     @Test
     public void b_read() {
-        String url = baseURL + "read/"+ paymentTypeService.getPaymentTypeID();
+        String url = baseURL + "read"+ paymentTypeService.getPaymentTypeID();
         System.out.println("URL "+ url);
         ResponseEntity<PatientPaymentType> getResponse = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .getForEntity(url,PatientPaymentType.class);
         System.out.println("this is response--> "+getResponse);
         assertNotNull(getResponse);
+        assertNotNull(getResponse.getBody());
 
     }
 
