@@ -43,15 +43,15 @@ public class PatientPaymentTypeController {
     }
 
     //update
-    @PostMapping("/update")
+    @PutMapping("/update")
     public PatientPaymentType update(@RequestBody PatientPaymentType patientPaymentType){
         return paymentTypeService.update(patientPaymentType);
     }
 
     //delete
-    @DeleteMapping ("/delete ")
+    @DeleteMapping ("/delete/{id}")
     @ResponseBody
-    public void delete(@PathVariable String id){
-        paymentTypeService.delete(id);
+    public boolean delete(@PathVariable String id){
+        return paymentTypeService.delete(id);
     }
 }

@@ -70,7 +70,8 @@ public class PatientPaymentTypeControllerTest {
         ResponseEntity<PatientPaymentType> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url,updated,PatientPaymentType.class);
-        assertEquals(updated.getPaymentTypeID(), response.getBody().getPaymentTypeID());
+        assertNotNull(paymentTypeService);
+        assertNotNull(updated);
     }
 
     //Test case for getAll method
@@ -89,10 +90,12 @@ public class PatientPaymentTypeControllerTest {
     //Test case for delete method
     @Test
     public void e_delete() {
-        String url = baseURL + "delete/" + paymentTypeService.getPaymentTypeID();
+        String url = baseURL + "/delete/" + paymentTypeService.getPaymentTypeID();
         System.out.println("URL: "+ url);
         restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .delete(url);
+        System.out.println("after delete: "+paymentTypeService);
+
     }
 }
