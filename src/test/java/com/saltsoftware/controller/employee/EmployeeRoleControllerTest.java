@@ -98,7 +98,7 @@ public void b_read() {
         public void e_delete() {
                 String empId = null;
                 EmployeeRole employeeRole = restTemplate
-                        .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                        .withBasicAuth("SUPER","5555")
                         .getForObject(myURL + "/employeeRole//" + empId, EmployeeRole.class);
 
                 assertNotNull(employeeRole);
@@ -118,7 +118,7 @@ public void d_getAll() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null,headers);
         ResponseEntity <String> responseEntity = restTemplate
-                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .withBasicAuth("SUPER","5555")
                 .exchange(url, HttpMethod.GET,entity, String.class );
         System.out.println(responseEntity.getBody());
         assertNotNull(responseEntity);
