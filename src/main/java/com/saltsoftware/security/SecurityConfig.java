@@ -44,6 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/**/create", "/saltBookingManagementApp/**/delete/**").hasRole(SUPER_ROLE)
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/**/read/**","/saltBookingManagementApp/**/all").hasRole(BASIC_ROLE)
                 .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employee/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employee/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/employee/delete").hasRole(SUPER_ROLE)
+                .and()
                 .csrf().disable();
 
         //Heinrich Arends 217166792 PatientPaymentController Authorization on endpoints
@@ -143,13 +150,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
         //Abduragmaan Frank Employee endpoint security
         http.httpBasic()
-                .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employee/create").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/employee/update").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/read").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/employee/all").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/employee/delete").hasRole(SUPER_ROLE)
+
                 .and()
                 .csrf().disable();
 
