@@ -10,7 +10,6 @@ import com.saltsoftware.service.employee.impl.EmployeeRoleServiceImpl;
 import com.saltsoftware.service.employee.impl.EmployeeServiceImpl;
 import com.saltsoftware.service.employee.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.web.bind.annotation.*;
 
 /*
@@ -27,7 +26,6 @@ import java.util.Set;
 @RequestMapping("/saltBookingManagementApp/employeeRole")
 public class EmployeeRoleController {
 
-    @MockBean
     private EmployeeRoleServiceImpl employeeRoleService;
 
     @Autowired //used to create a connection to the Employee service package
