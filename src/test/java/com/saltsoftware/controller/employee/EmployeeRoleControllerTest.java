@@ -1,6 +1,7 @@
 package com.saltsoftware.controller.employee;
 
 import com.saltsoftware.entity.employee.EmployeeRole;
+import com.saltsoftware.entity.payment.PatientPaymentRecord;
 import com.saltsoftware.factory.employee.EmployeeRoleFactory;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -56,6 +57,8 @@ public class EmployeeRoleControllerTest {
         }
 
 //reading the employeerole
+
+
 @Test
 public void b_read() {
         String url = myURL + "read" + employeeRole.getRoleID();
@@ -66,6 +69,7 @@ public void b_read() {
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
         }
+
 
 //updating the description on the role
 @Test
