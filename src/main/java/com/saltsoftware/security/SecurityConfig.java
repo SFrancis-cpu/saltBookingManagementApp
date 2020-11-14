@@ -153,7 +153,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .csrf().disable();
-        // Next person to add
+
+        //Letsoha Lebusa 216059186 securing the ServiceCostController endpoints based on the level of access given to a user in the database
+        http.httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/servicecost/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/servicecost/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/servicecost/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/servicecost/**all**").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/servicecost/delete").hasRole(SUPER_ROLE)
+                .and()
+                .csrf().disable();
     }
 
     @Bean
