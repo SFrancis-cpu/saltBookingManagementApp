@@ -48,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable();
 
-        //Heinrich Arends 217166792 PatientPaymentController Authorization on endpoints 
+        //Heinrich Arends 217166792 PatientPaymentController Authorization on endpoints
         http.httpBasic()
                 .and()
                 .authorizeRequests()
