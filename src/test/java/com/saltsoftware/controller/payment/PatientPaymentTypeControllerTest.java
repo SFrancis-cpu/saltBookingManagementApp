@@ -65,13 +65,14 @@ public class PatientPaymentTypeControllerTest {
     @Test
     public void c_update() {
         PatientPaymentType updated = new PatientPaymentType.Builder().copy(paymentTypeService).setDescrip("Credit Card").build();
-        String url = baseURL + "update";
+        String url = baseURL + "/update";
         System.out.println("url "+ url);
         ResponseEntity<PatientPaymentType> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url,updated,PatientPaymentType.class);
         assertNotNull(paymentTypeService);
         assertNotNull(updated);
+        System.out.println("after update: "+paymentTypeService);
     }
 
     //Test case for getAll method
