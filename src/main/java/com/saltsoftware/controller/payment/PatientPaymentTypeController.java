@@ -1,7 +1,5 @@
 package com.saltsoftware.controller.payment;
 
-
-import com.saltsoftware.entity.employee.EmployeeRole;
 import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.factory.payment.PatientPaymentTypeFactory;
 import com.saltsoftware.service.payment.impl.PatientPaymentTypeServiceImpl;
