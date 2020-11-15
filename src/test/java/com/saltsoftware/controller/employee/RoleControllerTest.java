@@ -26,13 +26,16 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class RoleControllerTest {
-
+    private static Role role = RoleFactory.createRole("Reception");
 
     @Autowired
     private TestRestTemplate restTemplate;
     private String baseURL = "http://localhost:8080/role/";
 
-    private static Role role = RoleFactory.createRole("Reception");
+
+    private static String SECURITY_USERNAME = "root";
+    private static String SECURITY_PASSWORD = "password";
+
 
     // creating role
     @Test
@@ -40,11 +43,12 @@ public class RoleControllerTest {
         Role role = RoleFactory.createRole("Reception");
         String url = baseURL + "create";
         System.out.println("Created " + role);
-        ResponseEntity<Role> responseEntity = restTemplate.postForEntity(url, role, Role.class);
-        assertNotNull(responseEntity);
-        assertNotNull(responseEntity.getBody());
-        role = responseEntity.getBody();
-        assertEquals(role.getRoleID(), responseEntity.getBody().getRoleID());
+        ResponseEntity<Role> postForEntity = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, role, Role.class);
+        assertNotNull(postForEntity);
+        assertNotNull(postForEntity.getBody());
+        role = postForEntity.getBody();
+        assertEquals(role.getRoleID(), postForEntity.getBody().getRoleID());
     }
 
     //reading the role
@@ -52,7 +56,8 @@ public class RoleControllerTest {
     public void b_read() {
         String url = baseURL + "read" + role.getRoleID();
         System.out.println("read " + role);
-        ResponseEntity<Role> responseEntity = restTemplate.getForEntity(url,Role.class);
+        ResponseEntity<Role> responseEntity = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url,Role.class);
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
     }
@@ -62,7 +67,8 @@ public class RoleControllerTest {
     public void c_update() {
         Role updated = new Role.Builder().copy(role).setRoleDesc("Receptionist").build();
         String url = baseURL + "update";
-        ResponseEntity<Role> responseEntity = restTemplate.postForEntity(url,updated, Role.class);
+        ResponseEntity<Role> responseEntity = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+        .postForEntity(url,updated, Role.class);
         assertNotNull(responseEntity);
         assertNotNull(updated);
         System.out.println("updated " + updated);
@@ -73,7 +79,7 @@ public class RoleControllerTest {
     public void e_delete() {
         String url = baseURL + "delete";
         System.out.println("deleted " + role);
-        restTemplate.delete(role.getRoleID());
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(role.getRoleID());
     }
 
     @Test
@@ -82,7 +88,8 @@ public class RoleControllerTest {
         System.out.println("Get all" + role);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity <String> entity = new HttpEntity<>(null,headers);
-        ResponseEntity <String> responseEntity = restTemplate.exchange(url, HttpMethod.GET,entity, String.class );
+        ResponseEntity <String> responseEntity = restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+        .exchange(url, HttpMethod.GET,entity, String.class );
         System.out.println(responseEntity.getBody());
         assertNotNull(responseEntity);
 
