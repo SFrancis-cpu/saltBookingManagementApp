@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PatientPaymentRecordServiceImplTest
 {
-    private static PatientPaymentRecordService service = PatientPaymentRecordServiceImpl.getPatientPaymentRecord();
+    private static PatientPaymentRecordService service;
     private static PatientPaymentRecord patientPaymentRecord = PatientPaymentRecordFactory.createPatientPaymentRecord("10001","31 Dec","R9000");
 
     //Select * from database table
