@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/paymenttype")
+@RequestMapping("/saltBookingManagementApp/paymenttype")
 public class PatientPaymentTypeController {
 
     //injecting the constructor, calling payment type service
