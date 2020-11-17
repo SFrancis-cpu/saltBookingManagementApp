@@ -42,7 +42,7 @@ public class EmployeeController {
        return employeeService.read(id);
     }
     //Update method
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Employee update(@RequestBody Employee employee){
        return employeeService.update(employee);
     }
@@ -50,6 +50,8 @@ public class EmployeeController {
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable String id){
        return employeeService.delete(id);
+
+
 
     }
 
