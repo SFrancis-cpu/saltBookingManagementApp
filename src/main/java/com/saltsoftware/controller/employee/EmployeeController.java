@@ -42,7 +42,7 @@ public class EmployeeController {
        return employeeService.read(id);
     }
     //Update method
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Employee update(@RequestBody Employee employee){
        return employeeService.update(employee);
     }

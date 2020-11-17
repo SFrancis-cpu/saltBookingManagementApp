@@ -22,57 +22,57 @@ import static org.junit.Assert.*;
 
 public class PatientPaymentTypeControllerTest {
 
-    private PatientPaymentType paymentTypeService = PatientPaymentTypeFactory.createPaymentType("EFT");
+    private static PatientPaymentType paymentTypeService = PatientPaymentTypeFactory.createPaymentType("EFT");
     private static String SECURITY_USERNAME = "SUPER";
     private static String SECURITY_PASSWORD = "5555";
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8989/paymenttype/";
+    private String baseURL = "http://localhost:8989/saltBookingManagementApp/paymenttype/";
 
     //Test case for create method
     @Test
     public void a_create() {
-        String url = baseURL + "create";
-        System.out.println("URL: "+url);
-        System.out.println("Post data: "+paymentTypeService);
+        String url = baseURL + "create/";
+        System.out.println("URL: "+ url);
+        System.out.println("Post data: "+ paymentTypeService);
         ResponseEntity<PatientPaymentType> postResponse = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url, paymentTypeService,PatientPaymentType.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
         paymentTypeService = postResponse.getBody();
-        System.out.println("Saved data: "+paymentTypeService);
-        System.out.println(postResponse);
-        System.out.println(postResponse.getBody());
+        System.out.println("Saved data: "+ paymentTypeService);
         assertEquals(paymentTypeService.getPaymentTypeID(), postResponse.getBody().getPaymentTypeID());
+
     }
 
     @Test
     public void b_read() {
-        String url = baseURL + "read"+ paymentTypeService.getPaymentTypeID();
+        String url = baseURL + "read/"+ paymentTypeService.getPaymentTypeID();
         System.out.println("URL "+ url);
         ResponseEntity<PatientPaymentType> getResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .getForEntity(url,PatientPaymentType.class);
-        System.out.println("this is response--> "+getResponse);
-        assertNotNull(getResponse);
-        assertNotNull(getResponse.getBody());
-
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .getForEntity(url, PatientPaymentType.class);
+        assertEquals(paymentTypeService.getPaymentTypeID(), getResponse.getBody().getPaymentTypeID());
+       System.out.println("this is response--> "+ paymentTypeService);
     }
 
     //Test case for update method
     @Test
     public void c_update() {
-        PatientPaymentType updated = new PatientPaymentType.Builder().copy(paymentTypeService).setDescrip("Credit Card").build();
-        String url = baseURL + "/update";
-        System.out.println("url "+ url);
+        PatientPaymentType updated = new PatientPaymentType.Builder().copy(paymentTypeService).setDescrip("Cash Payment").build();
+        String url = baseURL + "update/";
+        System.out.println("Url "+ url);
+        System.out.println("Post data: " + updated);
+        paymentTypeService = updated;
         ResponseEntity<PatientPaymentType> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
                 .postForEntity(url,updated,PatientPaymentType.class);
-        assertNotNull(paymentTypeService);
-        assertNotNull(updated);
-        System.out.println("after update: "+paymentTypeService);
+        assertEquals(paymentTypeService.getPaymentTypeID(), response.getBody().getPaymentTypeID());
+        //assertNotNull(paymentTypeService);
+        //assertNotNull(updated);
+        System.out.println("After update: "+ paymentTypeService);
     }
 
     //Test case for getAll method
