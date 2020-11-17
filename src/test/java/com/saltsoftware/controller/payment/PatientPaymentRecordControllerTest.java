@@ -75,10 +75,10 @@ public class PatientPaymentRecordControllerTest
         ResponseEntity<PatientPaymentRecord> responseEntity = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .getForEntity(url,PatientPaymentRecord.class);
-
-        System.out.println("this is response--> "+responseEntity);
         assertNotNull(responseEntity);
         assertNotNull(responseEntity.getBody());
+        System.out.println("this is response--> "+responseEntity);
+
     }
 
     //Testing if I can successfully update a Patient Payment Record
@@ -90,7 +90,7 @@ public class PatientPaymentRecordControllerTest
         ResponseEntity<PatientPaymentRecord> responseEntity = restTemplate.postForEntity(url,updated,PatientPaymentRecord.class);
         assertNotNull(responseEntity);
         assertNotNull(updated);
-        System.out.println("updated " + patientPaymentRecord);
+        System.out.println("updated " + updated);
     }
     //Testing if I can successfully drop a Patient Payment Record
     @Test
@@ -100,7 +100,6 @@ public class PatientPaymentRecordControllerTest
         restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .delete(url);
-        System.out.println("Record delete: "+patientPaymentRecord);
     }
 
     @Test
@@ -112,8 +111,8 @@ public class PatientPaymentRecordControllerTest
         ResponseEntity<String> responseEntity = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .exchange(url, HttpMethod.GET,entity,String.class);
-        System.out.println(responseEntity);
         System.out.println(responseEntity.getBody());
+        assertNotNull(responseEntity);
 
     }
 }
