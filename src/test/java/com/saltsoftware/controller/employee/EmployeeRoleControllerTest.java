@@ -32,8 +32,8 @@ public class EmployeeRoleControllerTest {
         private static String empId = GenericHelper.generateID();
 
         private static EmployeeRole employeeRole = EmployeeRoleFactory.buildEmployeeRole("556566","55576");
-        private static String SECURITY_USERNAME = "salt";
-        private static String SECURITY_PASSWORD = "password";
+        private static String SECURITY_USERNAME = "SUPER";
+        private static String SECURITY_PASSWORD = "5555";
 
         @Autowired
         private TestRestTemplate restTemplate;
@@ -64,7 +64,7 @@ public class EmployeeRoleControllerTest {
         }
 
 //reading the employeerole
-@Test
+/*@Test
 public void b_read() {
         String url = myURL + "read/" + employeeRole.getEmpID();
         System.out.println("Read:  " + url);
@@ -72,16 +72,16 @@ public void b_read() {
                 .getForObject(myURL + "/employeeRole/read", EmployeeRole.class);
         System.out.println(employeeRole.getEmpID());
         assertNotNull(employeeRole);
-
-        //@Test
-        //public void b_read() {
-        // String url = myURL + "read/" + employeeRole.getEmpID();
-        // System.out.println("read " + employeeRole);
-        //ResponseEntity<EmployeeRole> responseEntity = restTemplate
-        //        .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
-        //        .getForEntity(url,EmployeeRole.class);
-        //assertNotNull(responseEntity);
-        //assertNotNull(responseEntity.getBody());
+*/
+        @Test
+        public void b_read() {
+         String url = myURL + "read/" + employeeRole.getEmpID();
+         System.out.println("read " + employeeRole);
+        ResponseEntity<EmployeeRole> responseEntity = restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .getForEntity(url,EmployeeRole.class);
+        assertNotNull(responseEntity);
+        assertNotNull(responseEntity.getBody());
         }
 
         /*@Test
