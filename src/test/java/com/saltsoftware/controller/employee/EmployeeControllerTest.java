@@ -26,12 +26,13 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class EmployeeControllerTest {
 
-    private static Employee employee = EmployeeFactory.createEmployee("Abduragmaan","Fran");
+    private static Employee employee = EmployeeFactory.createEmployee("Abduragmaan","Fronk");
+
     private static String SECURITY_USERNAME = "SUPER";
     private static String SECURITY_PASSWORD = "5555";
 
     @Autowired
-    private TestRestTemplate restTemplate;
+    private TestRestTemplate restTemplate = null;
     private String myURL = "http://localhost:8080/employee/";
 
     @Test
@@ -67,7 +68,9 @@ public class EmployeeControllerTest {
         System.out.println("URL "+ url);
         System.out.println("from read:  "+employee);
         System.out.println(url);
-        restTemplate.getRestTemplate()
+        restTemplate
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                .getRestTemplate()
                 .getForObject(url +"/employee/read",Employee.class);
         System.out.println("from read response: "+employee);
         System.out.println(employee.getEmpName());
@@ -77,19 +80,24 @@ public class EmployeeControllerTest {
     //Testing if i can successfully update my LastName
     @Test
     public void c_update() {
-        Employee updated = new Employee.Builder().copy(employee).setempLastName("Frank").build();
-        System.out.println("from updated: "+updated);
+        Employee updated = new
+                Employee.Builder().copy(employee).setempLastName("Frank").build();
         String url = myURL + "update";
+        System.out.println("from updated: "+updated);
         System.out.println("url "+ url);
+        System.out.println(employee.getEmpName()+""+employee.getEmpLastName()+""+employee.getEmpId());
 
-        ResponseEntity<Employee> response = restTemplate
+        ResponseEntity<Employee> response =
+                restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url,updated,Employee.class);
-                assertNotNull(response);
-                assertNotNull(updated);
+        //        assertNotNull(response);
+        assertNotEquals(employee.getEmpLastName(),response.getBody().getEmpLastName());
+            //    assertNotNull(updated);
         System.out.println(employee.getEmpName()+employee.getEmpLastName());
 
     }
+
 
     @Test
     public void e_delete() {
