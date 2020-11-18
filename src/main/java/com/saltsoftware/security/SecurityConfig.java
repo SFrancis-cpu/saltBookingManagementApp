@@ -70,11 +70,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //Heinrich Arends 217166792 PatientPaymentController Authorization on endpoints
 
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/paymenttype/create").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.PUT,"/saltBookingManagementApp/paymenttype/**/update").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.DELETE,"/saltBookingManagementApp/paymenttype/delete").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/paymenttype/read").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/paymenttype/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/paymenttype/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.PUT,"/paymenttype/**/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/paymenttype/delete").hasAuthority(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/paymenttype/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/paymenttype/**/all").hasRole(BASIC_ROLE)
 
 
                 //Bathi Ntshinga 214198227 Authorization setting for Patient Controller
