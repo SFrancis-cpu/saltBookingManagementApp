@@ -38,9 +38,7 @@ public class EmployeeController {
 
     // read method
     @GetMapping("/read/{id}")
-    public Employee read(@PathVariable String id){
-       return employeeService.read(id);
-    }
+    public Employee read(@PathVariable String id){ return employeeService.read(id); }
     //Update method
     @PutMapping("/update")
     public Employee update(@RequestBody Employee employee){
@@ -48,8 +46,7 @@ public class EmployeeController {
     }
     //Delete method
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable String id){
-       return employeeService.delete(id);
+    public boolean delete(@PathVariable String id){ return employeeService.delete(id);
 
 
 

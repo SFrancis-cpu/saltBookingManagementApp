@@ -5,7 +5,11 @@ import com.saltsoftware.factory.payment.PatientPaymentRecordFactory;
 import com.saltsoftware.service.payment.PatientPaymentRecordService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
 import java.util.Set;
 import static org.junit.Assert.*;
 
