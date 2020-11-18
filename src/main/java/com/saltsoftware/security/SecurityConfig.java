@@ -38,10 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
+        http.httpBasic()
+                .and()
                 .authorizeRequests()
-
                 //Abduragmaan Frank 217009069
                 .antMatchers(HttpMethod.POST, "/employee/create").hasRole(SUPER_ROLE)
                 .antMatchers(HttpMethod.PUT, "/employee/**/update").hasRole(SUPER_ROLE)
@@ -70,11 +69,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //Heinrich Arends 217166792 PatientPaymentController Authorization on endpoints
 
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/paymenttype/create").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.PUT,"/saltBookingManagementApp/paymenttype/**/update").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.DELETE,"/saltBookingManagementApp/paymenttype/delete").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/paymenttype/read").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/paymenttype/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/paymenttype/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.PUT,"/paymenttype/**/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/paymenttype/delete").hasAuthority(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/paymenttype/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/paymenttype/**/all").hasRole(BASIC_ROLE)
 
 
                 //Bathi Ntshinga 214198227 Authorization setting for Patient Controller
@@ -106,20 +105,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //Linton Appollis 216182484 Setting Authorization For Patient Payment Record (11-01-2020)
 
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/PatientPaymentRecord/create").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.POST,"/saltBookingManagementApp/PatientPaymentRecord//update").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.DELETE,"/saltBookingManagementApp/PatientPaymentRecord//delete").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/PatientPaymentRecord/read").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/PatientPaymentRecord/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/paymentrecord/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.PUT, "/paymentrecord/**/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/paymentrecord/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/paymentrecord/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/paymentrecord/delete").hasRole(SUPER_ROLE)
 
 
                 //Craig Carr 204111307 BookingScheduleController Authorization on endpoints
 
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/bookingschedule/create").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.POST,"/saltBookingManagementApp/bookingschedule/update").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.DELETE,"/saltBookingManagementApp/bookingschedule/delete").hasAuthority(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/bookingschedule/read").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/bookingschedule/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.POST, "/bookingschedule/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.PUT,"/bookingschedule/**/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/bookingschedule/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/bookingschedule/**/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/bookingschedule/delete").hasRole(SUPER_ROLE)
 
 
                 //Abram Rakgotho 215031393 configuring endpoint
@@ -130,8 +129,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/service/**all**").hasRole(BASIC_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/service/delete").hasRole(SUPER_ROLE)
                 .and()
-                .formLogin().disable()
-                .httpBasic();
+                .csrf().disable()
+                .formLogin().disable();
+
     }
 
     @Bean
