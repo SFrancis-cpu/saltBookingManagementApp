@@ -38,10 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
+        http.httpBasic()
+                .and()
                 .authorizeRequests()
-
                 //Abduragmaan Frank 217009069
                 .antMatchers(HttpMethod.POST, "/employee/create").hasRole(SUPER_ROLE)
                 .antMatchers(HttpMethod.PUT, "/employee/**/update").hasRole(SUPER_ROLE)
@@ -130,8 +129,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/service/**all**").hasRole(BASIC_ROLE)
                 .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/service/delete").hasRole(SUPER_ROLE)
                 .and()
-                .formLogin().disable()
-                .httpBasic();
+                .csrf().disable()
+                .formLogin().disable();
+
     }
 
     @Bean
