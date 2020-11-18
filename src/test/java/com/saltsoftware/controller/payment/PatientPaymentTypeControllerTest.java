@@ -28,7 +28,7 @@ public class PatientPaymentTypeControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-    private String baseURL = "http://localhost:8989/saltBookingManagementApp/paymenttype/";
+    private String baseURL = "http://localhost:8989/paymenttype/";
 
     //Test case for create method
     @Test
