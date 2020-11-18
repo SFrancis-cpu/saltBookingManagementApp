@@ -2,6 +2,7 @@ package com.saltsoftware.controller.employee;
 
 import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.entity.employee.EmployeeRole;
+import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.factory.employee.EmployeeFactory;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -38,15 +39,18 @@ public class EmployeeControllerTest {
     @Test
     public void a_create() {
     String url = myURL + "create";
-
+        System.out.println("URL:"+url);
         System.out.println("Post data "+ employee);
         ResponseEntity<Employee> postResponse = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url,employee,Employee.class);
         assertNotNull(postResponse);
         Assert.assertEquals(employee.getEmpName(),postResponse.getBody().getEmpName());
-        System.out.println(employee);
+        employee = postResponse.getBody();
+        System.out.println("Saved data: "+employee);
+        System.out.println(postResponse);
     }
+
 
     @Test
     public void d_getAll() {
@@ -80,21 +84,25 @@ public class EmployeeControllerTest {
     //Testing if i can successfully update my LastName
     @Test
     public void c_update() {
+        System.out.println("from pre updated : "+employee.getEmpName()+" "+employee.getEmpLastName()+" "+employee.getEmpId());
         Employee updated = new
                 Employee.Builder().copy(employee).setempLastName("Frank").build();
         String url = myURL + "update";
-        System.out.println("from updated: "+updated);
+       // System.out.println("from updated: "+updated);
         System.out.println("url "+ url);
-        System.out.println(employee.getEmpName()+""+employee.getEmpLastName()+""+employee.getEmpId());
+      //  System.out.println(updated.getEmpName()+""+updated.getEmpLastName()+""+updated.getEmpId());
 
+
+        employee = updated;
         ResponseEntity<Employee> response =
                 restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url,updated,Employee.class);
         //        assertNotNull(response);
-        assertNotEquals(employee.getEmpLastName(),response.getBody().getEmpLastName());
+        assertNotEquals(updated.getEmpLastName(),response.getBody().getEmpLastName());
             //    assertNotNull(updated);
-        System.out.println(employee.getEmpName()+employee.getEmpLastName());
+       // System.out.println(updated.getEmpName()+updated.getEmpLastName());
+        System.out.println("from post updated : "+employee.getEmpName()+" "+employee.getEmpLastName()+" "+employee.getEmpId());
 
     }
 
