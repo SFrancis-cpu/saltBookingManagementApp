@@ -9,7 +9,6 @@ import com.saltsoftware.service.dentalService.impl.CostServiceImpl;
 import com.saltsoftware.service.dentalService.impl.ServiceCostServiceImpl;
 import com.saltsoftware.service.dentalService.impl.ServiceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.web.bind.annotation.*;
 
 /*
@@ -30,7 +29,7 @@ public class ServiceCostController {
 
     //This handles related serviceCost operations
     @Autowired
-    private ServiceCostServiceImpl costService;
+    private CostServiceImpl costService;
 
     @Autowired
     private ServiceServiceImpl serviceService;
@@ -41,7 +40,7 @@ public class ServiceCostController {
         boolean serviceExist = false;
         System.out.println(serviceCost.getCostId());
 
-        ServiceCost cost = costService.read(serviceCost.getCostId());
+        Cost cost = costService.read(serviceCost.getCostId());
         if (cost != null){
             costExist = true;
         }
