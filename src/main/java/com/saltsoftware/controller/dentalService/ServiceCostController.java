@@ -23,20 +23,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/servicecost")
+@RequestMapping("/saltBookingManagementApp/servicecost")
 public class ServiceCostController {
-    @MockBean
+
     private ServiceCostServiceImpl serviceCostService;
 
-    //This handles everyt related serviceCost operations
+    //This handles related serviceCost operations
     @Autowired
-    private ServiceCostServiceImpl service;
+    private ServiceCostServiceImpl costService;
 
     @Autowired
     private ServiceServiceImpl serviceService;
-
-    @Autowired
-    private CostServiceImpl costService;
 
     @PostMapping("/create")
     public ServiceCost create(@RequestBody ServiceCost serviceCost){
@@ -44,7 +41,7 @@ public class ServiceCostController {
         boolean serviceExist = false;
         System.out.println(serviceCost.getCostId());
 
-        Cost cost = costService.read(serviceCost.getCostId());
+        ServiceCost cost = costService.read(serviceCost.getCostId());
         if (cost != null){
             costExist = true;
         }
@@ -56,7 +53,7 @@ public class ServiceCostController {
 
         if (costExist && serviceExist)
             return serviceCostService.create(serviceCost);
-        else return ServiceCostFactory.buildServiceCost("", "");
+        else return ServiceCostFactory.buildServiceCost("Service_ID", "Cost_ID");
     }
 
     //read
