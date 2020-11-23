@@ -51,11 +51,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //Noluthando Nqwelo 215029003 Role endpoint authorization on endpoints
 
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/role/create").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.POST, "/saltBookingManagementApp/role/update").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/role/read").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.GET, "/saltBookingManagementApp/role/all").hasRole(BASIC_ROLE)
-                .antMatchers(HttpMethod.DELETE, "/saltBookingManagementApp/role/delete").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST, "/role/create").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.POST, "/role/update").hasRole(SUPER_ROLE)
+                .antMatchers(HttpMethod.GET, "/role/read").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.GET, "/role/all").hasRole(BASIC_ROLE)
+                .antMatchers(HttpMethod.DELETE, "/role/delete").hasRole(SUPER_ROLE)
 
 
                 //Sakeena Francis 215006097 EmployeeRoleController Authorization on endpoints
