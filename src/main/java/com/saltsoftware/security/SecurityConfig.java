@@ -71,7 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers(HttpMethod.POST, "/paymenttype/create").hasRole(SUPER_ROLE)
                 .antMatchers(HttpMethod.PUT,"/paymenttype/**/update").hasRole(SUPER_ROLE)
-                .antMatchers(HttpMethod.DELETE,"/paymenttype/delete").hasAuthority(SUPER_ROLE)
+                .antMatchers(HttpMethod.DELETE,"/paymenttype/delete").hasRole(SUPER_ROLE)
                 .antMatchers(HttpMethod.GET, "/paymenttype/read").hasRole(BASIC_ROLE)
                 .antMatchers(HttpMethod.GET, "/paymenttype/**/all").hasRole(BASIC_ROLE)
 
