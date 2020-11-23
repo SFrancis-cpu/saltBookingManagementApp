@@ -1,11 +1,7 @@
 package com.saltsoftware.controller.employee;
 
-import com.saltsoftware.entity.dentalService.ServiceCost;
-import com.saltsoftware.entity.employee.Employee;
 import com.saltsoftware.entity.employee.Role;
-import com.saltsoftware.entity.payment.PatientPaymentType;
 import com.saltsoftware.factory.employee.RoleFactory;
-import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /* @author - Noluthando Nqwelo
