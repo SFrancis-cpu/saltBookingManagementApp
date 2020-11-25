@@ -23,6 +23,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -38,8 +39,7 @@ public class PatientControllerTest {
     private static String SECURITY_PASSWORD = "password";
 
     @Autowired
-    private TestRestTemplate restTemplate;
-
+    private TestRestTemplate restTemplate = null;
     private String baseURL = "http://localhost:8080/patient/";
 
     //Testing the creation of patientName for application security
@@ -47,38 +47,51 @@ public class PatientControllerTest {
     @Test
     public void a_create() {
         String url = baseURL + "create";
-        System.out.println("Post data: "+ patient);
+        System.out.println("URL:"+url);
+        System.out.println("Post data "+ patient);
         ResponseEntity<Patient> postResponse = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .postForEntity(url,patient,Patient.class);
         assertNotNull(postResponse);
-        assertNotNull(postResponse.getBody());
+        Assert.assertEquals(patient.getPatientID(),postResponse.getBody().getPatientName(), postResponse.getBody().getPatientSurname());
         patient = postResponse.getBody();
-        System.out.println("Save data: "+ patient);
-        Assert.assertEquals(patient.getPatientID(),postResponse.getBody().getPatientID());
+        System.out.println("Saved data: "+patient);
+        System.out.println(postResponse);
     }
     // Test the read command for application security
     @Test
     public void b_read() {
-        String url = baseURL + "read" + patient.getPatientID();
-        System.out.println("read " + patient);
-        ResponseEntity<Patient> responseEntity = restTemplate
+        String url = baseURL + "read/"+ patient.getPatientID();
+        System.out.println("URL "+ url);
+        System.out.println("from read:  "+patient);
+        System.out.println(url);
+        restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
-                .getForEntity(url,Patient.class);
-        assertNotNull(responseEntity);
-        assertNotNull(responseEntity.getBody());
+                .getRestTemplate()
+                .getForObject(url +"/patient/read",Patient.class);
+        System.out.println("from read response: "+ patient);
+        System.out.println(patient.getPatientName());
+        assertNotNull(patient);
     }
     //Test the read command for application security
     @Test
     public void c_update() {
-        Patient updated = new Patient.Builder().copy(patient).setPatientID("AAA").build();
+        System.out.println("from pre updated : "+patient.getPatientName()+" "+patient.getPatientName()+" "+ patient.getPatientID());
+        Patient updated = new
+                Patient.Builder().copy(patient).setPatientSurname("Bathi").build();
         String url = baseURL + "update";
-        System.out.println("URL:" + url);
-        System.out.println("Post data " + updated);
-        ResponseEntity<Patient> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
-                .postForEntity(url,updated, Patient.class);
-        assertEquals(patient.getPatientID(), response.getBody().getPatientID());
+        // System.out.println("from updated: "+updated);
+        System.out.println("url "+ url);
+
+        patient = updated;
+        ResponseEntity<Patient> response =
+                restTemplate
+                        .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
+                        .postForEntity(url,updated,Patient.class);
+        assertNotEquals(updated.getPatientSurname(),response.getBody().getPatientSurname());
+
+        System.out.println("from post updated : "+ patient.getPatientName()+" "+patient.getPatientSurname()+" "+ patient.getPatientID());
+
     }
 
     @Test
@@ -98,9 +111,13 @@ public class PatientControllerTest {
     //Testing the delete method in application security
     @Test
     public void e_delete() {
-        String url = baseURL +"delete/"+ patient.getPatientID();
-        System.out.println("URL: "+url);
+        String url = baseURL + "/delete/" + patient.getPatientID();
+        System.out.println("URL: "+ url);
         restTemplate
-                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD).delete(url);
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .delete(url);
+        System.out.println("after delete: "+patient);
+
     }
+
 }

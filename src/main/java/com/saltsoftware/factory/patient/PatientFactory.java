@@ -15,6 +15,7 @@ public class PatientFactory {
             String patientID = GenericHelper.generateID();
             Patient patient = new Patient.Builder()
                     .setPatientID(patientID)
+                    .setPatientSurname(patientSurname)
                     .setPatientName(patientName)
                     .build();
 
