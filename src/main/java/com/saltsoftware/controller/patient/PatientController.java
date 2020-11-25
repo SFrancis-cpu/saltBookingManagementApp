@@ -25,6 +25,14 @@ public class PatientController {
         patient = PatientFactory.createPatient(patient.getPatientName(), patient.getPatientSurname());
         return PatientService.create(patient);
     }
+
+    //read
+    @GetMapping("/read/{id}")
+    @ResponseBody
+    public Patient read(@PathVariable String id){
+        return PatientService.read(id);
+    }
+
     /*to get all*/
     @GetMapping("/all")
     public Set<Patient> getAll(){
@@ -35,7 +43,6 @@ public class PatientController {
     @PostMapping("/update")
     @ResponseBody
     public Patient update(@RequestBody Patient patient){
-
         return PatientService.update(patient);
     }
 

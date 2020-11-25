@@ -27,7 +27,7 @@ public class PatientServiceImplTest {
 
     @Autowired
     private static PatientService service;
-    private Patient patient = PatientFactory.createPatient("Bathi","Ntshinga");
+    private static Patient patient = PatientFactory.createPatient("Bathi","Ntshinga");
 
     @Test
     public void d_getAll() {

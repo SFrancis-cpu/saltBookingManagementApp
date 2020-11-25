@@ -9,6 +9,7 @@ package com.saltsoftware.controller.patient;
 
 import com.saltsoftware.entity.patient.Patient;
 import com.saltsoftware.factory.patient.PatientFactory;
+import com.saltsoftware.service.patient.PatientService;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -97,26 +98,27 @@ public class PatientControllerTest {
     @Test
     public void d_getAll() {
         String url = baseURL + "all";
-        System.out.println("Get all" + patient);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null,headers);
-        ResponseEntity <String> responseEntity = restTemplate
+        ResponseEntity <String> response = restTemplate
                 .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .exchange(url, HttpMethod.GET,entity, String.class );
-        System.out.println(responseEntity.getBody());
-        assertNotNull(responseEntity);
+        System.out.println(response);
+        System.out.println(response.getBody());
+        assertNotNull(response);
 
     }
 
     //Testing the delete method in application security
     @Test
     public void e_delete() {
-        String url = baseURL + "/delete/" + patient.getPatientID();
-        System.out.println("URL: "+ url);
+        String url = baseURL +"/delete/"+ patient.getPatientID();
+        System.out.println("URL: "+url);
         restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .withBasicAuth(SECURITY_USERNAME,SECURITY_PASSWORD)
                 .delete(url);
-        System.out.println("after delete: "+patient);
+        System.out.println("after delete: "+ patient);
+
 
     }
 
