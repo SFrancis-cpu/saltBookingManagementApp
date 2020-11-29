@@ -5,13 +5,15 @@ package com.saltsoftware.entity.patient;
 /* Description: Adding Annotations
  */
 
+import com.saltsoftware.entity.employee.Employee;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-@IdClass(PatientIdName.class)
-public class Patient {
+public class Patient implements Serializable{
 
     @Id
     private String patientID;
@@ -76,6 +78,19 @@ public class Patient {
         }
         public Patient build(){
             return new Patient(this);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Patient.Builder builder = (Patient.Builder) o;
+            return patientID.equals(builder.patientID);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(patientID);
         }
     }
 }

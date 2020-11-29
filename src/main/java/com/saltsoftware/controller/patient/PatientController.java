@@ -13,17 +13,26 @@ import java.util.Set;
  */
 
 @RestController
-@RequestMapping("/patient")
+@RequestMapping("sma/patient")
 public class PatientController {
 
     @Autowired
     private PatientServiceImpl PatientService;
 
     @PostMapping("/create")
+    @ResponseBody
     public Patient create(@RequestBody Patient patient){
         patient = PatientFactory.createPatient(patient.getPatientName(), patient.getPatientSurname());
         return PatientService.create(patient);
     }
+
+    //read
+    @GetMapping("/read/{id}")
+    @ResponseBody
+    public Patient read(@PathVariable String id){
+        return PatientService.read(id);
+    }
+
     /*to get all*/
     @GetMapping("/all")
     public Set<Patient> getAll(){
@@ -32,6 +41,7 @@ public class PatientController {
 
     /*to update*/
     @PostMapping("/update")
+    @ResponseBody
     public Patient update(@RequestBody Patient patient){
         return PatientService.update(patient);
     }
@@ -39,8 +49,8 @@ public class PatientController {
     /*to delete*/
     @DeleteMapping ("/delete/{id}")
     @ResponseBody
-    public void delete(@PathVariable String id){
-        PatientService.delete(id);
+    public boolean delete(@PathVariable String id){
+        return PatientService.delete(id);
     }
 
 }
