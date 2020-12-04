@@ -19,8 +19,6 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
-    private static EmployeeRoleService service = null;
-
     @Autowired
     private EmployeeRoleRepository repository;
 
@@ -41,7 +39,7 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
 
     @Override
     public EmployeeRole update(EmployeeRole employeeRole) {
-        if(this.repository.existsById(employeeRole.getEmpID())) {
+        if(this.repository.existsById(employeeRole.getEmpRoleID())) {
             return this.repository.save(employeeRole);
         }
         return null;

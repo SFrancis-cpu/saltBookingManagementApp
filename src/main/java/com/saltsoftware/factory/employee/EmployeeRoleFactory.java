@@ -14,8 +14,9 @@ public class EmployeeRoleFactory {
 
     //BuildEmployeeRole with parameter
     public static EmployeeRole buildEmployeeRole(String empID, String roleID) {
-
+        String empRoleID = GenericHelper.generateID();
          EmployeeRole employeeRole = new EmployeeRole.Builder()
+                 .setEmpRoleID(empRoleID)
                 .setEmpID(empID)
                 .setRoleID(roleID)
                 .build();

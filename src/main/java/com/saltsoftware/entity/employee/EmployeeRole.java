@@ -18,12 +18,14 @@ import java.util.Objects;
 public class EmployeeRole implements Serializable {
 
     @Id
+    private String empRoleID;
     private String empID;
     private String roleID;
 
        protected EmployeeRole(){}
 
         private EmployeeRole(Builder builder) {
+            this.empRoleID = builder.empRoleID;
             this.empID = builder.empID;
             this.roleID = builder.roleID;
         }
@@ -36,16 +38,20 @@ public class EmployeeRole implements Serializable {
             return roleID;
         }
 
-        @Override
+        public String getEmpRoleID() {return empRoleID;
+    }
+
+    @Override
         public String toString() {
             return "EmployeeRole{" +
-                    "empID=" + empID +
+                    "empRoleID=" + empRoleID +
+                    ", empID=" + empID +
                     ", roleID=" + roleID +
                     '}';
         }
 
         public static class Builder {
-            private String empID, roleID;
+            private String empID, roleID, empRoleID;
             public Builder setEmpID(String empID) {
                 this.empID = empID;
                 return this;
@@ -56,33 +62,36 @@ public class EmployeeRole implements Serializable {
                 return this;
             }
 
+            public Builder setEmpRoleID(String empRoleID) {
+                this.empRoleID = empRoleID;
+                return this;
+            }
+
             public Builder copy(EmployeeRole employeeRole){
                 this.empID = employeeRole.empID;
                 this.roleID = employeeRole.roleID;
+                this.empRoleID = employeeRole.empRoleID;
                 return this;
             }
 
             public EmployeeRole build(){
                 return new EmployeeRole(this);
             }
+         }
 
-            @Override
-            public boolean equals(Object o) {
-                if (this == o) return true;
-                if (o == null || getClass() != o.getClass()) return false;
-                Builder builder = (Builder) o;
-                return empID.equals(builder.empID) &&
-                        roleID.equals(builder.roleID);
-            }
-
-            @Override
-            public int hashCode() {
-                return Objects.hash(empID, roleID);
-            }
-        }
-
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeRole that = (EmployeeRole) o;
+        return empRoleID.equals(that.empRoleID) ;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empRoleID);
+    }
+}
 
 
 

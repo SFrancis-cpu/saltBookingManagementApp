@@ -23,9 +23,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/saltBookingManagementApp/employeeRole")
+@RequestMapping("/employeeRole")
 public class EmployeeRoleController {
 
+    @Autowired
     private EmployeeRoleServiceImpl employeeRoleService;
 
     @Autowired //used to create a connection to the Employee service package
@@ -36,22 +37,24 @@ public class EmployeeRoleController {
 
     @PostMapping("/create")
     public EmployeeRole create(@RequestBody EmployeeRole employeeRole) {
-        boolean employeeExist = false;
+ /*       boolean employeeExist = false;
         boolean roleExist = false;
 
         Employee employee = employeeService.read(employeeRole.getEmpID()); //call employee using EmpID
-        if (employee != null) {
+        if (employee.getEmpId() != null) {
             employeeExist = true;
         }
 
         Role role = roleService.read(employeeRole.getRoleID()); //call role using RoleID
-        if (role != null) {
+        if (role.getRoleID() != null) {
             roleExist = true;
         }
 
-        if (employeeExist && roleExist)
+        if (employeeExist==true && roleExist == true)
             return employeeRoleService.create(employeeRole);
-        else return EmployeeRoleFactory.buildEmployeeRole("", "");
+
+        else */ EmployeeRole newER = EmployeeRoleFactory.buildEmployeeRole(employeeRole.getEmpID(), employeeRole.getRoleID());
+            return employeeRoleService.create(newER);
     }
 
     //read
@@ -62,7 +65,7 @@ public class EmployeeRoleController {
     }
 
     //update
-    @PostMapping("/update")
+    @PutMapping("/update/{id}")
     public EmployeeRole update(@RequestBody EmployeeRole employeeRole){
         return employeeRoleService.update(employeeRole);
     }
