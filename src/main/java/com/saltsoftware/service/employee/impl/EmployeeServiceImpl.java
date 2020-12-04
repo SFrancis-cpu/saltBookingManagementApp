@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-    private static EmployeeService service = null;
+    //private static EmployeeService service = null;
     @Autowired
     private EmployeeRepository repository;
 
